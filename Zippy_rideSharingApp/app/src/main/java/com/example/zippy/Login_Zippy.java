@@ -72,7 +72,7 @@ public class Login_Zippy extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<List<User>> call, Throwable t) {
-                Toast.makeText(this, "Error ")
+                Toast.makeText(this, "Error ");
             }
         });
 

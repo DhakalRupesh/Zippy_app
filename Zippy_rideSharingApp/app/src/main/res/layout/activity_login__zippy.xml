@@ -24,7 +24,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/etEmail"
+        android:id="@+id/etlogin_Email"
         android:layout_width="329dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
@@ -37,7 +37,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <EditText
-        android:id="@+id/etPassword"
+        android:id="@+id/etlogin_Password"
         android:layout_width="329dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
@@ -47,10 +47,10 @@
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etEmail" />
+        app:layout_constraintTop_toBottomOf="@+id/etlogin_Email" />
 
     <Button
-        android:id="@+id/btnlogin"
+        android:id="@+id/btnlogin_user"
         android:layout_width="329dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
@@ -61,7 +61,7 @@
         android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/etlogin_Password" />
 
 
     <TextView
@@ -75,7 +75,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnlogin" />
+        app:layout_constraintTop_toBottomOf="@+id/btnlogin_user" />
 
     <TextView
         android:id="@+id/textView3"

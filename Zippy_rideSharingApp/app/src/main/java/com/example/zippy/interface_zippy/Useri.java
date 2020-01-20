@@ -10,9 +10,13 @@ import retrofit2.http.GET;
 import retrofit2.http.POST;
 
 public interface Useri {
-    @GET("user/users")
-    Call<List<User>> getuser();
 
     @POST("user/register")
     Call<Void> addUser(@Body User user);
+
+    @POST("user/login")
+    Call<Void> login(@Body User user);
+
+    @GET("user/retriveme")
+    Call<User> getme();
 }

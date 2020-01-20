@@ -8,9 +8,9 @@ public class User {
     private String email;
     private String username;
     private String password;
-    private String utype;
+    private Boolean utype;
 
-    public User(String fname, String lname, String mobile, String email, String username, String password, String utype) {
+    public User(String fname, String lname, String mobile, String email, String username, String password, Boolean utype) {
         this.fname = fname;
         this.lname = lname;
         this.mobile = mobile;
@@ -19,6 +19,17 @@ public class User {
         this.password = password;
         this.utype = utype;
     }
+
+    public User(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
+
+//    public User(String username, String password, String utype) {
+//        this.username = username;
+//        this.password = password;
+//        this.utype = utype;
+//    }
 
     public String get_id() {
         return _id;
@@ -76,11 +87,11 @@ public class User {
         this.password = password;
     }
 
-    public String getUtype() {
+    public Boolean getUtype() {
         return utype;
     }
 
-    public void setUtype(String utype) {
+    public void setUtype(Boolean utype) {
         this.utype = utype;
     }
 }

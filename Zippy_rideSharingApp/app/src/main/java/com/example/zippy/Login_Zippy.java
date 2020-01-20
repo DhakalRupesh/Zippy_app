@@ -129,7 +129,7 @@ public class Login_Zippy extends AppCompatActivity implements View.OnClickListen
 
                 @Override
                 public void onFailure(Call<Void> call, Throwable t) {
-                    Toast.makeText(Login_Zippy.this, "Error!! login failure" + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Login_Zippy.this, "Error!! login failed" + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
                 }
             });
         }

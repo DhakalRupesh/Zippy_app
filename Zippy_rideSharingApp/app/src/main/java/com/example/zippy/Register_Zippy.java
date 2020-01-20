@@ -66,7 +66,7 @@ public class Register_Zippy extends AppCompatActivity {
         String phone = et_phone.getText().toString();
         String uname = et_username.getText().toString();
         String paswd = et_Password.getText().toString();
-        String utype = et_utype.getText().toString();
+        Boolean utype = Boolean.parseBoolean(et_utype.getText().toString());
 
         User user = new User(fname, lname, email, phone, uname, paswd, utype);
 

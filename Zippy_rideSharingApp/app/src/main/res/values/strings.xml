@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Zippy</string>
+    <string name="title_activity_google_map_home">Map</string>
 </resources>

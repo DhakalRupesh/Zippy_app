@@ -7,19 +7,19 @@ android:layout_width="match_parent"
 android:layout_height="match_parent"
 android:orientation="vertical">
 
-<AutoCompleteTextView
-    android:id="@+id/etCity"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:textSize="20sp"
-    />
+<!--<AutoCompleteTextView-->
+<!--    android:id="@+id/etCity"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:textSize="20sp"-->
+<!--    />-->
 
-<Button
-    android:id="@+id/btnSearch"
-    android:layout_height="wrap_content"
-    android:layout_width="match_parent"
-    android:text="Search City"
-    android:textSize="20sp"/>
+<!--<Button-->
+<!--    android:id="@+id/btnSearch"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:text="Search City"-->
+<!--    android:textSize="20sp"/>-->
 
 <fragment
     android:id="@+id/map"

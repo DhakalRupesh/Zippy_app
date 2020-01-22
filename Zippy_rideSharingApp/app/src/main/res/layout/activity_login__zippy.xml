@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Login_Zippy"
-    android:background="#f5f5f5"
+    android:background="#E7F5F6"
     android:padding="15dp">
 
 
@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:text="Login"
-        android:textColor="@color/txtColor"
+        android:textColor="@color/colorBlack"
         android:textSize="36sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -70,47 +70,28 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="35dp"
         android:text="Forgot yout password ?"
-        android:textColor="@color/txtColor"
+        android:textColor="@color/colorBlack"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnlogin_user" />
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:text="or"
-        android:textColor="@color/txtColor"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvForgotPassword" />
-
-    <TextView
-        android:id="@+id/tvGoogleLOgin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:text="Login with Google"
-        android:textColor="@color/txtColor"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.556"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
-
     <View
         android:id="@+id/view"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_marginTop="200dp"
-        android:background="@color/txtColor"
+        android:background="@color/yellowText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvGoogleLOgin" />
+        tools:layout_editor_absoluteY="707dp"
+        tools:ignore="MissingConstraints" />
+
+<!--    <androidx.appcompat.widget.AppCompatImageView-->
+<!--        android:layout_width="378dp"-->
+<!--        android:layout_height="325dp"-->
+<!--        tools:layout_editor_absoluteX="-8dp"-->
+<!--        tools:layout_editor_absoluteY="445dp" />-->
 
     <TextView
         android:id="@+id/tvRegister"
@@ -135,18 +116,9 @@
         android:layout_marginStart="112dp"
         android:layout_marginTop="16dp"
         android:text="Dont have an account?"
-        android:textColor="@color/txtColor"
+        android:textColor="@color/yellowText"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="23dp"
-        android:layout_marginRight="3dp"
-        android:background="@drawable/glogo"
-        app:layout_constraintEnd_toStartOf="@+id/tvGoogleLOgin"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
 </androidx.constraintlayout.widget.ConstraintLayout>

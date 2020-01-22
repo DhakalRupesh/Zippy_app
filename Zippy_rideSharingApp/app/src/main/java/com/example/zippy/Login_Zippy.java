@@ -30,7 +30,7 @@ public class Login_Zippy extends AppCompatActivity implements View.OnClickListen
     EditText loginEmail, loginpassword;
     TextView go_to_register;
     Button login;
-    Boolean utype = false;
+    Boolean utype;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -118,12 +118,17 @@ public class Login_Zippy extends AppCompatActivity implements View.OnClickListen
                         Toast.makeText(Login_Zippy.this, "Cannot login!!!!", Toast.LENGTH_SHORT).show();
                         return;
                     }
-                    if(utype == true) {
+                    if(utype == null) {
+
+                        Intent intendChooseUser = new Intent(Login_Zippy.this, Rider_Dashobard_zippy.class);
+                        startActivity(intendChooseUser);
+
+                    } else if(utype == true){
                         Intent intentOpenDashboard = new Intent(Login_Zippy.this, MainActivity.class);
                         startActivity(intentOpenDashboard);
-                    } else {
-                        Intent intendOPenRIder = new Intent(Login_Zippy.this, Rider_Dashobard_zippy.class);
-                        startActivity(intendOPenRIder);
+                    } else if(utype == false) {
+                        Intent intentOpenDashboard1 = new Intent(Login_Zippy.this, Register_Zippy.class);
+                        startActivity(intentOpenDashboard1);
                     }
                 }
 
@@ -149,6 +154,7 @@ public class Login_Zippy extends AppCompatActivity implements View.OnClickListen
 
                 User user = response.body();
                 utype = user.getUtype();
+
             }
 
             @Override

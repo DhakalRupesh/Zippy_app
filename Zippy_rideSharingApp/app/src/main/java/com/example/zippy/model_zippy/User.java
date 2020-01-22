@@ -25,7 +25,11 @@ public class User {
         this.password = password;
     }
 
-//    public User(String username, String password, String utype) {
+//    public User(Boolean utype) {
+//        this.utype = utype;
+//    }
+
+    //    public User(String username, String password, String utype) {
 //        this.username = username;
 //        this.password = password;
 //        this.utype = utype;

@@ -7,6 +7,16 @@
     android:theme="@style/Theme.Design.Light.NoActionBar"
     tools:context=".MainActivity">
 
+    <Button
+        android:id="@+id/btn"
+        android:layout_width="40dp"
+        android:layout_marginTop="20dp"
+        android:text="="
+        android:layout_height="40dp"
+        android:background="@drawable/btn_corners"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"/>
+
     <include layout="@layout/content_main" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -13,6 +13,7 @@
         android:layout_height="match_parent"
         tools:context=".GoogleMap_home"/>
 
+
     <Button
         android:layout_width="match_parent"
         android:text="Set destination"
@@ -23,4 +24,13 @@
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"/>
 
+<!--    <Button-->
+<!--        android:id="@+id/btn"-->
+<!--        android:layout_width="60dp"-->
+<!--        android:text="="-->
+<!--        android:layout_marginTop="-600dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:background="@drawable/btn_corners"-->
+<!--        android:layout_marginRight="20dp"-->
+<!--        android:layout_marginLeft="20dp"/>-->
 </LinearLayout>

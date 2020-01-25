@@ -11,6 +11,7 @@ import androidx.navigation.ui.NavigationUI;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.google.android.material.navigation.NavigationView;
 
@@ -23,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        btn = findViewById(R.id.btn);
+        btn = findViewById(R.id.btnMenu);
 
         getSupportActionBar().hide();
         final DrawerLayout drawer = findViewById(R.id.drawer_layout);

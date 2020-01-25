@@ -3,6 +3,7 @@ package com.example.zippy.fragment;
 
 import android.location.Location;
 import android.location.LocationListener;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -42,15 +43,26 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback, Google
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+            checkUserLocationPermission();
+        }
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-        SupportMapFragment mapFragment = (SupportMapFragment) getFragmentManager().findFragmentById(R.id.map);
-        
+        SupportMapFragment mapFragment = (SupportMapFragment) getFragmentManager()
+                .findFragmentById(R.id.map);
+
+
+
         return view;
+    }
+
+    private void checkUserLocationPermission() {
     }
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
+        gMap = googleMap;
+
 
     }
 

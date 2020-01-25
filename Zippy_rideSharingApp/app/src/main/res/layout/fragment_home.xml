@@ -20,6 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="-120dp"
         android:orientation="vertical"
+        android:textAllCaps="false"
         android:background="@drawable/btn_corners"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"/>

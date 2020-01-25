@@ -23,7 +23,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Register_Zippy extends AppCompatActivity {
-    private EditText et_fname, et_lname, et_email, et_phone, et_username, et_Password, et_utype;
+    private EditText et_fname, et_lname, et_email, et_phone, et_username, et_Password;
     private Button btn_register;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +37,7 @@ public class Register_Zippy extends AppCompatActivity {
         et_phone = findViewById(R.id.et_phone);
         et_username = findViewById(R.id.et_uname);
         et_Password = findViewById(R.id.et_password);
-        et_utype = findViewById(R.id.et_utype);
+//        et_utype = findViewById(R.id.et_utype);
 
         btn_register = findViewById(R.id.btn_register);
 
@@ -66,9 +66,9 @@ public class Register_Zippy extends AppCompatActivity {
         String phone = et_phone.getText().toString();
         String uname = et_username.getText().toString();
         String paswd = et_Password.getText().toString();
-        Boolean utype = Boolean.parseBoolean(et_utype.getText().toString());
+//        Boolean utype = Boolean.parseBoolean(et_utype.getText().toString());
 
-        User user = new User(fname, lname, email, phone, uname, paswd, utype);
+        User user = new User(fname, lname, email, phone, uname, paswd);
 
         Retrofit retrofit = new Retrofit.Builder().baseUrl(Url.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())

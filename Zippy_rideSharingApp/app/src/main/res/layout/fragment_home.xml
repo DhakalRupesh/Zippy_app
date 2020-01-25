@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -11,21 +12,45 @@
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".GoogleMap_home"/>
+        tools:context=".GoogleMap_home"
+        tools:layout_editor_absoluteX="-109dp"
+        tools:layout_editor_absoluteY="16dp" />
 
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="289dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="612dp"
+        android:background="@drawable/custom_search"
+        android:drawableLeft="@drawable/search_icon"
+        android:drawablePadding="12dp"
+        android:ems="10"
+        android:hint="Search..."
+        android:inputType="textEmailAddress"
+        android:paddingLeft="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.163"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/map" />
 
     <Button
         android:layout_width="match_parent"
-        android:text="Set destination"
         android:layout_height="wrap_content"
-        android:layout_marginTop="-120dp"
-        android:orientation="vertical"
-        android:textAllCaps="false"
-        android:background="@drawable/btn_corners"
+        android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp"/>
+        android:layout_marginTop="15dp"
+        android:background="@drawable/btn_corners"
+        android:orientation="vertical"
+        android:text="Set destination"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText" />
 
-<!--    <Button-->
+
+
+
+    <!--    <Button-->
 <!--        android:id="@+id/btn"-->
 <!--        android:layout_width="60dp"-->
 <!--        android:text="="-->
@@ -34,4 +59,4 @@
 <!--        android:background="@drawable/btn_corners"-->
 <!--        android:layout_marginRight="20dp"-->
 <!--        android:layout_marginLeft="20dp"/>-->
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

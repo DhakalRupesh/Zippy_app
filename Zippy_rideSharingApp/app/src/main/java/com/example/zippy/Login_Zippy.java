@@ -153,7 +153,7 @@ public class Login_Zippy extends AppCompatActivity implements View.OnClickListen
                 }
 
                 User user = response.body();
-                utype = user.getUtype();
+//                utype = user.getUtype();
 
             }
 

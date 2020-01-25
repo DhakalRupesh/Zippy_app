@@ -32,13 +32,6 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
-        <activity
-            android:name=".GoogleMap_home"
-            android:label="@string/title_activity_google_map_home"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.Design.Light.NoActionBar">
-
-        </activity>
         <activity android:name=".Rider_Dashobard_zippy" />
         <activity android:name=".Register_Zippy" />
         <activity

@@ -93,7 +93,7 @@
 <!--        android:id="@+id/view"-->
 <!--        android:layout_width="match_parent"-->
 <!--        android:layout_height="1dp"-->
-<!--        android:background="@color/yellowText"-->
+<!--        android:background="@selector/yellowText"-->
 <!--        app:layout_constraintEnd_toEndOf="parent"-->
 <!--        app:layout_constraintStart_toStartOf="parent"-->
 <!--        tools:layout_editor_absoluteY="707dp"-->

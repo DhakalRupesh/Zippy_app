@@ -5,10 +5,17 @@
     android:layout_height="match_parent"
     tools:context=".fragments.Home">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_delevery_advertisement"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent" />
 
+<!--    <View-->
+<!--        android:id="@+id/view"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="1dp"-->
+<!--        android:layout_marginTop="4dp"-->
+<!--        android:background="#f0f0f0"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/viewpager"-->
+<!--        tools:layout_editor_absoluteX="0dp" />-->
 </FrameLayout>

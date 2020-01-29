@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#ffffff"
+    android:layout_margin="12dp"
+    android:elevation="12dp"
+    android:layout_columnWeight="1"
+    android:layout_rowWeight="1"
+    android:alignmentMode="alignMargins"
+    android:columnOrderPreserved="false"
+    app:cardCornerRadius="12dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/img_profile_image"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_margin="10dp"
+                android:src="@mipmap/ic_launcher"
+                />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center_vertical">
+                <TextView
+                    android:id="@+id/tv_uname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorBlack"
+                    android:layout_gravity="top"
+                    android:text="Username"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_subinfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:text="Place to deliver" />
+
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/img_menu"
+                    android:layout_width="30dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_delete_black_24dp"
+                    />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/img_post"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/emmaprofile"
+
+            />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/tv_Price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="RS 1500/-"/>
+
+            <TextView
+                android:id="@+id/tv_negociable"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Yes"
+                android:layout_marginStart="10dp"
+                android:layout_toEndOf="@id/tv_Price"/>
+
+<!--            <ImageView-->
+<!--                android:id="@+id/insta_like"-->
+<!--                android:layout_width="30dp"-->
+<!--                android:layout_height="30dp"-->
+<!--                android:src="@drawable/instalike"/>-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/insta_comment"-->
+<!--                android:layout_width="30dp"-->
+<!--                android:layout_height="30dp"-->
+<!--                android:src="@drawable/instacomment"-->
+<!--                android:layout_toEndOf="@+id/insta_like"-->
+<!--                android:layout_marginStart="10dp"/>-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/insta_mess_comment_section"-->
+<!--                android:layout_width="30dp"-->
+<!--                android:layout_height="30dp"-->
+<!--                android:src="@drawable/instamessage"-->
+<!--                android:layout_toEndOf="@+id/insta_comment"-->
+<!--                android:layout_marginStart="10dp"/>-->
+
+            <Button
+                android:id="@+id/btn_view_detail"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:backgroundTint="#3ea842"
+                android:background="@drawable/viewdetail"
+                android:layout_alignParentEnd="true"/>
+
+        </RelativeLayout>
+
+<!--        <TextView-->
+<!--            android:id="@+id/tv_insta_like_count"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="500 Likes"-->
+<!--            android:layout_marginStart="10dp"-->
+<!--            android:textColor="@color/colorBlack"/>-->
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="horizontal">-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/tv_insta_cap_name"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Captioned By"-->
+<!--                android:layout_marginStart="10dp"-->
+<!--                android:textStyle="bold"-->
+<!--                android:textColor="@color/colorBlack"/>-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/tv_insta_Desc"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="description"-->
+<!--                android:layout_marginStart="10dp"-->
+<!--                android:textColor="@color/colorBlack"/>-->
+
+<!--        </LinearLayout>-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/tv_insta_view_comment"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="view all 102 comments"-->
+<!--            android:layout_marginStart="10dp"-->
+<!--            />-->
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="horizontal">-->
+
+<!--            <de.hdodenhof.circleimageview.CircleImageView-->
+<!--                android:id="@+id/img_profile_image_comment"-->
+<!--                android:layout_width="30dp"-->
+<!--                android:layout_height="30dp"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:layout_marginLeft="10dp"-->
+<!--                android:layout_marginBottom="5dp"-->
+<!--                android:src="@drawable/user101"-->
+<!--                />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/tv_insta_add_comment"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Add a comment..."-->
+<!--                android:layout_gravity="center_vertical"-->
+<!--                android:layout_marginStart="10dp"-->
+<!--                />-->
+<!--        </LinearLayout>-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/tv_insta_timeof_post"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="10 minutes ago"-->
+<!--            android:layout_marginLeft="10dp"-->
+<!--            />-->
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

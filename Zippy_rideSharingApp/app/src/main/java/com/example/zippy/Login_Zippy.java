@@ -120,7 +120,7 @@ public class Login_Zippy extends AppCompatActivity implements View.OnClickListen
                     }
                     if(utype == null) {
 
-                        Intent intendChooseUser = new Intent(Login_Zippy.this, Rider_Dashobard_zippy.class);
+                        Intent intendChooseUser = new Intent(Login_Zippy.this, MainActivity.class);
                         startActivity(intendChooseUser);
 
                     } else if(utype == true){

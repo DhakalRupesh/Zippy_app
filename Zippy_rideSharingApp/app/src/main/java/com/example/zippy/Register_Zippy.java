@@ -2,18 +2,16 @@ package com.example.zippy;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.zippy.interface_zippy.Useri;
-import com.example.zippy.model_zippy.Url;
+import com.example.zippy.url.Url;
 import com.example.zippy.model_zippy.User;
 
 import retrofit2.Call;

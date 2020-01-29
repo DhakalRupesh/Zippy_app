@@ -12,6 +12,7 @@ import com.example.zippy.fragments.Home;
 import com.example.zippy.fragments.Post;
 import com.example.zippy.fragments.Profile;
 import com.example.zippy.fragments.Status;
+import com.example.zippy.fragments.home_details;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class Bottom_nav extends AppCompatActivity {
@@ -41,7 +42,7 @@ public class Bottom_nav extends AppCompatActivity {
 
             switch (menuItem.getItemId()) {
                 case R.id.nav_home_menu:
-                    selectedFragment = new Home();
+                    selectedFragment = new home_details();
                     break;
                 case R.id.nav_advertise_menu:
                     selectedFragment = new Post();

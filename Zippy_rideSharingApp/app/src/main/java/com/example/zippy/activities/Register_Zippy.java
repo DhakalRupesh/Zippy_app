@@ -1,4 +1,4 @@
-package com.example.zippy;
+package com.example.zippy.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,9 +10,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.zippy.interface_zippy.Useri;
+import com.example.zippy.R;
+import com.example.zippy.api.Useri;
 import com.example.zippy.url.Url;
-import com.example.zippy.model_zippy.User;
+import com.example.zippy.model.User;
 
 import retrofit2.Call;
 import retrofit2.Callback;

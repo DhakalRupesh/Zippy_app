@@ -1,15 +1,15 @@
-package com.example.zippy;
+package com.example.zippy.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.ImageView;
+
+import com.example.zippy.R;
 
 public class splash_zippy extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.example.zippy.model_zippy;
+package com.example.zippy.model;
 
 public class LatitudeLongitude {
     private double lat;

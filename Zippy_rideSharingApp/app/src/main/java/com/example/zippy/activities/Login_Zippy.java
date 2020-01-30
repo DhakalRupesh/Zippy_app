@@ -1,4 +1,4 @@
-package com.example.zippy;
+package com.example.zippy.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,9 +10,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.zippy.interface_zippy.Useri;
+import com.example.zippy.R;
+import com.example.zippy.api.Useri;
 import com.example.zippy.url.Url;
-import com.example.zippy.model_zippy.User;
+import com.example.zippy.model.User;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -27,7 +28,7 @@ public class Login_Zippy extends AppCompatActivity implements View.OnClickListen
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        hide();
+
         setContentView(R.layout.activity_login__zippy);
 
         loginEmail = findViewById(R.id.etlogin_Email);
@@ -39,24 +40,7 @@ public class Login_Zippy extends AppCompatActivity implements View.OnClickListen
         login.setOnClickListener(this);
         go_to_register.setOnClickListener(this);
 
-        go_to_register.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intend_open_register = new Intent(Login_Zippy.this, Register_Zippy.class);
-                startActivity(intend_open_register);
-            }
-        });
     }
-
-//    private void hide(){
-//        //hiding the title bar
-//        requestWindowFeature(Window.FEATURE_NO_TITLE);
-//        getSupportActionBar().hide();
-//        //making full screen
-//        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-//        //hiding the navigation bar
-////        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
-//    }
 
 //    private void Load_Users(){
 //        Retrofit retrofit = new Retrofit.Builder()

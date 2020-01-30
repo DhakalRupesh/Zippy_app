@@ -1,6 +1,6 @@
 package com.example.zippy.bbl;
 
-import com.example.zippy.interface_zippy.Useri;
+import com.example.zippy.api.Useri;
 import com.example.zippy.serverresponse.SignUpResponse;
 import com.example.zippy.url.Url;
 

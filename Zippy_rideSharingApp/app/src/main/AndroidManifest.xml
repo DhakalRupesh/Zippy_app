@@ -26,7 +26,7 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".Bottom_nav"
+            android:name=".activities.Bottom_nav"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.Design.Light.NoActionBar">
             <intent-filter>
@@ -56,9 +56,9 @@
 <!--                <category android:name="android.intent.category.LAUNCHER" />-->
 <!--            </intent-filter>-->
         </activity>
-        <activity android:name=".Register_Zippy" />
+        <activity android:name=".activities.Register_Zippy" />
         <activity
-            android:name=".Login_Zippy"
+            android:name=".activities.Login_Zippy"
             android:theme="@style/Theme.Design.Light.NoActionBar">
 
             <!-- <intent-filter> -->
@@ -69,7 +69,7 @@
             <!-- </intent-filter> -->
         </activity>
         <activity
-            android:name=".splash_zippy"
+            android:name=".activities.splash_zippy"
             android:screenOrientation="portrait">
 
             <!-- <intent-filter> -->
@@ -79,7 +79,7 @@
             <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
             <!-- </intent-filter> -->
         </activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".activities.MainActivity">
 
             <!-- <intent-filter> -->
             <!-- <action android:name="android.intent.action.MAIN" /> -->

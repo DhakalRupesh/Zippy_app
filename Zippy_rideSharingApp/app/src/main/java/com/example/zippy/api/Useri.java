@@ -1,9 +1,7 @@
-package com.example.zippy.interface_zippy;
+package com.example.zippy.api;
 
-import com.example.zippy.model_zippy.User;
+import com.example.zippy.model.User;
 import com.example.zippy.serverresponse.SignUpResponse;
-
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.Body;

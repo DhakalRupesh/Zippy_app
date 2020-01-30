@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -12,8 +13,11 @@ import android.widget.Toast;
 
 import com.example.zippy.R;
 import com.example.zippy.api.Useri;
+import com.example.zippy.bbl.LoginBBL;
+import com.example.zippy.strictmode.StrictModeClass;
 import com.example.zippy.url.Url;
 import com.example.zippy.model.User;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -70,12 +74,29 @@ public class Login_Zippy extends AppCompatActivity implements View.OnClickListen
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.btnlogin_user:
-//                StartLogin();
+                Login();
                 break;
             case R.id.tvRegister:
                 Intent intend_open_register = new Intent(Login_Zippy.this, Register_Zippy.class);
                 startActivity(intend_open_register);
                 break;
+        }
+    }
+
+    private void Login() {
+        if(CheckEmpty()) {
+            String username = loginEmail.getText().toString();
+            String password = loginpassword.getText().toString();
+
+            LoginBBL loginBBL = new LoginBBL();
+            StrictModeClass.StrictMode();
+            if(loginBBL.checkUser(username, password)){
+                Intent intent = new Intent(Login_Zippy.this, Bottom_nav.class);
+                startActivity(intent);
+                finish();
+            }
+            Toast.makeText(this, "Error!! incorrect username or password", Toast.LENGTH_SHORT).show();
+            loginEmail.requestFocus();
         }
     }
 

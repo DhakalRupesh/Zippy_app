@@ -120,7 +120,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/btn_corners"
             android:layout_below="@+id/tv_profile_desc"
-            android:text="Edit profileiii"
+            android:text="Edit profile"
             android:layout_marginTop="20dp"
             android:textAllCaps="false"
             />

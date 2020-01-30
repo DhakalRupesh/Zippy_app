@@ -100,66 +100,29 @@ public class Login_Zippy extends AppCompatActivity implements View.OnClickListen
         }
     }
 
-//    private void StartLogin() {
-//        if(CheckEmpty()){
-//            GetUtype();
+//    public void GetUtype(){
+//        Useri useriUtype = Url.getInstance().create(Useri.class);
+//        Call<User> usercallUtype = useriUtype.getme();
 //
-//            User login_user =new User(loginEmail.getText().toString(), loginpassword.getText().toString());
-//            Useri useriApi = Url.getInstance().create(Useri.class);
-////            Call<Void> callUser = useriApi.login(login_user);
-//
-//            callUser.enqueue(new Callback<Void>() {
-//                @Override
-//                public void onResponse(Call<Void> call, Response<Void> response) {
-//                    if (!response.isSuccessful()) {
-//                        Toast.makeText(Login_Zippy.this, "Cannot login!!!!", Toast.LENGTH_SHORT).show();
-//                        return;
-//                    }
-////                    if(utype == null) {
-////
-////                        Intent intendChooseUser = new Intent(Login_Zippy.this, MainActivity.class);
-////                        startActivity(intendChooseUser);
-////
-////                    } else if(utype == true){
-////                        Intent intentOpenDashboard = new Intent(Login_Zippy.this, MainActivity.class);
-////                        startActivity(intentOpenDashboard);
-////                    } else if(utype == false) {
-////                        Intent intentOpenDashboard1 = new Intent(Login_Zippy.this, Register_Zippy.class);
-////                        startActivity(intentOpenDashboard1);
-////                    }
+//        usercallUtype.enqueue(new Callback<User>() {
+//            @Override
+//            public void onResponse(Call<User> call, Response<User> response) {
+//                if(!response.isSuccessful()){
+//                    Toast.makeText(Login_Zippy.this, "Error!!", Toast.LENGTH_SHORT).show();
+//                    return;
 //                }
 //
-//                @Override
-//                public void onFailure(Call<Void> call, Throwable t) {
-//                    Toast.makeText(Login_Zippy.this, "Error!! login failed" + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
-//                }
-//            });
-//        }
+//                User user = response.body();
+////                utype = user.getUtype();
+//
+//            }
+//
+//            @Override
+//            public void onFailure(Call<User> call, Throwable t) {
+//                Toast.makeText(Login_Zippy.this, "cant get user type", Toast.LENGTH_SHORT).show();
+//            }
+//        });
 //    }
-
-    public void GetUtype(){
-        Useri useriUtype = Url.getInstance().create(Useri.class);
-        Call<User> usercallUtype = useriUtype.getme();
-
-        usercallUtype.enqueue(new Callback<User>() {
-            @Override
-            public void onResponse(Call<User> call, Response<User> response) {
-                if(!response.isSuccessful()){
-                    Toast.makeText(Login_Zippy.this, "Error!!", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-                User user = response.body();
-//                utype = user.getUtype();
-
-            }
-
-            @Override
-            public void onFailure(Call<User> call, Throwable t) {
-                Toast.makeText(Login_Zippy.this, "cant get user type", Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
 
     public boolean CheckEmpty(){
         if (loginEmail.getText().toString().trim().isEmpty()) {

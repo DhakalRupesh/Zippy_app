@@ -11,7 +11,6 @@
         android:id="@+id/top_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background=""
         >
 
         <androidx.appcompat.widget.Toolbar
@@ -118,7 +117,7 @@
             android:id="@+id/btn_profile_edit_profile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/btn_corners"
+            android:background="@drawable/dark_button"
             android:layout_below="@+id/tv_profile_desc"
             android:text="Edit profile"
             android:layout_marginTop="20dp"
@@ -128,6 +127,7 @@
         <Button
             android:id="@+id/bnt_profile_add_vehicle"
             android:layout_width="match_parent"
+            android:visibility="gone"
             android:layout_height="wrap_content"
             android:layout_below="@+id/btn_profile_edit_profile"
             android:background="@drawable/btn_corners"

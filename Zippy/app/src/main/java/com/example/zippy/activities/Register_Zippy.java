@@ -73,8 +73,6 @@ public class Register_Zippy extends AppCompatActivity {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-
-
         Useri useri = retrofit.create(Useri.class);
         Call<Void> userCall = useri.addUser(user);
 

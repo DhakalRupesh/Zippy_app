@@ -10,130 +10,143 @@
     android:orientation="vertical">
 
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Delivery Request"
-        android:textSize="20sp"
+        android:text="Request Delivery"
+        android:textSize="30sp"
         android:layout_marginTop="10dp"
         android:textColor="@color/colorBlack"
-        android:textAlignment="center"
-        />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginTop="50dp"
+        android:textStyle="bold"
         android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Type of delivery"/>
-        <EditText
-            android:id="@+id/et_post_typeofgoods"
+        />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:hint="eg: room shift, docs, furniture..."
-            android:background="@drawable/textinput_border"/>
+            android:orientation="vertical"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Vehicle Needed"
-            android:layout_marginTop="15dp"/>
-        <RadioGroup
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="6dp"
-            android:orientation="horizontal">
-            <RadioButton
-                android:id="@+id/rdo_2wheel"
+            <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="2 wheeler"/>
-            <RadioButton
-                android:id="@+id/rdo_4wheel"
+                android:layout_height="wrap_content"
+                android:text="Type of delivery"/>
+            <EditText
+                android:id="@+id/et_post_typeofgoods"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:hint="eg: room shift, docs, furniture..."
+                android:background="@drawable/textinput_border"/>
+
+            <TextView
                 android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vehicle Needed"
+                android:layout_marginTop="15dp"/>
+            <RadioGroup
+                android:id="@+id/rdo_post_vehicle_need"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="3dp"
-                android:text="4 wheeler"/>
-        </RadioGroup>
+                android:layout_marginTop="6dp"
+                android:orientation="horizontal">
+                <RadioButton
+                    android:id="@+id/rdo_2wheel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textColor="#757575"
+                    android:text="2 wheeler"/>
+                <RadioButton
+                    android:id="@+id/rdo_4wheel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textColor="#757575"
+                    android:layout_marginLeft="3dp"
+                    android:text="4 wheeler"/>
+            </RadioGroup>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Sending from"
-            android:layout_marginTop="15dp"/>
-
-        <EditText
-            android:id="@+id/et_post_sendingfrom"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:hint="eg: kathmandu"
-            android:background="@drawable/textinput_border"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Sending To"
-            android:layout_marginTop="15dp"/>
-
-        <EditText
-            android:id="@+id/et_post_sendlocation"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:hint="eg: pokhara"
-            android:background="@drawable/textinput_border"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Set price"
-            android:layout_marginTop="15dp"/>
-
-        <EditText
-            android:id="@+id/et_post_price"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:hint="eg: RS 1500"
-            android:background="@drawable/textinput_border"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Price negotiable"
-            android:layout_marginTop="15dp"/>
-        <RadioGroup
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="6dp"
-            android:orientation="horizontal">
-            <RadioButton
-                android:id="@+id/rdo_post_price_yes"
+            <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="Yes"/>
-            <RadioButton
-                android:id="@+id/rdo_post_price_no"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="3dp"
-                android:text="No"/>
-        </RadioGroup>
+                android:layout_height="wrap_content"
+                android:text="Sending from"
+                android:layout_marginTop="15dp"/>
 
-        <Button
-            android:id="@+id/btn_post_post"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/btn_corners"
-            android:text="Post"
-            android:textAllCaps="false"
-            android:layout_marginTop="20dp"/>
-    </LinearLayout>
+            <EditText
+                android:id="@+id/et_post_sendingfrom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:hint="eg: kathmandu"
+                android:background="@drawable/textinput_border"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sending To"
+                android:layout_marginTop="15dp"/>
+
+            <EditText
+                android:id="@+id/et_post_sendlocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:hint="eg: pokhara"
+                android:background="@drawable/textinput_border"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Set price"
+                android:layout_marginTop="15dp"/>
+
+            <EditText
+                android:id="@+id/et_post_price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:inputType="numberDecimal"
+                android:hint="eg: RS 1500"
+                android:background="@drawable/textinput_border"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Price negotiable"
+                android:layout_marginTop="15dp"/>
+            <RadioGroup
+                android:id="@+id/rdo_post_negotiable"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="6dp"
+                android:orientation="horizontal">
+                <RadioButton
+                    android:id="@+id/rdo_post_price_yes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textColor="#757575"
+                    android:text="Yes"/>
+                <RadioButton
+                    android:id="@+id/rdo_post_price_no"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textColor="#757575"
+                    android:layout_marginLeft="3dp"
+                    android:text="No"/>
+            </RadioGroup>
+
+            <Button
+                android:id="@+id/btn_post_post"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/dark_button"
+                android:text="Post"
+                android:textColor="#fff"
+                android:textAllCaps="false"
+                android:layout_marginTop="25dp"/>
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>

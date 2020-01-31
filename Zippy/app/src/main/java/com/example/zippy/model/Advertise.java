@@ -9,8 +9,9 @@ public class Advertise {
     private Double priceofdelivery;
     private String negociable;
     private Boolean statusofdelivery;
+    private String ad_image;
 
-    public Advertise(String postedby, String goodstype, String vehicleneed, String sendfrom, String destinationofdelivery, Double priceofdelivery, String negociable, Boolean statusofdelivery) {
+    public Advertise(String postedby, String goodstype, String vehicleneed, String sendfrom, String destinationofdelivery, Double priceofdelivery, String negociable, Boolean statusofdelivery, String ad_image) {
         this.postedby = postedby;
         this.goodstype = goodstype;
         this.vehicleneed = vehicleneed;
@@ -19,6 +20,7 @@ public class Advertise {
         this.priceofdelivery = priceofdelivery;
         this.negociable = negociable;
         this.statusofdelivery = statusofdelivery;
+        this.ad_image = ad_image;
     }
 
     public String getPostedby() {
@@ -83,5 +85,13 @@ public class Advertise {
 
     public void setStatusofdelivery(Boolean statusofdelivery) {
         this.statusofdelivery = statusofdelivery;
+    }
+
+    public String getAd_image() {
+        return ad_image;
+    }
+
+    public void setAd_image(String ad_image) {
+        this.ad_image = ad_image;
     }
 }

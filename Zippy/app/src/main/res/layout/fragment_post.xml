@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragments.Post"
-    android:padding="10dp"
     android:background="#fff"
     android:orientation="vertical">
 
@@ -17,7 +16,7 @@
         android:layout_marginTop="10dp"
         android:textColor="@color/colorBlack"
         android:textStyle="bold"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="15dp"
         />
     <ScrollView
         android:layout_width="match_parent"
@@ -26,7 +25,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="15dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp">
 
@@ -38,7 +37,7 @@
                 android:id="@+id/et_post_typeofgoods"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
+                android:layout_marginTop="5dp"
                 android:hint="eg: room shift, docs, furniture..."
                 android:background="@drawable/textinput_border"/>
 
@@ -51,23 +50,23 @@
                 android:id="@+id/rdo_post_vehiclgrp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="6dp"
+                android:layout_marginTop="5dp"
                 android:orientation="horizontal">
-                <RadioButton
-                    android:id="@+id/rdo_2wheel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:textColor="#757575"
-                    android:text="2 wheeler"/>
                 <RadioButton
                     android:id="@+id/rdo_4wheel"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:textColor="#757575"
                     android:layout_marginLeft="3dp"
+                    android:checked="true"
                     android:text="4 wheeler"/>
+                <RadioButton
+                    android:id="@+id/rdo_2wheel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textColor="#757575"
+                    android:text="2 wheeler"/>
             </RadioGroup>
-
 
             <TextView
                 android:layout_width="wrap_content"
@@ -93,7 +92,7 @@
                 android:id="@+id/et_post_sendlocation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
+                android:layout_marginTop="5dp"
                 android:hint="eg: pokhara"
                 android:background="@drawable/textinput_border"/>
 
@@ -107,7 +106,7 @@
                 android:id="@+id/et_post_price"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
+                android:layout_marginTop="5dp"
                 android:inputType="numberDecimal"
                 android:hint="eg: RS 1500"
                 android:background="@drawable/textinput_border"/>
@@ -121,13 +120,14 @@
                 android:id="@+id/rdo_post_negotiable"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="6dp"
+                android:layout_marginTop="5dp"
                 android:orientation="horizontal">
                 <RadioButton
                     android:id="@+id/rdo_post_price_yes"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:textColor="#757575"
+                    android:checked="true"
                     android:text="Yes"/>
                 <RadioButton
                     android:id="@+id/rdo_post_price_no"
@@ -138,6 +138,18 @@
                     android:text="No"/>
             </RadioGroup>
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Select Image"
+                android:layout_marginTop="15dp"/>
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/ic_photo_size_select_actual_black_24dp"
+                />
+
             <Button
                 android:id="@+id/btn_post_post"
                 android:layout_width="match_parent"
@@ -146,7 +158,7 @@
                 android:text="Post"
                 android:textColor="#fff"
                 android:textAllCaps="false"
-                android:layout_marginTop="25dp"/>
+                android:layout_marginTop="10dp"/>
         </LinearLayout>
     </ScrollView>
 

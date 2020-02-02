@@ -13,14 +13,6 @@
         android:layout_above="@+id/nav_container"
         >
 
-        <View
-            android:id="@+id/view"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="4dp"
-            android:background="#f0f0f0"
-            app:layout_constraintTop_toBottomOf="@+id/viewpager"
-            tools:layout_editor_absoluteX="0dp" />
     </FrameLayout>
 
     <com.google.android.material.appbar.AppBarLayout
@@ -28,6 +20,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true">
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="4dp"
+            android:layout_below="@+id/top_bar"
+            android:background="#e0e0e0"
+            />
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottom_nav_menu"

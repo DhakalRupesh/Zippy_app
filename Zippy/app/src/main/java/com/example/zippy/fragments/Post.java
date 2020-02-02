@@ -52,10 +52,12 @@ public class Post extends Fragment {
 
             btnPost = view.findViewById(R.id.btn_post_post);
 
+            etGoodstype.requestFocus();
+
             btnPost.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    add_new_post(view);
+                    AddNewPost(view);
                 }
             });
 
@@ -63,38 +65,66 @@ public class Post extends Fragment {
         return view;
     }
 
-    public void add_new_post(View v){
-        String postedBy = "5e322b3aa37cfe35b8fa4105";
-        String goods_type = etGoodstype.getText().toString();
-        String sending_from = etSendingfrom.getText().toString();
-        String sending_to = etSendingto.getText().toString();
-        String price =  etPrice.getText().toString();
+    public void AddNewPost(View v){
+        if(CheckEmpty()) {
+            String postedBy = "5e322b3aa37cfe35b8fa4105";
+            String goods_type = etGoodstype.getText().toString();
+            String sending_from = etSendingfrom.getText().toString();
+            String sending_to = etSendingto.getText().toString();
+            String price = etPrice.getText().toString();
 
-        int VehicleSetting = rdoVehiclegrp.getCheckedRadioButtonId();
-        rdBtnVehicle = v.findViewById(VehicleSetting);
-        int Negotiable = rdoNegotiablegrp.getCheckedRadioButtonId();
-        rdBtnNegotiable = v.findViewById(Negotiable);
+            int VehicleSetting = rdoVehiclegrp.getCheckedRadioButtonId();
+            rdBtnVehicle = v.findViewById(VehicleSetting);
+            int Negotiable = rdoNegotiablegrp.getCheckedRadioButtonId();
+            rdBtnNegotiable = v.findViewById(Negotiable);
 
-        String vehicle_wanted = rdBtnVehicle.getText().toString();
-        String negotiable = rdBtnNegotiable.getText().toString();
+            String vehicle_wanted = rdBtnVehicle.getText().toString();
+            String negotiable = rdBtnNegotiable.getText().toString();
 
-        Advertise advertise = new Advertise(postedBy, goods_type, vehicle_wanted, sending_from, sending_to, price, negotiable);
-        Posti posti = (Posti) Url.getInstance().create(Useri.class);
-        Call<Void> callAdvertise =posti.addAdvertise(advertise);
-
-        callAdvertise.enqueue(new Callback<Void>() {
-            @Override
-            public void onResponse(Call<Void> call, Response<Void> response) {
-                Toast.makeText(getContext(), "Your Advertisement is posted successfully", Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onFailure(Call<Void> call, Throwable t) {
-                Toast.makeText(getContext(), "Error" + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
+            Advertise advertise = new Advertise(postedBy, goods_type, vehicle_wanted, sending_from, sending_to, price, negotiable);
 
 
+            Posti posti = Url.getInstance().create(Posti.class);
+            Call<Void> callAdvertise = posti.addAdvertise(advertise);
+
+            callAdvertise.enqueue(new Callback<Void>() {
+                @Override
+                public void onResponse(Call<Void> call, Response<Void> response) {
+                    Toast.makeText(getContext(), "Your Advertisement is posted successfully", Toast.LENGTH_SHORT).show();
+                    ClearField();
+                }
+
+                @Override
+                public void onFailure(Call<Void> call, Throwable t) {
+                    Toast.makeText(getContext(), "Error" + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
     }
 
+    public Boolean CheckEmpty(){
+        if (etGoodstype.getText().toString().trim().isEmpty()){
+            etGoodstype.setError("Empty field !!");
+            return false;
+        }
+        if (etSendingfrom.getText().toString().trim().isEmpty()){
+            etSendingfrom.setError("Empty field !!");
+            return false;
+        }
+        if (etSendingto.getText().toString().trim().isEmpty()){
+            etSendingto.setError("Empty field !!");
+            return false;
+        }if (etPrice.getText().toString().trim().isEmpty()){
+            etPrice.setError("Empty field !!");
+            return false;
+        }
+        return true;
+    }
+
+    public void ClearField(){
+        etGoodstype.setText("");
+        etSendingfrom.setText("");
+        etSendingto.setText("");
+        etPrice.setText("");
+    }
 }

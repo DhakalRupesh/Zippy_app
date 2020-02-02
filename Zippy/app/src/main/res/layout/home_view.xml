@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#ffffff"
+    android:background="#fafafa"
     android:layout_margin="12dp"
     android:elevation="12dp"
     android:layout_columnWeight="1"
@@ -46,14 +46,25 @@
                     android:layout_gravity="top"
                     android:text="Username"
                     />
-
-                <TextView
-                    android:id="@+id/tv_subinfo"
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
-                    android:text="Place to deliver" />
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/tv_subinfo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:layout_marginEnd="10dp"
+                        android:text="Place to deliver" />
 
+                    <TextView
+                        android:id="@+id/tv_subinfo1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:text="Place to deliver" />
+                </LinearLayout>
 
             </LinearLayout>
 
@@ -102,28 +113,6 @@
                 android:layout_marginStart="10dp"
                 android:layout_toEndOf="@id/tv_Price"/>
 
-<!--            <ImageView-->
-<!--                android:id="@+id/insta_like"-->
-<!--                android:layout_width="30dp"-->
-<!--                android:layout_height="30dp"-->
-<!--                android:src="@drawable/instalike"/>-->
-
-<!--            <ImageView-->
-<!--                android:id="@+id/insta_comment"-->
-<!--                android:layout_width="30dp"-->
-<!--                android:layout_height="30dp"-->
-<!--                android:src="@drawable/instacomment"-->
-<!--                android:layout_toEndOf="@+id/insta_like"-->
-<!--                android:layout_marginStart="10dp"/>-->
-
-<!--            <ImageView-->
-<!--                android:id="@+id/insta_mess_comment_section"-->
-<!--                android:layout_width="30dp"-->
-<!--                android:layout_height="30dp"-->
-<!--                android:src="@drawable/instamessage"-->
-<!--                android:layout_toEndOf="@+id/insta_comment"-->
-<!--                android:layout_marginStart="10dp"/>-->
-
             <Button
                 android:id="@+id/btn_view_detail"
                 android:layout_width="25dp"
@@ -134,78 +123,6 @@
 
         </RelativeLayout>
 
-<!--        <TextView-->
-<!--            android:id="@+id/tv_insta_like_count"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="500 Likes"-->
-<!--            android:layout_marginStart="10dp"-->
-<!--            android:textColor="@color/colorBlack"/>-->
-
-<!--        <LinearLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:orientation="horizontal">-->
-
-<!--            <TextView-->
-<!--                android:id="@+id/tv_insta_cap_name"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="Captioned By"-->
-<!--                android:layout_marginStart="10dp"-->
-<!--                android:textStyle="bold"-->
-<!--                android:textColor="@color/colorBlack"/>-->
-
-<!--            <TextView-->
-<!--                android:id="@+id/tv_insta_Desc"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="description"-->
-<!--                android:layout_marginStart="10dp"-->
-<!--                android:textColor="@color/colorBlack"/>-->
-
-<!--        </LinearLayout>-->
-
-<!--        <TextView-->
-<!--            android:id="@+id/tv_insta_view_comment"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="view all 102 comments"-->
-<!--            android:layout_marginStart="10dp"-->
-<!--            />-->
-
-<!--        <LinearLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:orientation="horizontal">-->
-
-<!--            <de.hdodenhof.circleimageview.CircleImageView-->
-<!--                android:id="@+id/img_profile_image_comment"-->
-<!--                android:layout_width="30dp"-->
-<!--                android:layout_height="30dp"-->
-<!--                android:layout_marginTop="10dp"-->
-<!--                android:layout_marginLeft="10dp"-->
-<!--                android:layout_marginBottom="5dp"-->
-<!--                android:src="@drawable/user101"-->
-<!--                />-->
-
-<!--            <TextView-->
-<!--                android:id="@+id/tv_insta_add_comment"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="Add a comment..."-->
-<!--                android:layout_gravity="center_vertical"-->
-<!--                android:layout_marginStart="10dp"-->
-<!--                />-->
-<!--        </LinearLayout>-->
-
-<!--        <TextView-->
-<!--            android:id="@+id/tv_insta_timeof_post"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="10 minutes ago"-->
-<!--            android:layout_marginLeft="10dp"-->
-<!--            />-->
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

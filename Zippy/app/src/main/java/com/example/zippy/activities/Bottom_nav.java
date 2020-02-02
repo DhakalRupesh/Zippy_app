@@ -34,16 +34,9 @@ public class Bottom_nav extends AppCompatActivity {
     private BottomNavigationView.OnNavigationItemSelectedListener selected_nav_items = new BottomNavigationView.OnNavigationItemSelectedListener() {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-            Menu menu = bnv.getMenu();
-//            menu.findItem(R.id.nav_home_menu).setIcon(R.drawable.instahome);
-//            menu.findItem(R.id.nav_search_menu).setIcon(R.drawable.instasearch);
-//            menu.findItem(R.id.nav_add_menu).setIcon(R.drawable.instaadd);
-//            menu.findItem(R.id.nav_fav_menu).setIcon(R.drawable.instalike);
-//            menu.findItem(R.id.nav_avatar_menu).setIcon(R.drawable.instauser);
-
             switch (menuItem.getItemId()) {
                 case R.id.nav_home_menu:
-                    selectedFragment = new home_details();
+                    selectedFragment = new Home();
                     break;
                 case R.id.nav_advertise_menu:
                     selectedFragment = new Post();

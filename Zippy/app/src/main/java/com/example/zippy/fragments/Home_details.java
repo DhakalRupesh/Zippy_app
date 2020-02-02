@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 
 import com.example.zippy.R;
 
-public class home_details extends Fragment {
+public class Home_details extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

@@ -1,7 +1,5 @@
 package com.example.zippy.fragments;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -12,6 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.zippy.R;
 import com.example.zippy.adapters.Advertise_Adapter;
@@ -38,25 +37,31 @@ public class Home extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
             featuredpost = view.findViewById(R.id.rv_delevery_advertisement);
-//            advertiseList = new ArrayList<>();
-////
-////            advertiseList.add(new Advertise("me", "firniture", "4wheeler", "kathmandu", "bhaktapur", 2000 , "yes", true, R.drawable.jori_sophia));
-////
-//            LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
-//            Advertise_Adapter adapter = new Advertise_Adapter(advertiseList, getContext());
-//            featuredpost.setAdapter(adapter);
-//            featuredpost.setLayoutManager(layoutManager);
-            GetAllPosts();
+            advertiseList = new ArrayList<>();
+//
+        advertiseList.add(new Advertise("me", "firniture", "4wheeler", "kathmandu", "bhaktapur", "2000" , "yes", true, R.drawable.jori_sophia));
+        advertiseList.add(new Advertise("me", "firniture", "4wheeler", "kathmandu", "bhaktapur", "2000" , "yes", true, R.drawable.jori_sophia));
+        advertiseList.add(new Advertise("me", "firniture", "4wheeler", "kathmandu", "bhaktapur", "2000" , "yes", true, R.drawable.jori_sophia));
+        advertiseList.add(new Advertise("me", "firniture", "4wheeler", "kathmandu", "bhaktapur", "2000" , "yes", true, R.drawable.jori_sophia));
+        advertiseList.add(new Advertise("me", "firniture", "4wheeler", "kathmandu", "bhaktapur", "2000" , "yes", true, R.drawable.jori_sophia));
+
+
+
+            LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
+            Advertise_Adapter adapter = new Advertise_Adapter(advertiseList);
+            featuredpost.setAdapter(adapter);
+            featuredpost.setLayoutManager(layoutManager);
+//            GetAllPosts();
 
         return view;
     }
 
     private void GetAllPosts(){
         try {
-            Posti posti = Url.getInstance().create(Posti.class);
-            Call<List<Advertise>> listCallAdvertise = posti.getAdvertise();
+            Posti postapi = Url.getInstance().create(Posti.class);
+            Call<List<Advertise>> listCall = postapi.getAdvertise();
 
-            listCallAdvertise.enqueue(new Callback<List<Advertise>>() {
+            listCall.enqueue(new Callback<List<Advertise>>() {
                 @Override
                 public void onResponse(Call<List<Advertise>> call, Response<List<Advertise>> response) {
                     List<Advertise> advertisesList = response.body();
@@ -67,7 +72,7 @@ public class Home extends Fragment {
 
                 @Override
                 public void onFailure(Call<List<Advertise>> call, Throwable t) {
-                    Log.e(TAG, "fail: " + t.getLocalizedMessage());
+                    Log.e(TAG, "onFailure: " + t.getLocalizedMessage());
                 }
             });
 

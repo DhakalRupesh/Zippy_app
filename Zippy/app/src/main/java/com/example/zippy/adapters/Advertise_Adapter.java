@@ -1,7 +1,7 @@
 package com.example.zippy.adapters;
 
 import android.content.Context;
-import android.graphics.BitmapFactory;
+import android.content.Intent;
 import android.os.StrictMode;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,11 +13,10 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.zippy.R;
+import com.example.zippy.fragments.Home_details;
 import com.example.zippy.model.Advertise;
 import com.example.zippy.url.Url;
 
-import java.io.InputStream;
-import java.net.URL;
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -26,10 +25,14 @@ public class Advertise_Adapter extends RecyclerView.Adapter<Advertise_Adapter.Po
     Context pContext;
     List<Advertise> postLists;
 
+//    public Advertise_Adapter(List<Advertise> advertisesList, Context context) {
+//        this.postLists = advertisesList;
+//    }
+
     public Advertise_Adapter(List<Advertise> advertisesList) {
         this.postLists = advertisesList;
-    }
 
+    }
 
     @NonNull
     @Override
@@ -58,7 +61,11 @@ public class Advertise_Adapter extends RecyclerView.Adapter<Advertise_Adapter.Po
 //        }
 
         holder.tv_uname.setText(advertise.getPostedby());
-        holder.tv_subinfo.setText(advertise.getSendfrom());
+        holder.tv_deliveredFrom.setText(advertise.getSendfrom());
+        holder.tv_deliveredto.setText(advertise.getDestinationofdelivery());
+        holder.tv_Price.setText(advertise.getPriceofdelivery());
+        holder.tv_negociable.setText(advertise.getNegociable());
+
     }
 
     @Override
@@ -66,29 +73,22 @@ public class Advertise_Adapter extends RecyclerView.Adapter<Advertise_Adapter.Po
         return postLists.size();
     }
 
-    public class PostViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public class PostViewHolder extends RecyclerView.ViewHolder{
         CircleImageView circleImageViewProfile;
-        TextView tv_uname, tv_subinfo, tv_Price, tv_negociable;
+        TextView tv_uname, tv_deliveredFrom, tv_Price, tv_negociable, tv_deliveredto;
         Button btn_view_detail;
-        Context context;
+
         public PostViewHolder(@NonNull View itemView, Context context, List<Advertise> postLists) {
             super(itemView);
 
             circleImageViewProfile = itemView.findViewById(R.id.img_profile_image);
             tv_uname = itemView.findViewById(R.id.tv_uname);
-            tv_subinfo = itemView.findViewById(R.id.tv_subinfo);
+            tv_deliveredFrom = itemView.findViewById(R.id.tv_subinfo);
+            tv_deliveredto = itemView.findViewById(R.id.tv_subinfo1);
             tv_Price = itemView.findViewById(R.id.tv_Price);
             tv_negociable = itemView.findViewById(R.id.tv_negociable);
 
             btn_view_detail = itemView.findViewById(R.id.btn_view_detail);
-            btn_view_detail.setOnClickListener(this);
-            this.context = context;
-
-        }
-
-        @Override
-        public void onClick(View v) {
-
         }
     }
 }

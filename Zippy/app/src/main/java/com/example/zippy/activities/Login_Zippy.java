@@ -91,7 +91,9 @@ public class Login_Zippy extends AppCompatActivity implements View.OnClickListen
             LoginBBL loginBBL = new LoginBBL();
             StrictModeClass.StrictMode();
             if(loginBBL.checkUser(username, password)){
+                String token = Url.token;
                 Intent intent = new Intent(Login_Zippy.this, Bottom_nav.class);
+                intent.putExtra("token", token);
                 startActivity(intent);
                 finish();
             }

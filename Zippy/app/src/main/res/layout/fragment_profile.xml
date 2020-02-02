@@ -32,17 +32,19 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="2dp"
                     android:text="Username"
+                    android:layout_centerVertical="true"
                     android:textColor="@color/colorBlack"
                     />
 
                 <ImageView
                     android:id="@+id/insta_tv_icon"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:paddingRight="8dp"
                     android:clickable="true"
+                    android:layout_centerVertical="true"
                     android:layout_alignParentEnd="true"
-                    android:src="@drawable/ic_menu_black_24dp"
+                    android:src="@drawable/lout"
                     />
 
             </RelativeLayout>
@@ -62,9 +64,10 @@
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/img_profile_Image"
-        android:layout_width="118dp"
-        android:layout_height="134dp"
-        android:layout_marginTop="20dp"
+        android:layout_width="125dp"
+        android:layout_height="140dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="25dp"
         android:layout_below="@+id/top_bar"
         android:layout_centerInParent="true"
         android:src="@drawable/emmaprofile" />
@@ -75,22 +78,40 @@
         android:layout_below="@id/img_profile_Image"
         android:padding="20dp"
         >
-        <TextView
-        android:id="@+id/tv_fullname"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:text="Emma Watson"
-        android:textColor="@color/colorBlack"
-        android:textSize="16sp"
-       />
+
+        <LinearLayout
+            android:id="@+id/linear1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+            <TextView
+                android:id="@+id/tv_fullname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Emma Watson"
+                android:textColor="@color/colorBlack"
+                android:textSize="16sp"
+                />
+
+            <ImageView
+                android:id="@+id/img_edit_profile"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:clickable="true"
+                android:tint="#F57F17"
+                android:layout_marginLeft="5dp"
+                android:src="@drawable/ic_edit_black_24dp"
+                />
+        </LinearLayout>
 
         <TextView
             android:id="@+id/tv_profile_email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:layout_below="@+id/tv_fullname"
+            android:layout_below="@+id/linear1"
             android:text="emma@gmail.com"
            />
 
@@ -113,27 +134,44 @@
             android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
             />
 
-        <Button
-            android:id="@+id/btn_profile_edit_profile"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/dark_button"
-            android:layout_below="@+id/tv_profile_desc"
-            android:text="Edit profile"
-            android:layout_marginTop="20dp"
-            android:textAllCaps="false"
-            />
+<!--        <Button-->
+<!--            android:id="@+id/btn_profile_edit_profile"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:background="@drawable/dark_button"-->
+<!--            android:layout_below="@+id/tv_profile_desc"-->
+<!--            android:text="Edit profile"-->
+<!--            android:layout_marginTop="20dp"-->
+<!--            android:textAllCaps="false"-->
+<!--            />-->
 
-        <Button
-            android:id="@+id/bnt_profile_add_vehicle"
+        <LinearLayout
+            android:id="@+id/linear2"
             android:layout_width="match_parent"
-            android:visibility="gone"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/btn_profile_edit_profile"
-            android:background="@drawable/btn_corners"
+            android:orientation="horizontal"
+            android:layout_below="@+id/tv_profile_desc"
             android:layout_marginTop="10dp"
-            android:text="Add Vehicle"
-            android:textAllCaps="false"
+            >
+
+            <TextView
+                android:id="@+id/tv_profile_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Click here to start delivery with your vehicle"
+                android:textSize="16sp"
+                />
+
+            <ImageView
+                android:id="@+id/img_add_vehicle"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:clickable="true"
+                android:tint="#F57F17"
+                android:layout_marginLeft="5dp"
+                android:src="@drawable/truckright"
+                />
+        </LinearLayout>
             />
 
     </RelativeLayout>

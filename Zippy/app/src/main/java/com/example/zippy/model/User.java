@@ -8,7 +8,21 @@ public class User {
     private String email;
     private String username;
     private String password;
-//    private Boolean utype;
+    private String desc;
+    private Boolean utype;
+
+    public User(String _id, String fname, String lname, String mobile, String email, String username, String password, String desc, Boolean utype) {
+        this._id = _id;
+        this.fname = fname;
+        this.lname = lname;
+        this.mobile = mobile;
+        this.email = email;
+        this.username = username;
+        this.password = password;
+        this.desc = desc;
+        this.utype = utype;
+    }
+
 
     public User(String fname, String lname, String mobile, String email, String username, String password) {
         this.fname = fname;
@@ -17,23 +31,7 @@ public class User {
         this.email = email;
         this.username = username;
         this.password = password;
-//        this.utype = utype;
     }
-
-    public User(String username, String password) {
-        this.username = username;
-        this.password = password;
-    }
-
-//    public User(Boolean utype) {
-//        this.utype = utype;
-//    }
-
-    //    public User(String username, String password, String utype) {
-//        this.username = username;
-//        this.password = password;
-//        this.utype = utype;
-//    }
 
     public String get_id() {
         return _id;
@@ -91,11 +89,19 @@ public class User {
         this.password = password;
     }
 
-//    public Boolean getUtype() {
-//        return utype;
-//    }
-//
-//    public void setUtype(Boolean utype) {
-//        this.utype = utype;
-//    }
+    public String getDescription() {
+        return desc;
+    }
+
+    public void setDescription(String desc) {
+        desc = desc;
+    }
+
+    public Boolean getUtype() {
+        return utype;
+    }
+
+    public void setUtype(Boolean utype) {
+        this.utype = utype;
+    }
 }

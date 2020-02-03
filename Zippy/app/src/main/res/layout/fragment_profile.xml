@@ -77,6 +77,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/img_profile_Image"
         android:padding="20dp"
+        android:gravity="center"
         >
 
         <LinearLayout
@@ -84,13 +85,23 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:gravity="center"
             >
 
             <TextView
-                android:id="@+id/tv_fullname"
+                android:id="@+id/tv_profile_fname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Emma Watson"
+                android:text="Emma "
+                android:textColor="@color/colorBlack"
+                android:textSize="16sp"
+                />
+
+            <TextView
+                android:id="@+id/tv_profile_lname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Watson"
                 android:textColor="@color/colorBlack"
                 android:textSize="16sp"
                 />
@@ -106,33 +117,46 @@
                 />
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/tv_profile_email"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/linear2"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
             android:layout_below="@+id/linear1"
-            android:text="emma@gmail.com"
-           />
+            android:orientation="vertical"
+            android:gravity="center"
+            >
+
+            <TextView
+                android:id="@+id/tv_profile_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/linear1"
+                android:text="emma@gmail.com"
+
+                />
 
 
-        <TextView
-            android:id="@+id/tv_profile_mobile"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_below="@+id/tv_profile_email"
-            android:text="1234567892"
-            />
+            <TextView
+                android:id="@+id/tv_profile_mobile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/tv_profile_email"
+                android:text="1234567892"
+                />
 
-        <TextView
-            android:id="@+id/tv_profile_desc"
-            android:layout_width="352dp"
-            android:layout_height="52dp"
-            android:layout_marginTop="10dp"
-            android:layout_below="@+id/tv_profile_mobile"
-            android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
-            />
+            <TextView
+                android:id="@+id/tv_profile_desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/tv_profile_mobile"
+                android:hint="Edit your profile to add your or company description"
+                />
+        </LinearLayout>
+
+
 
 <!--        <Button-->
 <!--            android:id="@+id/btn_profile_edit_profile"-->
@@ -146,12 +170,13 @@
 <!--            />-->
 
         <LinearLayout
-            android:id="@+id/linear2"
+            android:id="@+id/linear3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_below="@+id/tv_profile_desc"
+            android:layout_below="@+id/linear2"
             android:layout_marginTop="10dp"
+            android:gravity="center"
             >
 
             <TextView

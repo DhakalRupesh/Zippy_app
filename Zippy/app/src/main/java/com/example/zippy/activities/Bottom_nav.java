@@ -14,12 +14,13 @@ import com.example.zippy.fragments.Home;
 import com.example.zippy.fragments.Post;
 import com.example.zippy.fragments.Profile;
 import com.example.zippy.fragments.Status;
+import com.example.zippy.url.Url;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class Bottom_nav extends AppCompatActivity {
     BottomNavigationView bnv;
     Fragment selectedFragment = null;
-    TextView texttoken;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,10 +30,7 @@ public class Bottom_nav extends AppCompatActivity {
         bnv.setOnNavigationItemSelectedListener(selected_nav_items);
         bnv.setSelectedItemId(R.id.nav_home_menu);
 
-        texttoken = findViewById(R.id.txt_token);
-
-        Intent intentScoreAccess = getIntent();
-        texttoken.setText("" + intentScoreAccess.getStringExtra("token"));
+        String token = Url.token;
 
         getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment, new Home()).commit();
 

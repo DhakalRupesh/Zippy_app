@@ -11,6 +11,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
@@ -78,6 +79,8 @@ public class Post extends Fragment {
             btnPost = view.findViewById(R.id.btn_post_post);
 
             etGoodstype.requestFocus();
+
+            UserPermission();
 
             imgPost.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -155,7 +158,7 @@ public class Post extends Fragment {
     }
 
     public void AddNewPost(View v){
-        String postedBy = "5e322b3aa37cfe35b8fa4105";
+        String postedBy = Url.token;
         String goods_type = etGoodstype.getText().toString();
         String sending_from = etSendingfrom.getText().toString();
         String sending_to = etSendingto.getText().toString();
@@ -202,15 +205,34 @@ public class Post extends Fragment {
     private void  requestStoragePermission() {
         if(ActivityCompat.shouldShowRequestPermissionRationale(getActivity(), Manifest.permission.READ_EXTERNAL_STORAGE)) {
             new AlertDialog.Builder(getActivity()).setTitle("permission needed").setMessage("This permission is needed to upload the image")
-                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-
-                            }
-                        })
+                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            ActivityCompat.requestPermissions(getActivity(), new String[] {Manifest.permission.READ_EXTERNAL_STORAGE}, STORAGE_PERMISSION_CODE);
+                        }
+                    })
+                    .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    }).create().show();
         } else {
             ActivityCompat.requestPermissions(getActivity(), new String[] {Manifest.permission.READ_EXTERNAL_STORAGE}, STORAGE_PERMISSION_CODE);
 
+        }
+
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if(requestCode == STORAGE_PERMISSION_CODE) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                Toast.makeText(getActivity(), "Permission Granted", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(getActivity(), "Permission Denied", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 

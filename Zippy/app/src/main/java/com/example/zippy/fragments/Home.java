@@ -27,45 +27,47 @@ import retrofit2.Response;
 
 public class Home extends Fragment {
 
-    private RecyclerView featuredpost;
+    public RecyclerView featuredpost;
     public List<Advertise> advertiseList;
     private static final String TAG = "Home";
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-            featuredpost = view.findViewById(R.id.rv_delevery_advertisement);
-//            advertiseList = new ArrayList<>();
-////
-//        advertiseList.add(new Advertise("me", "firniture", "4wheeler", "kathmandu", "bhaktapur", "2000" , "yes", true, R.drawable.jori_sophia));
-//        advertiseList.add(new Advertise("me", "firniture", "4wheeler", "kathmandu", "bhaktapur", "2000" , "yes", true, R.drawable.jori_sophia));
-//        advertiseList.add(new Advertise("me", "firniture", "4wheeler", "kathmandu", "bhaktapur", "2000" , "yes", true, R.drawable.jori_sophia));
-//        advertiseList.add(new Advertise("me", "firniture", "4wheeler", "kathmandu", "bhaktapur", "2000" , "yes", true, R.drawable.jori_sophia));
-//        advertiseList.add(new Advertise("me", "firniture", "4wheeler", "kathmandu", "bhaktapur", "2000" , "yes", true, R.drawable.jori_sophia));
+        featuredpost = view.findViewById(R.id.rv_delevery_advertisement);
+
+        advertiseList = new ArrayList<>();
 //
-//
-//
-//            LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
-//            Advertise_Adapter adapter = new Advertise_Adapter(advertiseList);
-//            featuredpost.setAdapter(adapter);
-//            featuredpost.setLayoutManager(layoutManager);
-            GetAllPosts();
+        advertiseList.add(new Advertise("me", "firniture", "4wheeler", "kathmandu", "bhaktapur", "2000" , "yes", true,""));
+
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
+        Advertise_Adapter adapter = new Advertise_Adapter(advertiseList);
+        featuredpost.setAdapter(adapter);
+        featuredpost.setLayoutManager(layoutManager);
+
+        GetAllPosts();
 
         return view;
     }
 
     private void GetAllPosts(){
-        try {
+
             Posti postapi = Url.getInstance().create(Posti.class);
             Call<List<Advertise>> listCall = postapi.getAdvertise();
 
             listCall.enqueue(new Callback<List<Advertise>>() {
                 @Override
                 public void onResponse(Call<List<Advertise>> call, Response<List<Advertise>> response) {
-                    List<Advertise> advertisesList = response.body();
-                    Advertise_Adapter advertise_adapter = new Advertise_Adapter(advertisesList);
+                    if(!response.isSuccessful()){
+                        Toast.makeText(getContext(), "Error", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+
+                    List<Advertise> list = response.body();
+                    Advertise_Adapter advertise_adapter = new Advertise_Adapter(list);
                     featuredpost.setLayoutManager(new LinearLayoutManager(getContext()));
                     featuredpost.setAdapter(advertise_adapter);
                 }
@@ -76,8 +78,5 @@ public class Home extends Fragment {
                 }
             });
 
-        } catch (Exception e) {
-
-        }
     }
 }

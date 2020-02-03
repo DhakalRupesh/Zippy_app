@@ -40,11 +40,6 @@
             app:menu="@menu/bottom_navigation"
             android:background="?android:attr/windowBackground"
             />
-        <TextView
-            android:id="@+id/txt_token"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="token : "/>
 
     </com.google.android.material.appbar.AppBarLayout>
 

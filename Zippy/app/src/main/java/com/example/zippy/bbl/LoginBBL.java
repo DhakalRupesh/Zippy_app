@@ -1,7 +1,7 @@
 package com.example.zippy.bbl;
 
 import com.example.zippy.api.Useri;
-import com.example.zippy.serverresponse.SignUpResponse;
+import com.example.zippy.serverresponse.UserResponse;
 import com.example.zippy.url.Url;
 
 import java.io.IOException;
@@ -14,10 +14,10 @@ public class LoginBBL {
 
     public boolean checkUser(String username, String password) {
         Useri useri = Url.getInstance().create(Useri.class);
-        Call<SignUpResponse> signUpResponseCall =useri.login(username, password);
+        Call<UserResponse> signUpResponseCall =useri.login(username, password);
 
         try {
-            Response<SignUpResponse> loginResponse = signUpResponseCall.execute();
+            Response<UserResponse> loginResponse = signUpResponseCall.execute();
             if (loginResponse.isSuccessful() &&
                     loginResponse.body().getStatus().equals("Login success!")) {
 

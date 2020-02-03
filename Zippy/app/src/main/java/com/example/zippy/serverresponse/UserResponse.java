@@ -1,10 +1,10 @@
 package com.example.zippy.serverresponse;
 
-public class SignUpResponse {
+public class UserResponse {
     private String status;
     private String token;
 
-    public SignUpResponse(String status, String token) {
+    public UserResponse(String status, String token) {
         this.status = status;
         this.token = token;
     }

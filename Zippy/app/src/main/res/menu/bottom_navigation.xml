@@ -15,7 +15,7 @@
     <item
         android:title="Status"
         android:id="@+id/nav_status_menu"
-        android:icon="@drawable/ic_access_time_black_24dp"
+        android:icon="@drawable/ic_local_activity_black_24dp"
         />
 
     <item

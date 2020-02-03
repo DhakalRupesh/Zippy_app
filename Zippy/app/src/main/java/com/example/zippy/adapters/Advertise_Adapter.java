@@ -2,6 +2,7 @@ package com.example.zippy.adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.BitmapFactory;
 import android.os.StrictMode;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +18,8 @@ import com.example.zippy.fragments.Home_details;
 import com.example.zippy.model.Advertise;
 import com.example.zippy.url.Url;
 
+import java.io.InputStream;
+import java.net.URL;
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -51,14 +54,14 @@ public class Advertise_Adapter extends RecyclerView.Adapter<Advertise_Adapter.Po
     public void onBindViewHolder(@NonNull PostViewHolder holder, int position) {
         Advertise advertise = postLists.get(position);
         String imagePathPost = Url.BASE_URL + "uploads/" + advertise.getAd_image();
-//        Mode();
-//        try {
-//            URL url;
-//            url = new URL(imagePathPost);
-//            holder.circleImageViewProfile.setImageBitmap(BitmapFactory.decodeStream((InputStream) url.getContent()));
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
+        Mode();
+        try {
+            URL url;
+            url = new URL(imagePathPost);
+            holder.circleImageViewProfile.setImageBitmap(BitmapFactory.decodeStream((InputStream) url.getContent()));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         holder.tv_uname.setText(advertise.getPostedby());
         holder.tv_deliveredFrom.setText(advertise.getSendfrom());
@@ -87,8 +90,6 @@ public class Advertise_Adapter extends RecyclerView.Adapter<Advertise_Adapter.Po
             tv_deliveredto = itemView.findViewById(R.id.tv_subinfo1);
             tv_Price = itemView.findViewById(R.id.tv_Price);
             tv_negociable = itemView.findViewById(R.id.tv_negociable);
-
-            btn_view_detail = itemView.findViewById(R.id.btn_view_detail);
         }
     }
 }

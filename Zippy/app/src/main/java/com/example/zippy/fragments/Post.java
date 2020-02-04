@@ -29,10 +29,12 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.example.zippy.R;
+import com.example.zippy.activities.Bottom_nav;
 import com.example.zippy.activities.Register_Zippy;
 import com.example.zippy.api.Posti;
 import com.example.zippy.api.Useri;
 import com.example.zippy.model.Advertise;
+import com.example.zippy.model.User;
 import com.example.zippy.serverresponse.ImageResponse;
 import com.example.zippy.strictmode.StrictModeClass;
 import com.example.zippy.url.Url;
@@ -56,7 +58,7 @@ public class Post extends Fragment {
     private RadioButton rdBtnNegotiable;
     private ImageView imgPost;
     String imagePath;
-    private String imageName = "";
+    private String imageName="";
     private Button btnPost;
 
     @Override
@@ -91,7 +93,7 @@ public class Post extends Fragment {
                 public void onClick(View v) {
                     if(CheckEmpty()) {
                         AddNewPost(view);
-//                        SaveImageOnly();
+                        SaveImageOnly();
                     }
                 }
             });
@@ -146,7 +148,6 @@ public class Post extends Fragment {
             Response<ImageResponse> imageResponseResponse = imageResponseCall.execute();
             imageName = imageResponseResponse.body().getFilename();
             Toast.makeText(getActivity(), "Image inserted" + imageName, Toast.LENGTH_SHORT).show();
-            getActivity().finish();
         } catch (IOException e) {
             Toast.makeText(getActivity(), "Image Error" + e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
             e.printStackTrace();
@@ -155,7 +156,7 @@ public class Post extends Fragment {
     }
 
     public void AddNewPost(View v){
-        String postedBy = "5e322b3aa37cfe35b8fa4105";
+        String postedBy = Bottom_nav.user.get_id();
         String goods_type = etGoodstype.getText().toString();
         String sending_from = etSendingfrom.getText().toString();
         String sending_to = etSendingto.getText().toString();

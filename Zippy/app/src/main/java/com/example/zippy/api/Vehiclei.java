@@ -16,8 +16,9 @@ import retrofit2.http.POST;
 import retrofit2.http.Part;
 
 public interface Vehiclei {
-    @POST("/vehicle")
-    Call<Void> addVehicle(@Body Vehicles vehicle);
+
+    @POST("/vehicles")
+    Call<Void> addVehicle(@Body Vehicles vehicles);
 
     @GET("/vehicle")
     Call<List<Advertise>> getVehicle();

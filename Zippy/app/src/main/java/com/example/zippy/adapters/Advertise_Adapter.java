@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -52,15 +53,15 @@ public class Advertise_Adapter extends RecyclerView.Adapter<Advertise_Adapter.Po
     @Override
     public void onBindViewHolder(@NonNull PostViewHolder holder, int position) {
         Advertise advertise = postLists.get(position);
-//        String imagePathPost = Url.BASE_URL + "uploads/" + advertise.getAd_image();
-//        Mode();
-//        try {
-//            retrofit2.http.Url url;
-//            url = new retrofit2.http.Url(imagePathPost);
-//            holder.circleImageViewProfile.setImageBitmap(BitmapFactory.decodeStream((InputStream) url.getContent()));
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
+        String imagePathPost = Url.imagePath + advertise.getAd_image();
+        Mode();
+        try {
+            URL url;
+            url = new URL(imagePathPost);
+            holder.imageViewPost.setImageBitmap(BitmapFactory.decodeStream((InputStream) url.getContent()));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         holder.tv_uname.setText(advertise.getPostedby());
         holder.tv_deliveredFrom.setText(advertise.getSendfrom());
@@ -81,6 +82,7 @@ public class Advertise_Adapter extends RecyclerView.Adapter<Advertise_Adapter.Po
     public class PostViewHolder extends RecyclerView.ViewHolder{
         CircleImageView circleImageViewProfile;
         TextView tv_uname, tv_deliveredFrom, tv_Price, tv_negociable, tv_deliveredto;
+        ImageView imageViewPost;
         Button btn_view_detail;
 
         public PostViewHolder(@NonNull View itemView, Context context, List<Advertise> postLists) {
@@ -92,6 +94,7 @@ public class Advertise_Adapter extends RecyclerView.Adapter<Advertise_Adapter.Po
             tv_deliveredto = itemView.findViewById(R.id.tv_subinfo1);
             tv_Price = itemView.findViewById(R.id.tv_Price);
             tv_negociable = itemView.findViewById(R.id.tv_negociable);
+            imageViewPost = itemView.findViewById(R.id.img_post);
         }
     }
 }

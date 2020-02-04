@@ -22,6 +22,7 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.example.zippy.R;
+import com.example.zippy.activities.Bottom_nav;
 import com.example.zippy.api.Vehiclei;
 import com.example.zippy.model.Vehicles;
 import com.example.zippy.serverresponse.ImageResponse;
@@ -45,14 +46,14 @@ public class Vehicle extends Fragment {
     private RadioButton rdBtnVehicleType;
     private ImageView imgLicense;
     String imagePath;
-    private String imageName = "";
+    private String imageName;
     private Button btnVerify;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view =  inflater.inflate(R.layout.fragment_vehicle, container, false);
+        final View view =  inflater.inflate(R.layout.fragment_vehicle, container, false);
 
         BrandName = view.findViewById(R.id.et_vehicle_brand_name);
         Vehicle_no = view.findViewById(R.id.et_vehicle_vehicle_no);
@@ -75,10 +76,9 @@ public class Vehicle extends Fragment {
             @Override
             public void onClick(View v) {
                 if(CheckEmpty()) {
-                    if(LicenseNoValidate()){
-                        PostVehicleInfo(v);
+
+                        PostVehicleInfo(view);
                         saveImageOnly();
-                    }
                 }
             }
         });
@@ -87,7 +87,7 @@ public class Vehicle extends Fragment {
     }
 
     private void PostVehicleInfo(View v){
-        String VehicleAddedBy = Url.token;
+        String VehicleAddedBy = Bottom_nav.user.get_id();
         String brandName = BrandName.getText().toString();
 
         String vehicle_no = Vehicle_no.getText().toString();
@@ -105,13 +105,13 @@ public class Vehicle extends Fragment {
         voidCallVehicle.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
-                Toast.makeText(getContext(), "Vehicle detail sent for verification", Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(), "Vehicle detail sent for verification" + response.body(), Toast.LENGTH_LONG).show();
                 ClearField();
             }
 
             @Override
             public void onFailure(Call<Void> call, Throwable t) {
-                Toast.makeText(getContext(), "Error" + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "ErrorVehicle" + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -199,3 +199,4 @@ public class Vehicle extends Fragment {
     }
 
 }
+

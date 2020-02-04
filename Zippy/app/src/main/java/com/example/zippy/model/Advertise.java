@@ -11,17 +11,17 @@ public class Advertise {
     private Boolean statusofdelivery;
     private String ad_image;
 
-    public Advertise(String postedby, String goodstype, String vehicleneed, String sendfrom, String destinationofdelivery, String priceofdelivery, String negociable, Boolean statusofdelivery, String ad_image) {
-        this.postedby = postedby;
-        this.goodstype = goodstype;
-        this.vehicleneed = vehicleneed;
-        this.sendfrom = sendfrom;
-        this.destinationofdelivery = destinationofdelivery;
-        this.priceofdelivery = priceofdelivery;
-        this.negociable = negociable;
-        this.statusofdelivery = statusofdelivery;
-        this.ad_image = ad_image;
-    }
+//    public Advertise(String postedby, String goodstype, String vehicleneed, String sendfrom, String destinationofdelivery, String priceofdelivery, String negociable, Boolean statusofdelivery, String ad_image) {
+//        this.postedby = postedby;
+//        this.goodstype = goodstype;
+//        this.vehicleneed = vehicleneed;
+//        this.sendfrom = sendfrom;
+//        this.destinationofdelivery = destinationofdelivery;
+//        this.priceofdelivery = priceofdelivery;
+//        this.negociable = negociable;
+//        this.statusofdelivery = statusofdelivery;
+//        this.ad_image = ad_image;
+//    }
 
     public Advertise(String postedby, String goodstype, String vehicleneed, String sendfrom, String destinationofdelivery, String priceofdelivery, String negociable, String ad_image) {
         this.postedby = postedby;

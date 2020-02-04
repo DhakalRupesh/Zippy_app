@@ -39,14 +39,14 @@ public class Home extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         featuredpost = view.findViewById(R.id.rv_delevery_advertisement);
 
-        advertiseList = new ArrayList<>();
+//        advertiseList = new ArrayList<>();
+////
+//        advertiseList.add(new Advertise("me", "firniture", "4wheeler", "kathmandu", "bhaktapur", "2000" , "yes", true,""));
 //
-        advertiseList.add(new Advertise("me", "firniture", "4wheeler", "kathmandu", "bhaktapur", "2000" , "yes", true,""));
-
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
-        Advertise_Adapter adapter = new Advertise_Adapter(advertiseList);
-        featuredpost.setAdapter(adapter);
-        featuredpost.setLayoutManager(layoutManager);
+//        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
+//        Advertise_Adapter adapter = new Advertise_Adapter(advertiseList);
+//        featuredpost.setAdapter(adapter);
+//        featuredpost.setLayoutManager(layoutManager);
 
         GetAllPosts();
 
@@ -74,7 +74,7 @@ public class Home extends Fragment {
 
                 @Override
                 public void onFailure(Call<List<Advertise>> call, Throwable t) {
-                    Log.e(TAG, "onFailure: " + t.getLocalizedMessage());
+                    Log.e(TAG, "onFailureHome: " + t.getLocalizedMessage());
                 }
             });
 

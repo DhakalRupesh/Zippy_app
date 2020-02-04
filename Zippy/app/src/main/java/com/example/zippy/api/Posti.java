@@ -21,7 +21,7 @@ public interface Posti {
     Call<List<Advertise>> getAdvertise();
 
     @Multipart
-    @POST("upload")
+    @POST("/uploads")
     Call<ImageResponse> uploadImage(@Part MultipartBody.Part img);
 
 }

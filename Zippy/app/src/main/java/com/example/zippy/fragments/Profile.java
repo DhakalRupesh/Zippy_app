@@ -1,14 +1,17 @@
 package com.example.zippy.fragments;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.zippy.R;
@@ -21,7 +24,8 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class Profile extends Fragment {
-    TextView username, fname, lname, email, phone, description, userImage;
+    TextView username, fname, lname, email, phone, description, goTovehicle;
+    ImageView vehicleAdd;
     public static final String TAG = "profile";
 
     @Override
@@ -37,6 +41,15 @@ public class Profile extends Fragment {
         phone = view.findViewById(R.id.tv_profile_mobile);
         description = view.findViewById(R.id.tv_profile_desc);
 //        userImage = view.findViewById(R.id.img_profile_Image);
+
+        goTovehicle = view.findViewById(R.id.tv_profile_vehicle_intent);
+        
+        goTovehicle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
 
         loadUser();
 

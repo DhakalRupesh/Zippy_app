@@ -22,6 +22,6 @@ public interface Posti {
 
     @Multipart
     @POST("/uploads")
-    Call<ImageResponse> uploadImage(@Part MultipartBody.Part img);
+    Call<ImageResponse> uploadPostImage(@Part MultipartBody.Part img);
 
 }

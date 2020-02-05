@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.zippy.R;
+import com.example.zippy.activities.Vehicle;
 import com.example.zippy.api.Useri;
 import com.example.zippy.model.User;
 import com.example.zippy.url.Url;
@@ -47,7 +48,8 @@ public class Profile extends Fragment {
         goTovehicle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent goToVehicle = new Intent(getActivity(), Vehicle.class);
+                startActivity(goToVehicle);
             }
         });
 

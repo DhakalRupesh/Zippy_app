@@ -9,11 +9,9 @@ import androidx.fragment.app.Fragment;
 import android.Manifest;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.zippy.R;
@@ -22,7 +20,6 @@ import com.example.zippy.fragments.Home;
 import com.example.zippy.fragments.Post;
 import com.example.zippy.fragments.Profile;
 import com.example.zippy.fragments.Status;
-import com.example.zippy.fragments.Vehicle;
 import com.example.zippy.model.User;
 import com.example.zippy.url.Url;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -67,7 +64,7 @@ public class Bottom_nav extends AppCompatActivity {
                     selectedFragment = new Status();
                     break;
                 case R.id.nav_profile_menu:
-                    selectedFragment = new Vehicle();
+                    selectedFragment = new Profile();
             }
             getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment,
                     selectedFragment).commit();

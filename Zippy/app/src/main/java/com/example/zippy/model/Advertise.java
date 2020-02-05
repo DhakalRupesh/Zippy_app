@@ -8,20 +8,20 @@ public class Advertise {
     private String destinationofdelivery;
     private String priceofdelivery;
     private String negociable;
-    private Boolean statusofdelivery;
     private String ad_image;
+    private Boolean statusofdelivery;
 
-//    public Advertise(String postedby, String goodstype, String vehicleneed, String sendfrom, String destinationofdelivery, String priceofdelivery, String negociable, Boolean statusofdelivery, String ad_image) {
-//        this.postedby = postedby;
-//        this.goodstype = goodstype;
-//        this.vehicleneed = vehicleneed;
-//        this.sendfrom = sendfrom;
-//        this.destinationofdelivery = destinationofdelivery;
-//        this.priceofdelivery = priceofdelivery;
-//        this.negociable = negociable;
-//        this.statusofdelivery = statusofdelivery;
-//        this.ad_image = ad_image;
-//    }
+    public Advertise(String postedby, String goodstype, String vehicleneed, String sendfrom, String destinationofdelivery, String priceofdelivery, String negociable, String ad_image, Boolean statusofdelivery) {
+        this.postedby = postedby;
+        this.goodstype = goodstype;
+        this.vehicleneed = vehicleneed;
+        this.sendfrom = sendfrom;
+        this.destinationofdelivery = destinationofdelivery;
+        this.priceofdelivery = priceofdelivery;
+        this.negociable = negociable;
+        this.ad_image = ad_image;
+        this.statusofdelivery = statusofdelivery;
+    }
 
     public Advertise(String postedby, String goodstype, String vehicleneed, String sendfrom, String destinationofdelivery, String priceofdelivery, String negociable, String ad_image) {
         this.postedby = postedby;
@@ -90,19 +90,19 @@ public class Advertise {
         this.negociable = negociable;
     }
 
-    public Boolean getStatusofdelivery() {
-        return statusofdelivery;
-    }
-
-    public void setStatusofdelivery(Boolean statusofdelivery) {
-        this.statusofdelivery = statusofdelivery;
-    }
-
     public String getAd_image() {
         return ad_image;
     }
 
     public void setAd_image(String ad_image) {
         this.ad_image = ad_image;
+    }
+
+    public Boolean getStatusofdelivery() {
+        return statusofdelivery;
+    }
+
+    public void setStatusofdelivery(Boolean statusofdelivery) {
+        this.statusofdelivery = statusofdelivery;
     }
 }

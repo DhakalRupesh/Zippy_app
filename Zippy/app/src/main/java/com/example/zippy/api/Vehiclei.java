@@ -1,6 +1,5 @@
 package com.example.zippy.api;
 
-import com.example.zippy.fragments.Vehicle;
 import com.example.zippy.model.Advertise;
 import com.example.zippy.model.Vehicles;
 import com.example.zippy.serverresponse.ImageResponse;

@@ -1,19 +1,16 @@
-package com.example.zippy.fragments;
+package com.example.zippy.activities;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.loader.content.CursorLoader;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-import androidx.loader.content.CursorLoader;
-
 import android.provider.MediaStore;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -22,7 +19,6 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.example.zippy.R;
-import com.example.zippy.activities.Bottom_nav;
 import com.example.zippy.api.Vehiclei;
 import com.example.zippy.model.Vehicles;
 import com.example.zippy.serverresponse.ImageResponse;
@@ -39,7 +35,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class Vehicle extends Fragment {
+public class Vehicle extends AppCompatActivity {
 
     private EditText BrandName, Vehicle_no, License_no;
     private RadioGroup rdoVehicleTypegrp;
@@ -50,20 +46,19 @@ public class Vehicle extends Fragment {
     private Button btnVerify;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        final View view =  inflater.inflate(R.layout.fragment_vehicle, container, false);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_vehicle);
 
-        BrandName = view.findViewById(R.id.et_vehicle_brand_name);
-        Vehicle_no = view.findViewById(R.id.et_vehicle_vehicle_no);
-        License_no = view.findViewById(R.id.et_vehicle_license_no);
+        BrandName = findViewById(R.id.et_vehicle_brand_name);
+        Vehicle_no = findViewById(R.id.et_vehicle_vehicle_no);
+        License_no = findViewById(R.id.et_vehicle_license_no);
 
-        rdoVehicleTypegrp = view.findViewById(R.id.rdo_vehicle_vehiclgrp);
+        rdoVehicleTypegrp = findViewById(R.id.rdo_vehicle_vehiclgrp);
 
-        imgLicense = view.findViewById(R.id.img_vehicle_license);
+        imgLicense = findViewById(R.id.img_vehicle_license);
 
-        btnVerify = view.findViewById(R.id.btn_vehicle_post);
+        btnVerify = findViewById(R.id.btn_vehicle_post);
 
         imgLicense.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,17 +71,14 @@ public class Vehicle extends Fragment {
             @Override
             public void onClick(View v) {
                 if(CheckEmpty()) {
-
-                        PostVehicleInfo(view);
-                        saveImageOnly();
+                    PostVehicleInfo();
+                    saveImageOnly();
                 }
             }
         });
-
-        return view;
     }
 
-    private void PostVehicleInfo(View v){
+    private void PostVehicleInfo(){
         String VehicleAddedBy = Bottom_nav.user.get_id();
         String brandName = BrandName.getText().toString();
 
@@ -94,7 +86,7 @@ public class Vehicle extends Fragment {
         String license_no = License_no.getText().toString();
 
         int VehicleSetting = rdoVehicleTypegrp.getCheckedRadioButtonId();
-        rdBtnVehicleType = v.findViewById(VehicleSetting);
+        rdBtnVehicleType = findViewById(VehicleSetting);
 
         String vehicleType = rdBtnVehicleType.getText().toString();
 
@@ -105,13 +97,13 @@ public class Vehicle extends Fragment {
         voidCallVehicle.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
-                Toast.makeText(getContext(), "Vehicle detail sent for verification" + response.body(), Toast.LENGTH_LONG).show();
+                Toast.makeText(Vehicle.this, "Vehicle detail sent for verification" + response.body(), Toast.LENGTH_LONG).show();
                 ClearField();
             }
 
             @Override
             public void onFailure(Call<Void> call, Throwable t) {
-                Toast.makeText(getContext(), "ErrorVehicle" + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(Vehicle.this, "ErrorVehicle" + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -123,12 +115,12 @@ public class Vehicle extends Fragment {
     }
 
     @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if(requestCode == Activity.RESULT_OK) {
+        if(requestCode == RESULT_OK) {
             if (data == null) {
-                Toast.makeText(getActivity(), "Please select an image ", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Vehicle.this, "Please select an image ", Toast.LENGTH_SHORT).show();
             }
         }
         Uri uri = data.getData();
@@ -138,7 +130,7 @@ public class Vehicle extends Fragment {
 
     private String getRealPathFromUri(Uri uri){
         String[] projection = {MediaStore.Images.Media.DATA};
-        CursorLoader loader = new CursorLoader(getContext(), uri, projection, null, null, null);
+        CursorLoader loader = new CursorLoader(Vehicle.this, uri, projection, null, null, null);
         Cursor cursor = loader.loadInBackground();
         int colIndex = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
         cursor.moveToFirst();
@@ -160,9 +152,9 @@ public class Vehicle extends Fragment {
         try {
             Response<ImageResponse> imageResponseResponse = responseBodyCall.execute();
             imageName = imageResponseResponse.body().getFilename();
-            Toast.makeText(getContext(), "Image Inserted", Toast.LENGTH_SHORT).show();
+            Toast.makeText(Vehicle.this, "Image Inserted", Toast.LENGTH_SHORT).show();
         } catch (IOException e) {
-            Toast.makeText(getContext(), "Error", Toast.LENGTH_SHORT).show();
+            Toast.makeText(Vehicle.this, "Error", Toast.LENGTH_SHORT).show();
             e.printStackTrace();
         }
     }
@@ -197,6 +189,4 @@ public class Vehicle extends Fragment {
         Vehicle_no.setText("");
         License_no.setText("");
     }
-
 }
-

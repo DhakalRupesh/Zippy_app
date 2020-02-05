@@ -6,10 +6,13 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.zippy.R;
@@ -28,8 +31,10 @@ import retrofit2.Response;
 public class Home extends Fragment {
 
     public RecyclerView featuredpost;
-    public List<Advertise> advertiseList;
+    List<Advertise> adlist;
+    Advertise_Adapter advertise_adapter;
     private static final String TAG = "Home";
+    private EditText btnSearchLocation;
 
 
     @Override
@@ -38,6 +43,7 @@ public class Home extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         featuredpost = view.findViewById(R.id.rv_delevery_advertisement);
+        btnSearchLocation = view.findViewById(R.id.et_home_search);
 
 //        advertiseList = new ArrayList<>();
 ////
@@ -50,33 +56,60 @@ public class Home extends Fragment {
 
         GetAllPosts();
 
+        btnSearchLocation.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                filter(editable.toString());
+            }
+        });
+
         return view;
     }
 
     private void GetAllPosts(){
+        Posti postapi = Url.getInstance().create(Posti.class);
+        Call<List<Advertise>> listCall = postapi.getAdvertise();
 
-            Posti postapi = Url.getInstance().create(Posti.class);
-            Call<List<Advertise>> listCall = postapi.getAdvertise();
-
-            listCall.enqueue(new Callback<List<Advertise>>() {
-                @Override
-                public void onResponse(Call<List<Advertise>> call, Response<List<Advertise>> response) {
-                    if(!response.isSuccessful()){
-                        Toast.makeText(getContext(), "Error", Toast.LENGTH_SHORT).show();
-                        return;
-                    }
-
-                    List<Advertise> list = response.body();
-                    Advertise_Adapter advertise_adapter = new Advertise_Adapter(list);
-                    featuredpost.setLayoutManager(new LinearLayoutManager(getContext()));
-                    featuredpost.setAdapter(advertise_adapter);
+        listCall.enqueue(new Callback<List<Advertise>>() {
+            @Override
+            public void onResponse(Call<List<Advertise>> call, Response<List<Advertise>> response) {
+                if(!response.isSuccessful()){
+                    Toast.makeText(getContext(), "Error", Toast.LENGTH_SHORT).show();
+                    return;
                 }
 
-                @Override
-                public void onFailure(Call<List<Advertise>> call, Throwable t) {
-                    Log.e(TAG, "onFailureHome: " + t.getLocalizedMessage());
-                }
-            });
+                adlist = response.body();
+                advertise_adapter = new Advertise_Adapter(adlist);
+                featuredpost.setLayoutManager(new LinearLayoutManager(getContext()));
+                featuredpost.setAdapter(advertise_adapter);
+            }
 
+            @Override
+            public void onFailure(Call<List<Advertise>> call, Throwable t) {
+                Log.e(TAG, "onFailureHome: " + t.getLocalizedMessage());
+            }
+        });
+    }
+
+    // search
+
+    private void filter(String text) {
+        ArrayList<Advertise> filteredList=new ArrayList<>();
+        for( Advertise item: adlist){
+            if( item.getDestinationofdelivery().toLowerCase().contains(text.toLowerCase())){
+                filteredList.add(item);
+            }
+        }
+        advertise_adapter.FilterPlaces(filteredList);
     }
 }

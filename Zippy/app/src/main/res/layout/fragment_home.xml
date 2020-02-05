@@ -1,25 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragments.Home">
+    tools:context=".fragments.Home"
+    android:orientation="vertical">
 
-
+    <EditText
+        android:id="@+id/et_home_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="12dp"
+        android:layout_marginHorizontal="30dp"
+        android:hint="search location....."
+        android:background="@drawable/textinput_border"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_delevery_advertisement"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-
-    <View
-        android:id="@+id/view"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="4dp"
-        android:background="#f0f0f0"
-        app:layout_constraintTop_toBottomOf="@+id/viewpager"
-        tools:layout_editor_absoluteX="0dp" />
-</FrameLayout>
+</LinearLayout>

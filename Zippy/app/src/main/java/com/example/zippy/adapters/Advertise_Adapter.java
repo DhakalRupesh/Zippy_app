@@ -21,6 +21,7 @@ import com.example.zippy.url.Url;
 
 import java.io.InputStream;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -76,14 +77,15 @@ public class Advertise_Adapter extends RecyclerView.Adapter<Advertise_Adapter.Po
         return postLists.size();
     }
 
-
-
+    public void FilterPlaces(ArrayList<Advertise> filteredList){
+        postLists=filteredList;
+        notifyDataSetChanged();
+    }
 
     public class PostViewHolder extends RecyclerView.ViewHolder{
         CircleImageView circleImageViewProfile;
         TextView tv_uname, tv_deliveredFrom, tv_Price, tv_negociable, tv_deliveredto;
         ImageView imageViewPost;
-        Button btn_view_detail;
 
         public PostViewHolder(@NonNull View itemView, Context context, List<Advertise> postLists) {
             super(itemView);

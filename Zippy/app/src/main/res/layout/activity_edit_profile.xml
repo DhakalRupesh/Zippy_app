@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.EditProfile"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Update Your Info"
+        android:textSize="30sp"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/colorBlack"
+        android:textStyle="bold"
+        android:layout_marginStart="15dp"
+        />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="First Name"/>
+            <EditText
+                android:id="@+id/et_pro_fname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:enabled="false"
+                android:hint="Rupesh..."
+                android:background="@drawable/textinput_border"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Last Name"
+                android:layout_marginTop="15dp"/>
+            <EditText
+                android:id="@+id/et_pro_lname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:enabled="false"
+                android:hint="Dhakal..."
+                android:background="@drawable/textinput_border"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Phone"
+                android:layout_marginTop="15dp"/>
+            <EditText
+                android:id="@+id/et_pro_mobile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:enabled="false"
+                android:hint="eg: 9999999999"
+                android:background="@drawable/textinput_border"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Username"
+                android:layout_marginTop="15dp"/>
+            <EditText
+                android:id="@+id/et_pro_uname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:enabled="false"
+                android:hint="eg: Dhakal55"
+                android:background="@drawable/textinput_border"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email"
+                android:layout_marginTop="15dp"/>
+            <EditText
+                android:id="@+id/et_pro_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:enabled="false"
+                android:hint="exmple@example.com"
+                android:background="@drawable/textinput_border"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Select Profile Image"
+                android:layout_marginTop="15dp"/>
+
+            <ImageView
+                android:id="@+id/img_pro_image"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/ic_photo_size_select_actual_black_24dp"
+                />
+
+            <Button
+                android:id="@+id/btn_pro_update"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/dark_button"
+                android:text="Update"
+                android:textColor="#fff"
+                android:textStyle="bold"
+                android:textAllCaps="false"
+                android:layout_marginTop="20dp"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

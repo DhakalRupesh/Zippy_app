@@ -28,11 +28,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activities.Vehicle"></activity>
+        <activity android:name=".activities.EditProfile"></activity>
+        <activity android:name=".activities.Vehicle" />
         <activity
             android:name=".activities.Bottom_nav"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.Design.Light.NoActionBar"></activity>
+            android:theme="@style/Theme.Design.Light.NoActionBar" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
@@ -50,8 +51,8 @@
         </activity>
         <activity
             android:name=".activities.splash_zippy"
-            android:screenOrientation="portrait"></activity>
-        <activity android:name=".activities.MainActivity"></activity>
+            android:screenOrientation="portrait" />
+        <activity android:name=".activities.MainActivity" />
     </application>
 
 </manifest>

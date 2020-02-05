@@ -13,6 +13,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 import retrofit2.http.Part;
 
 public interface Useri {
@@ -30,4 +31,7 @@ public interface Useri {
 
     @GET("user/retriveme")
     Call<User> getme(@Header("Authorization") String token);
+
+    @PUT("user/updateme")
+    Call<Void> updateProfile(@Header("Authorization") String token);
 }

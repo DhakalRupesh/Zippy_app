@@ -97,7 +97,7 @@ public class Vehicle extends AppCompatActivity {
         voidCallVehicle.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
-                Toast.makeText(Vehicle.this, "Vehicle detail sent for verification" + response.body(), Toast.LENGTH_LONG).show();
+                Toast.makeText(Vehicle.this, "Vehicle detail sent for verification", Toast.LENGTH_LONG).show();
                 ClearField();
             }
 

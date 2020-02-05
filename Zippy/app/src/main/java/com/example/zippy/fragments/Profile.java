@@ -54,7 +54,6 @@ public class Profile extends Fragment {
         });
 
         loadUser();
-
         return view;
     }
 

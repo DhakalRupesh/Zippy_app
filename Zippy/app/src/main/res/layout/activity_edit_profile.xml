@@ -26,104 +26,120 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="30dp"
             android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp">
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:orientation="vertical">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="First Name"/>
+                android:text="First Name" />
+
             <EditText
                 android:id="@+id/et_pro_fname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
+                android:background="@drawable/textinput_border"
                 android:enabled="false"
-                android:hint="Rupesh..."
-                android:background="@drawable/textinput_border"/>
+                android:hint="Rupesh..." />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Last Name"
-                android:layout_marginTop="15dp"/>
+                android:layout_marginTop="15dp"
+                android:text="Last Name" />
+
             <EditText
                 android:id="@+id/et_pro_lname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
+                android:background="@drawable/textinput_border"
                 android:enabled="false"
-                android:hint="Dhakal..."
-                android:background="@drawable/textinput_border"/>
+                android:hint="Dhakal..." />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Phone"
-                android:layout_marginTop="15dp"/>
+                android:layout_marginTop="15dp"
+                android:text="Phone" />
+
             <EditText
                 android:id="@+id/et_pro_mobile"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:enabled="false"
-                android:hint="eg: 9999999999"
-                android:background="@drawable/textinput_border"/>
+                android:background="@drawable/textinput_border"
+                android:hint="eg: 9999999999" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Username"
-                android:layout_marginTop="15dp"/>
+                android:layout_marginTop="15dp"
+                android:text="Username" />
+
             <EditText
                 android:id="@+id/et_pro_uname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:enabled="false"
-                android:hint="eg: Dhakal55"
-                android:background="@drawable/textinput_border"/>
+                android:background="@drawable/textinput_border"
+                android:hint="eg: Dhakal55" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Email"
-                android:layout_marginTop="15dp"/>
+                android:layout_marginTop="15dp"
+                android:text="Email" />
+
             <EditText
                 android:id="@+id/et_pro_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:enabled="false"
-                android:hint="exmple@example.com"
-                android:background="@drawable/textinput_border"/>
+                android:background="@drawable/textinput_border"
+                android:hint="exmple@example.com" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Select Profile Image"
-                android:layout_marginTop="15dp"/>
+                android:layout_marginTop="15dp"
+                android:text="Description" />
+
+            <EditText
+                android:id="@+id/et_pro_description"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginTop="5dp"
+                android:inputType="textMultiLine"
+                android:background="@drawable/textinput_border"
+                android:hint="something about you or a company" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="Select Profile Image" />
 
             <ImageView
                 android:id="@+id/img_pro_image"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_marginTop="5dp"
-                android:src="@drawable/ic_photo_size_select_actual_black_24dp"
-                />
+                android:src="@drawable/ic_photo_size_select_actual_black_24dp" />
 
             <Button
                 android:id="@+id/btn_pro_update"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:background="@drawable/dark_button"
                 android:text="Update"
-                android:textColor="#fff"
-                android:textStyle="bold"
                 android:textAllCaps="false"
-                android:layout_marginTop="20dp"/>
+                android:textColor="#fff"
+                android:textStyle="bold" />
 
         </LinearLayout>
 

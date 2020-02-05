@@ -13,8 +13,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.zippy.R;
+import com.example.zippy.activities.Bottom_nav;
+import com.example.zippy.activities.EditProfile;
+import com.example.zippy.activities.Login_Zippy;
 import com.example.zippy.activities.Vehicle;
 import com.example.zippy.api.Useri;
 import com.example.zippy.model.User;
@@ -26,7 +30,7 @@ import retrofit2.Response;
 
 public class Profile extends Fragment {
     TextView username, fname, lname, email, phone, description, goTovehicle;
-    ImageView vehicleAdd;
+    ImageView vehicleAdd, goToeditProfile, logout;
     public static final String TAG = "profile";
 
     @Override
@@ -41,15 +45,31 @@ public class Profile extends Fragment {
         email = view.findViewById(R.id.tv_profile_email);
         phone = view.findViewById(R.id.tv_profile_mobile);
         description = view.findViewById(R.id.tv_profile_desc);
-//        userImage = view.findViewById(R.id.img_profile_Image);
 
         goTovehicle = view.findViewById(R.id.tv_profile_vehicle_intent);
+        goToeditProfile= view.findViewById(R.id.img_edit_profile);
+        logout = view.findViewById(R.id.img_profile_logout);
         
         goTovehicle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent goToVehicle = new Intent(getActivity(), Vehicle.class);
                 startActivity(goToVehicle);
+            }
+        });
+
+        goToeditProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent goToEditProfile = new Intent(getActivity(), EditProfile.class);
+                startActivity(goToEditProfile);
+            }
+        });
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Logout();
             }
         });
 
@@ -64,13 +84,12 @@ public class Profile extends Fragment {
         userCall.enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
-                User user = response.body();
-                username.setText(user.getUsername());
-                fname.setText(user.getFname());
-                lname.setText(user.getLname());
-                email.setText(user.getEmail());
-                phone.setText(user.getMobile());
-                description.setText(user.getDescription());
+                username.setText(Bottom_nav.user.getUsername());
+                fname.setText(Bottom_nav.user.getFname());
+                lname.setText(Bottom_nav.user.getLname());
+                email.setText(Bottom_nav.user.getEmail());
+                phone.setText(Bottom_nav.user.getMobile());
+                description.setText(Bottom_nav.user.getDescription());
             }
 
             @Override
@@ -78,5 +97,14 @@ public class Profile extends Fragment {
                 Log.e(TAG, "ofFailure" + t.getLocalizedMessage());
             }
         });
+    }
+
+    private void Logout() {
+        if(Url.token != "Bearer "){
+            Url.token = "Bearer ";
+        }
+        Intent goToLogin = new Intent(getActivity(), Login_Zippy.class);
+        startActivity(goToLogin);
+        Toast.makeText(getActivity(), "You are logged out", Toast.LENGTH_SHORT).show();
     }
 }

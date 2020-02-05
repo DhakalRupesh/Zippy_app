@@ -35,6 +35,8 @@ public class Login_Zippy extends AppCompatActivity implements View.OnClickListen
         login = findViewById(R.id.btnlogin_user);
         go_to_register = findViewById(R.id.tvRegister);
 
+        loginEmail.requestFocus();
+
         login.setOnClickListener(this);
         go_to_register.setOnClickListener(this);
 

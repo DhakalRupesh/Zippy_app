@@ -37,7 +37,7 @@
                     />
 
                 <ImageView
-                    android:id="@+id/insta_tv_icon"
+                    android:id="@+id/img_profile_logout"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:paddingRight="8dp"
@@ -70,7 +70,7 @@
         android:layout_marginBottom="25dp"
         android:layout_below="@+id/top_bar"
         android:layout_centerInParent="true"
-        android:src="@drawable/emmaprofile" />
+        android:src="@drawable/user1" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -102,6 +102,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Watson"
+                android:layout_marginLeft="5dp"
                 android:textColor="@color/colorBlack"
                 android:textSize="16sp"
                 />
@@ -135,7 +136,6 @@
                 android:text="emma@gmail.com"
 
                 />
-
 
             <TextView
                 android:id="@+id/tv_profile_mobile"

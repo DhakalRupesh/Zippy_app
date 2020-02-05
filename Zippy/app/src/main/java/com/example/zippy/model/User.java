@@ -7,30 +7,39 @@ public class User {
     private String mobile;
     private String email;
     private String username;
+    private String description;
+    private String userimage;
     private String password;
-    private String desc;
-    private Boolean utype;
+    private Boolean enabled;
 
-    public User(String _id, String fname, String lname, String mobile, String email, String username, String password, String desc, Boolean utype) {
+    public User(String _id, String fname, String lname, String mobile, String email, String username, String description, String userimage, String password, Boolean enabled) {
         this._id = _id;
         this.fname = fname;
         this.lname = lname;
         this.mobile = mobile;
         this.email = email;
         this.username = username;
+        this.description = description;
+        this.userimage = userimage;
         this.password = password;
-        this.desc = desc;
-        this.utype = utype;
+        this.enabled = enabled;
     }
 
-
-    public User(String fname, String lname, String mobile, String email, String username, String password) {
+        public User(String fname, String lname, String mobile, String email, String username, String password) {
         this.fname = fname;
         this.lname = lname;
         this.mobile = mobile;
         this.email = email;
         this.username = username;
         this.password = password;
+    }
+
+    public User(String mobile, String email, String username, String description, String userimage) {
+        this.mobile = mobile;
+        this.email = email;
+        this.username = username;
+        this.description = description;
+        this.userimage = userimage;
     }
 
     public String get_id() {
@@ -81,6 +90,14 @@ public class User {
         this.username = username;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     public String getPassword() {
         return password;
     }
@@ -89,19 +106,11 @@ public class User {
         this.password = password;
     }
 
-    public String getDescription() {
-        return desc;
+    public Boolean getEnabled() {
+        return enabled;
     }
 
-    public void setDescription(String desc) {
-        desc = desc;
-    }
-
-    public Boolean getUtype() {
-        return utype;
-    }
-
-    public void setUtype(Boolean utype) {
-        this.utype = utype;
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
     }
 }

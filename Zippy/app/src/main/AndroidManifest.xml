@@ -52,7 +52,6 @@
         <activity
             android:name=".activities.splash_zippy"
             android:screenOrientation="portrait" />
-        <activity android:name=".activities.MainActivity" />
     </application>
 
 </manifest>

@@ -33,5 +33,5 @@ public interface Useri {
     Call<User> getme(@Header("Authorization") String token);
 
     @PUT("user/updateme")
-    Call<Void> updateProfile(@Header("Authorization") String token);
+    Call<User> updateProfile(@Header("Authorization") String token, @Body User user);
 }

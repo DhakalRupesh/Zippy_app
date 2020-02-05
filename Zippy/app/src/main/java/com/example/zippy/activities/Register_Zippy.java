@@ -2,12 +2,14 @@ package com.example.zippy.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.zippy.R;
@@ -24,10 +26,11 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class Register_Zippy extends AppCompatActivity {
     private EditText et_fname, et_lname, et_email, et_phone, et_username, et_Password;
     private Button btn_register;
+    private TextView tv_go_to_login;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        hide();
         setContentView(R.layout.activity_register__zippy);
 
         et_fname = findViewById(R.id.et_fname);
@@ -36,9 +39,10 @@ public class Register_Zippy extends AppCompatActivity {
         et_phone = findViewById(R.id.et_phone);
         et_username = findViewById(R.id.et_uname);
         et_Password = findViewById(R.id.et_password);
-//        et_utype = findViewById(R.id.et_utype);
 
         btn_register = findViewById(R.id.btn_register);
+
+        tv_go_to_login = findViewById(R.id.tv_go_to_login);
 
         btn_register.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,27 +51,24 @@ public class Register_Zippy extends AppCompatActivity {
             }
         });
 
-    }
-    private void hide(){
-        //hiding the title bar
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getSupportActionBar().hide();
-        //making full screen
-        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        //hiding the navigation bar
-//        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
+        tv_go_to_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent goToLogin = new Intent(getApplicationContext(), Login_Zippy.class);
+                startActivity(goToLogin);
+            }
+        });
     }
 
     private void Register_user(){
         String fname = et_fname.getText().toString();
         String lname = et_lname.getText().toString();
-        String email = et_email.getText().toString();
         String phone = et_phone.getText().toString();
+        String email = et_email.getText().toString();
         String uname = et_username.getText().toString();
         String paswd = et_Password.getText().toString();
-//        Boolean utype = Boolean.parseBoolean(et_utype.getText().toString());
 
-        User user = new User(fname, lname, email, phone, uname, paswd);
+        User user = new User(fname, lname, phone, email, uname, paswd);
 
         Retrofit retrofit = new Retrofit.Builder().baseUrl(Url.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())

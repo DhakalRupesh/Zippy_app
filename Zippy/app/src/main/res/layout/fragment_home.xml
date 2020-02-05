@@ -6,6 +6,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.Home">
 
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_delevery_advertisement"
         android:layout_width="match_parent"

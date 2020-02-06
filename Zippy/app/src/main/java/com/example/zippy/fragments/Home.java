@@ -45,12 +45,12 @@ public class Home extends Fragment {
         featuredpost = view.findViewById(R.id.rv_delevery_advertisement);
         btnSearchLocation = view.findViewById(R.id.et_home_search);
 
-//        advertiseList = new ArrayList<>();
+//        adlist = new ArrayList<>();
 ////
-//        advertiseList.add(new Advertise("me", "firniture", "4wheeler", "kathmandu", "bhaktapur", "2000" , "yes", true,""));
+//        adlist.add(new Advertise("me", "furniture", "4wheeler", "kathmandu", "bhaktapur", "2000" , "yes", "",true));
 //
 //        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
-//        Advertise_Adapter adapter = new Advertise_Adapter(advertiseList);
+//        Advertise_Adapter adapter = new Advertise_Adapter(adlist);
 //        featuredpost.setAdapter(adapter);
 //        featuredpost.setLayoutManager(layoutManager);
 
@@ -102,7 +102,6 @@ public class Home extends Fragment {
     }
 
     // search
-
     private void filter(String text) {
         ArrayList<Advertise> filteredList=new ArrayList<>();
         for( Advertise item: adlist){
@@ -111,5 +110,9 @@ public class Home extends Fragment {
             }
         }
         advertise_adapter.FilterPlaces(filteredList);
+    }
+
+    private void UpdateStatus() {
+
     }
 }

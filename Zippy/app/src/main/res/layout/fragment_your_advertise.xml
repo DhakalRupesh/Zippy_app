@@ -6,6 +6,7 @@
     tools:context=".fragments.YourAdvertise">
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/your_advertise"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </FrameLayout>

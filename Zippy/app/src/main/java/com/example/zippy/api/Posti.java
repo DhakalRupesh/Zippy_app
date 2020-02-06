@@ -2,6 +2,7 @@ package com.example.zippy.api;
 
 import com.example.zippy.model.Advertise;
 import com.example.zippy.serverresponse.ImageResponse;
+import com.example.zippy.url.Url;
 
 import java.util.List;
 
@@ -19,6 +20,9 @@ public interface Posti {
 
     @GET("/advertise")
     Call<List<Advertise>> getAdvertise();
+
+    @GET("/advertise/{id}")
+    Call<List<Advertise>> getYourAdvertise(String id);
 
     @Multipart
     @POST("/uploads")

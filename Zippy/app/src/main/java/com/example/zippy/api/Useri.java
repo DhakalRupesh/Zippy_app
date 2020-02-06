@@ -26,7 +26,7 @@ public interface Useri {
     Call<UserResponse> login(@Field("username") String username, @Field("password") String password);
 
     @Multipart
-    @POST("upload")
+    @POST("/uploads")
     Call<ImageResponse> uploadImage(@Part MultipartBody.Part img);
 
     @GET("user/retriveme")

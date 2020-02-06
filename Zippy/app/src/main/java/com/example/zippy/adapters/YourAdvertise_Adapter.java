@@ -18,25 +18,24 @@ import com.example.zippy.url.Url;
 
 import java.io.InputStream;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class Advertise_Adapter extends RecyclerView.Adapter<Advertise_Adapter.PostViewHolder> {
+public class YourAdvertise_Adapter extends RecyclerView.Adapter<YourAdvertise_Adapter.YourPostViewHolder>{
+
     Context pContext;
     List<Advertise> postLists;
 
-    public Advertise_Adapter(List<Advertise> advertisesList) {
+    public YourAdvertise_Adapter(List<Advertise> advertisesList) {
         this.postLists = advertisesList;
     }
 
     @NonNull
     @Override
-    public PostViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.home_view, parent, false);
-        return new PostViewHolder(view, pContext, postLists);
+    public YourPostViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.your_post_view, parent, false);
+        return new YourPostViewHolder(v, pContext, postLists);
     }
 
     public void Mode() {
@@ -44,8 +43,9 @@ public class Advertise_Adapter extends RecyclerView.Adapter<Advertise_Adapter.Po
         StrictMode.setThreadPolicy(policy);
     }
 
+
     @Override
-    public void onBindViewHolder(@NonNull PostViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull YourPostViewHolder holder, int position) {
         Advertise advertise = postLists.get(position);
         String imagePathPost = Url.imagePath + advertise.getAd_image();
         Mode();
@@ -62,8 +62,7 @@ public class Advertise_Adapter extends RecyclerView.Adapter<Advertise_Adapter.Po
         holder.tv_deliveredto.setText(advertise.getDestinationofdelivery());
         holder.tv_Price.setText(advertise.getPriceofdelivery());
         holder.tv_negociable.setText(advertise.getNegociable());
-//        holder.tv_postedby.setText(advertise.getPostedby());
-
+        holder.tv_postedby.setText(advertise.getPostedby());
     }
 
     @Override
@@ -71,28 +70,24 @@ public class Advertise_Adapter extends RecyclerView.Adapter<Advertise_Adapter.Po
         return postLists.size();
     }
 
-    public void FilterPlaces(ArrayList<Advertise> filteredList){
-        postLists=filteredList;
-        notifyDataSetChanged();
-    }
-
-    public class PostViewHolder extends RecyclerView.ViewHolder{
+    public class YourPostViewHolder extends RecyclerView.ViewHolder {
         CircleImageView circleImageViewProfile;
         TextView tv_uname, tv_deliveredFrom, tv_Price, tv_negociable, tv_deliveredto, tv_postedby;
         ImageView imageViewPost;
 
-        public PostViewHolder(@NonNull View itemView, Context context, List<Advertise> postLists) {
+        public YourPostViewHolder(@NonNull View itemView, Context pContext, List<Advertise> postLists) {
             super(itemView);
 
             circleImageViewProfile = itemView.findViewById(R.id.img_profile_image);
-            tv_uname = itemView.findViewById(R.id.tv_uname);
-            tv_deliveredFrom = itemView.findViewById(R.id.tv_subinfo);
-            tv_deliveredto = itemView.findViewById(R.id.tv_subinfo1);
-            tv_Price = itemView.findViewById(R.id.tv_Price);
-            tv_negociable = itemView.findViewById(R.id.tv_negociable);
-            tv_postedby = itemView.findViewById(R.id.tv_postedby_id);
-            imageViewPost = itemView.findViewById(R.id.img_post);
+            tv_uname = itemView.findViewById(R.id.tv_your_uname);
+            tv_deliveredFrom = itemView.findViewById(R.id.tv_your_subinfo);
+            tv_deliveredto = itemView.findViewById(R.id.tv_your_subinfo1);
+            tv_Price = itemView.findViewById(R.id.tv_your_Price);
+            tv_negociable = itemView.findViewById(R.id.tv_your_negociable);
+            tv_postedby = itemView.findViewById(R.id.tv_your_postedby_id);
+            imageViewPost = itemView.findViewById(R.id.img_your_post);
 
         }
     }
 }
+

@@ -36,7 +36,7 @@ public class EditProfile extends AppCompatActivity {
     private EditText fname, lname, phone, username, email, description;
     private Button btnUpdate;
     String imagePath;
-    private String imageName = "";
+    private String imageName;
     private ImageView imgProfile;
 
     @Override
@@ -88,7 +88,7 @@ public class EditProfile extends AppCompatActivity {
         String updatePhone = phone.getText().toString();
         String updateUsername = username.getText().toString();
         String updateEmail = email.getText().toString();
-        String updateDesc = username.getText().toString();
+        String updateDesc = description.getText().toString();
 
         User user = new User(updatePhone, updateEmail, updateUsername, updateDesc, imageName);
 

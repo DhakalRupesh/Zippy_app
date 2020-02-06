@@ -26,7 +26,7 @@
             android:paddingBottom="5dp">
 
             <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/img_profile_image"
+                android:id="@+id/img_your_profile_image"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_margin="10dp"
@@ -39,7 +39,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/tv_uname"
+                    android:id="@+id/tv_your_uname"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="top"
@@ -53,7 +53,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
                     <TextView
-                        android:id="@+id/tv_subinfo"
+                        android:id="@+id/tv_your_subinfo"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="bottom"
@@ -66,7 +66,7 @@
                         android:text=" - "/>
 
                     <TextView
-                        android:id="@+id/tv_subinfo1"
+                        android:id="@+id/tv_your_subinfo1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="bottom"
@@ -76,25 +76,35 @@
 
             </LinearLayout>
 
-            <!--                <RelativeLayout-->
-            <!--                    android:layout_width="match_parent"-->
-            <!--                    android:layout_height="match_parent">-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-            <!--                    <ImageView-->
-            <!--                        android:id="@+id/img_menu"-->
-            <!--                        android:layout_width="30dp"-->
-            <!--                        android:layout_height="20dp"-->
-            <!--                        android:layout_alignParentEnd="true"-->
-            <!--                        android:layout_centerVertical="true"-->
-            <!--                        android:src="@drawable/ic_delete_black_24dp"-->
-            <!--                        />-->
+                <ImageView
+                    android:id="@+id/img_your_edit_advertise"
+                    android:layout_width="30dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_edit_black_24dp"
+                    android:layout_marginRight="30dp"
+                    />
 
-            <!--                </RelativeLayout>-->
+                <ImageView
+                    android:id="@+id/img_your_delete_advertise"
+                    android:layout_width="30dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_delete_black_24dp"
+                    />
+
+            </RelativeLayout>
 
         </LinearLayout>
 
         <ImageView
-            android:id="@+id/img_post"
+            android:id="@+id/img_your_post"
             android:layout_width="match_parent"
             android:layout_height="250dp"
             android:scaleType="centerCrop"
@@ -108,7 +118,7 @@
             android:padding="10dp">
 
             <TextView
-                android:id="@+id/tv_Price"
+                android:id="@+id/tv_your_Price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="RS 1500/-" />
@@ -119,33 +129,14 @@
                 android:layout_height="wrap_content"
                 android:text="Negotiable-"
                 android:layout_marginStart="10dp"
-                android:layout_toEndOf="@id/tv_Price"/>
+                android:layout_toEndOf="@id/tv_your_Price"/>
 
             <TextView
-                android:id="@+id/tv_negociable"
+                android:id="@+id/tv_your_negociable"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Yes"
                 android:layout_toEndOf="@id/tv_negociableTag"/>
-
-            <Button
-                android:id="@+id/btn_accept_delivery"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_alignParentEnd="true"
-                android:background="@drawable/ok"
-                android:backgroundTint="#3ea842"
-                android:clickable="true"
-                android:visibility="visible" />
-
-            <Button
-                android:id="@+id/btn_cancel_delivery"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_alignParentEnd="true"
-                android:background="@drawable/stop"
-                android:clickable="true"
-                android:visibility="invisible" />
 
         </RelativeLayout>
 
@@ -164,7 +155,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/tv_need_vehicle"
+                android:id="@+id/tv_your_need_vehicle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -189,7 +180,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/tv_contact_phone"
+                android:id="@+id/tv_your_contact_phone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -214,7 +205,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/tv_contact_eamil"
+                android:id="@+id/tv_your_contact_eamil"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -224,20 +215,13 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/tv_description"
+            android:id="@+id/tv_postedby_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="10dp"
-            android:text="For more details please contact the owners" />
-        <TextView
-            android:id="@+id/tv_your_postedby_id"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="10dp"
-         />
+            android:text=""
+            />
     </LinearLayout>
 </androidx.cardview.widget.CardView>

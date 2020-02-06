@@ -2,6 +2,8 @@ package com.example.zippy.model;
 
 public class Advertise {
     private String postedby;
+    private String contactno;
+    private String contactemail;
     private String goodstype;
     private String vehicleneed;
     private String sendfrom;
@@ -11,8 +13,10 @@ public class Advertise {
     private String ad_image;
     private Boolean statusofdelivery;
 
-    public Advertise(String postedby, String goodstype, String vehicleneed, String sendfrom, String destinationofdelivery, String priceofdelivery, String negociable, String ad_image, Boolean statusofdelivery) {
+    public Advertise(String postedby, String contactno, String contactemail, String goodstype, String vehicleneed, String sendfrom, String destinationofdelivery, String priceofdelivery, String negociable, String ad_image, Boolean statusofdelivery) {
         this.postedby = postedby;
+        this.contactno = contactno;
+        this.contactemail = contactemail;
         this.goodstype = goodstype;
         this.vehicleneed = vehicleneed;
         this.sendfrom = sendfrom;
@@ -23,8 +27,10 @@ public class Advertise {
         this.statusofdelivery = statusofdelivery;
     }
 
-    public Advertise(String postedby, String goodstype, String vehicleneed, String sendfrom, String destinationofdelivery, String priceofdelivery, String negociable, String ad_image) {
+    public Advertise(String postedby, String contactno, String contactemail, String goodstype, String vehicleneed, String sendfrom, String destinationofdelivery, String priceofdelivery, String negociable, String ad_image) {
         this.postedby = postedby;
+        this.contactno = contactno;
+        this.contactemail = contactemail;
         this.goodstype = goodstype;
         this.vehicleneed = vehicleneed;
         this.sendfrom = sendfrom;
@@ -40,6 +46,22 @@ public class Advertise {
 
     public void setPostedby(String postedby) {
         this.postedby = postedby;
+    }
+
+    public String getContactno() {
+        return contactno;
+    }
+
+    public void setContactno(String contactno) {
+        this.contactno = contactno;
+    }
+
+    public String getContactemail() {
+        return contactemail;
+    }
+
+    public void setContactemail(String contactemail) {
+        this.contactemail = contactemail;
     }
 
     public String getGoodstype() {

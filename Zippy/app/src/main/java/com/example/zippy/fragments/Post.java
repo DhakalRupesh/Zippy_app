@@ -103,65 +103,14 @@ public class Post extends Fragment {
         return view;
     }
 
-//    private void BrowseImage() {
-//        Intent browseImage = new Intent(Intent.ACTION_PICK);
-//        browseImage.setType("image/*");
-//        startActivityForResult(browseImage, 0);
-//    }
-//
-//    @Override
-//    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//
-//        if (resultCode == Activity.RESULT_OK) {
-//            if (data == null) {
-//                Toast.makeText(getActivity(), "Please select an image ", Toast.LENGTH_SHORT).show();
-//            }
-//        }
-//        Uri uri = data.getData();
-//        imgPost.setImageURI(uri);
-//        imagePath = getRealPathFromUri(uri);
-//    }
-//
-//    private String getRealPathFromUri(Uri uri){
-//        String[] projection = {MediaStore.Images.Media.DATA};
-//        CursorLoader loader = new CursorLoader(getActivity().getApplicationContext(),
-//                uri, projection, null, null, null);
-//        Cursor cursor = loader.loadInBackground();
-//        int colIndex = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
-//        cursor.moveToFirst();
-//        String result = cursor.getString(colIndex);
-//        cursor.close();
-//        return result;
-//    }
-//
-//    private void SaveImageOnly(){
-//        File file = new File(imagePath);
-//        RequestBody requestBody = RequestBody.create(MediaType.parse("multipart/form-data"), file);
-//        MultipartBody.Part body = MultipartBody.Part.createFormData("imageFile",
-//                file.getName(), requestBody);
-//
-//        Posti posti = Url.getInstance().create(Posti.class);
-//        Call<ImageResponse> imageResponseCall = posti.uploadImage(body);
-//        StrictModeClass.StrictMode();
-//
-//        try {
-//            Response<ImageResponse> imageResponseResponse = imageResponseCall.execute();
-//            imageName = imageResponseResponse.body().getFilename();
-//            Toast.makeText(getActivity(), "Image inserted" + imageName, Toast.LENGTH_SHORT).show();
-//        } catch (IOException e) {
-//            Toast.makeText(getActivity(), "Image Error" + e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
-//            e.printStackTrace();
-//        }
-//
-//    }
-
     public void AddNewPost(View v){
         String postedBy = Bottom_nav.user.get_id();
         String goods_type = etGoodstype.getText().toString();
         String sending_from = etSendingfrom.getText().toString();
         String sending_to = etSendingto.getText().toString();
         String price = etPrice.getText().toString();
+        String cNumber = Bottom_nav.user.getMobile();
+        String cEmail = Bottom_nav.user.getEmail();
 
         int VehicleSetting = rdoVehiclegrp.getCheckedRadioButtonId();
         rdBtnVehicle = v.findViewById(VehicleSetting);
@@ -171,7 +120,7 @@ public class Post extends Fragment {
         String vehicle_wanted = rdBtnVehicle.getText().toString();
         String negotiable = rdBtnNegotiable.getText().toString();
 
-        Advertise advertise = new Advertise(postedBy, goods_type, vehicle_wanted, sending_from, sending_to, price, negotiable, imageName);
+        Advertise advertise = new Advertise(postedBy, cNumber, cEmail , goods_type, vehicle_wanted, sending_from, sending_to, price, negotiable, imageName);
 
         Posti posti = Url.getInstance().create(Posti.class);
         Call<Void> callAdvertise = posti.addAdvertise(advertise);

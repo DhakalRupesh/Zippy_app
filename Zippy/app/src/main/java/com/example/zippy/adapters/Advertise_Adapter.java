@@ -62,7 +62,10 @@ public class Advertise_Adapter extends RecyclerView.Adapter<Advertise_Adapter.Po
         holder.tv_deliveredto.setText(advertise.getDestinationofdelivery());
         holder.tv_Price.setText(advertise.getPriceofdelivery());
         holder.tv_negociable.setText(advertise.getNegociable());
-//        holder.tv_postedby.setText(advertise.getPostedby());
+        holder.tv_goodstype.setText(advertise.getGoodstype());
+        holder.tv_need_vehicle.setText(advertise.getVehicleneed());
+        holder.tv_contactNo.setText(advertise.getContactno());
+        holder.tv_c_email.setText(advertise.getContactemail());
 
     }
 
@@ -78,7 +81,8 @@ public class Advertise_Adapter extends RecyclerView.Adapter<Advertise_Adapter.Po
 
     public class PostViewHolder extends RecyclerView.ViewHolder{
         CircleImageView circleImageViewProfile;
-        TextView tv_uname, tv_deliveredFrom, tv_Price, tv_negociable, tv_deliveredto, tv_postedby;
+        TextView tv_uname, tv_deliveredFrom, tv_Price, tv_negociable, tv_deliveredto, tv_postedby, tv_goodstype, tv_need_vehicle,
+                tv_contactNo, tv_c_email, tv_your_postedby_id;
         ImageView imageViewPost;
 
         public PostViewHolder(@NonNull View itemView, Context context, List<Advertise> postLists) {
@@ -88,9 +92,14 @@ public class Advertise_Adapter extends RecyclerView.Adapter<Advertise_Adapter.Po
             tv_uname = itemView.findViewById(R.id.tv_uname);
             tv_deliveredFrom = itemView.findViewById(R.id.tv_subinfo);
             tv_deliveredto = itemView.findViewById(R.id.tv_subinfo1);
+            tv_your_postedby_id = itemView.findViewById(R.id.tv_your_postedby_id);
+            tv_goodstype = itemView.findViewById(R.id.tv_Devlivery_type);
             tv_Price = itemView.findViewById(R.id.tv_Price);
             tv_negociable = itemView.findViewById(R.id.tv_negociable);
             tv_postedby = itemView.findViewById(R.id.tv_postedby_id);
+            tv_need_vehicle = itemView.findViewById(R.id.tv_need_vehicle);
+            tv_contactNo = itemView.findViewById(R.id.tv_contact_phone);
+            tv_c_email = itemView.findViewById(R.id.tv_contact_eamil);
             imageViewPost = itemView.findViewById(R.id.img_post);
 
         }

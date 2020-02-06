@@ -152,7 +152,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_below="@+id/tv_profile_mobile"
-                android:hint="Edit your profile to add your or company description"
+                android:text="Edit your profile to add your or company description"
                 />
         </LinearLayout>
 

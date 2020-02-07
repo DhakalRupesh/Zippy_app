@@ -93,8 +93,8 @@ public class Post extends Fragment {
                 @Override
                 public void onClick(View v) {
                     if(CheckEmpty()) {
-                        AddNewPost(view);
                         saveImageOnly();
+                        AddNewPost(view);
                     }
                 }
             });
@@ -120,7 +120,17 @@ public class Post extends Fragment {
         String vehicle_wanted = rdBtnVehicle.getText().toString();
         String negotiable = rdBtnNegotiable.getText().toString();
 
-        Advertise advertise = new Advertise(postedBy, cNumber, cEmail , goods_type, vehicle_wanted, sending_from, sending_to, price, negotiable, imageName);
+        Advertise advertise = new Advertise(
+                postedBy,
+                cNumber,
+                cEmail ,
+                goods_type,
+                vehicle_wanted,
+                sending_from,
+                sending_to,
+                price,
+                negotiable,
+                imageName);
 
         Posti posti = Url.getInstance().create(Posti.class);
         Call<Void> callAdvertise = posti.addAdvertise(advertise);

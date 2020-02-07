@@ -61,8 +61,8 @@ public class EditProfile extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(CheckEmpty()) {
-                    UpdateUserInfo();
                     saveImageOnly();
+                    UpdateUserInfo();
                 }
             }
         });

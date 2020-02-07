@@ -145,32 +145,38 @@ public class Advertise_Adapter extends RecyclerView.Adapter<Advertise_Adapter.Po
 
         final String vehicleAddedBy = Bottom_nav.user.get_id();
         final Boolean verified = true;
+//
+//        Vehiclei vehiclei = Url.getInstance().create(Vehiclei.class);
+//        Call<Vehicles> vehicleCall = vehiclei.getVehicle();
+//
+//        vehicleCall.enqueue(new Callback<Vehicles>() {
+//            @Override
+//            public void onResponse(Call<Vehicles> call, Response<Vehicles> response) {
+//
+////                if(!response.isSuccessful()){
+////                    return;
+////                }
+////
+////                Vehicles vehicles = response.body();
+////                vehicles.getVehicleAddedBy();
+////                vehicles.getVerified();
+////
+////                if (vehicleAddedBy != vehicles.getVehicleAddedBy() && vehicles.getVerified() != "true"){
+////                    Toast.makeText(pContext, "please register and verify your vehicle", Toast.LENGTH_SHORT).show();
+////                }
+//
+//            }
+//
+//            @Override
+//            public void onFailure(Call<Vehicles> call, Throwable t) {
+//                return;
+//            }
+//        });
+        if(vehicleAddedBy.equals(Vehicle.vehi.getVehicleAddedBy()) && verified.equals(Vehicle.vehi.getVerified())){
+            return true;
+        } else {
+            return false;
+        }
 
-        Vehiclei vehiclei = Url.getInstance().create(Vehiclei.class);
-        Call<Vehicles> vehicleCall = vehiclei.getVehicle();
-
-        vehicleCall.enqueue(new Callback<Vehicles>() {
-            @Override
-            public void onResponse(Call<Vehicles> call, Response<Vehicles> response) {
-
-                if(!response.isSuccessful()){
-                    return;
-                }
-
-                Vehicles vehicles = response.body();
-                vehicles.getVehicleAddedBy();
-                vehicles.getVerified();
-
-                if (vehicleAddedBy.matches(vehicles.getVehicleAddedBy()) && vehicles.getVerified().matches("true")){
-                    Toast.makeText(pContext, "hah", Toast.LENGTH_SHORT).show();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<Vehicles> call, Throwable t) {
-                return;
-            }
-        });
-        return true;
     }
 }

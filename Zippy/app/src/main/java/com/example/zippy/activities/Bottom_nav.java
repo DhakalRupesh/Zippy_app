@@ -16,11 +16,13 @@ import android.widget.Toast;
 
 import com.example.zippy.R;
 import com.example.zippy.api.Useri;
+import com.example.zippy.api.Vehiclei;
 import com.example.zippy.fragments.Home;
 import com.example.zippy.fragments.Post;
 import com.example.zippy.fragments.Profile;
 import com.example.zippy.fragments.Status;
 import com.example.zippy.model.User;
+import com.example.zippy.model.Vehicles;
 import com.example.zippy.url.Url;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -33,6 +35,7 @@ public class Bottom_nav extends AppCompatActivity {
     Fragment selectedFragment = null;
     private int STORAGE_PERMISSION_CODE = 1;
     public static User user;
+    public static Vehicles vehi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +48,7 @@ public class Bottom_nav extends AppCompatActivity {
 
         UserPermission();
         GetLoggedUserData();
+        getVehiclefroGlobal();
 
         getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment, new Home()).commit();
 
@@ -132,6 +136,23 @@ public class Bottom_nav extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<User> call, Throwable t) {
+
+            }
+        });
+    }
+
+    public void getVehiclefroGlobal(){
+        Vehiclei vehiclei = Url.getInstance().create(Vehiclei.class);
+        Call<Vehicles> advertiseCall = vehiclei.getVehicle();
+
+        advertiseCall.enqueue(new Callback<Vehicles>() {
+            @Override
+            public void onResponse(Call<Vehicles> call, Response<Vehicles> response) {
+                vehi = response.body();
+            }
+
+            @Override
+            public void onFailure(Call<Vehicles> call, Throwable t) {
 
             }
         });

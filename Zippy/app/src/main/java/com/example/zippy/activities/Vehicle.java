@@ -20,6 +20,7 @@ import android.widget.Toast;
 
 import com.example.zippy.R;
 import com.example.zippy.api.Vehiclei;
+import com.example.zippy.model.Advertise;
 import com.example.zippy.model.Vehicles;
 import com.example.zippy.serverresponse.ImageResponse;
 import com.example.zippy.strictmode.StrictModeClass;
@@ -71,11 +72,12 @@ public class Vehicle extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(CheckEmpty()) {
-                    PostVehicleInfo();
                     saveImageOnly();
+                    PostVehicleInfo();
                 }
             }
         });
+
     }
 
     private void PostVehicleInfo(){

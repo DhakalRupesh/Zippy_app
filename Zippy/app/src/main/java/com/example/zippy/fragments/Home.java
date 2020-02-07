@@ -1,5 +1,6 @@
 package com.example.zippy.fragments;
 
+import android.media.Image;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -12,7 +13,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.zippy.R;
@@ -36,7 +39,6 @@ public class Home extends Fragment {
     private static final String TAG = "Home";
     private EditText btnSearchLocation;
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -44,7 +46,6 @@ public class Home extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         featuredpost = view.findViewById(R.id.rv_delevery_advertisement);
         btnSearchLocation = view.findViewById(R.id.et_home_search);
-
 //        adlist = new ArrayList<>();
 ////
 //        adlist.add(new Advertise("me", "furniture", "4wheeler", "kathmandu", "bhaktapur", "2000" , "yes", "",true));
@@ -53,7 +54,6 @@ public class Home extends Fragment {
 //        Advertise_Adapter adapter = new Advertise_Adapter(adlist);
 //        featuredpost.setAdapter(adapter);
 //        featuredpost.setLayoutManager(layoutManager);
-
         GetAllPosts();
 
         btnSearchLocation.addTextChangedListener(new TextWatcher() {
@@ -112,7 +112,4 @@ public class Home extends Fragment {
         advertise_adapter.FilterPlaces(filteredList);
     }
 
-    private void UpdateStatus() {
-
-    }
 }

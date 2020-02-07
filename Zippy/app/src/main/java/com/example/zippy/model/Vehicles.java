@@ -18,6 +18,11 @@ public class Vehicles {
         this.license_Image = license_Image;
     }
 
+    public Vehicles(String vehicleAddedBy, String verified) {
+        VehicleAddedBy = vehicleAddedBy;
+        this.verified = verified;
+    }
+
     public String getVehicleAddedBy() {
         return VehicleAddedBy;
     }
@@ -64,5 +69,13 @@ public class Vehicles {
 
     public void setLicense_Image(String license_Image) {
         this.license_Image = license_Image;
+    }
+
+    public String getVerified() {
+        return verified;
+    }
+
+    public void setVerified(String verified) {
+        this.verified = verified;
     }
 }

@@ -1,6 +1,7 @@
 package com.example.zippy.api;
 
 import com.example.zippy.model.Advertise;
+import com.example.zippy.model.User;
 import com.example.zippy.serverresponse.ImageResponse;
 import com.example.zippy.url.Url;
 
@@ -10,8 +11,10 @@ import okhttp3.MultipartBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.Header;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 import retrofit2.http.Part;
 
 public interface Posti {
@@ -23,6 +26,9 @@ public interface Posti {
 
     @GET("/advertise/{id}")
     Call<List<Advertise>> getYourAdvertise(String id);
+
+    @PUT("/advertise/{id}")
+    Call<Advertise> updateStatus(@Header("Authorization") String token, @Body Advertise advertise);
 
     @Multipart
     @POST("/uploads")

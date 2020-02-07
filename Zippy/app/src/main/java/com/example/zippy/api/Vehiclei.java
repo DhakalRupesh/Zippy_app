@@ -9,6 +9,7 @@ import java.util.List;
 import okhttp3.MultipartBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.Field;
 import retrofit2.http.GET;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
@@ -20,7 +21,7 @@ public interface Vehiclei {
     Call<Void> addVehicle(@Body Vehicles vehicles);
 
     @GET("/vehicle")
-    Call<List<Advertise>> getVehicle();
+    Call<Vehicles> getVehicle();
 
     @Multipart
     @POST("/uploads")

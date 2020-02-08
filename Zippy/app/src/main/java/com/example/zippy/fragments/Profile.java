@@ -75,11 +75,11 @@ public class Profile extends Fragment {
             }
         });
 
-        loadUser();
+        loadUser(view);
         return view;
     }
 
-    private void loadUser() {
+    private void loadUser(final View view) {
         Useri useri = Url.getInstance().create(Useri.class);
         Call<User> userCall = useri.getme(Url.token);
 
@@ -90,15 +90,32 @@ public class Profile extends Fragment {
                     Toast.makeText(getActivity(), "Code " + response.code(), Toast.LENGTH_SHORT).show();
                     return;
                 }
-                String imagePath = Url.imagePath + response.body().getUserimage();
-                Picasso.get().load(imagePath).into(profileImage);
+//                String imagePath = Url.imagePath + response.body().getUserimage();
+//                Picasso.get().load(imagePath).into(profileImage);
+//
+//                try{
+//                    Picasso.get().load(imagePath).into(profileImage);
+//
+//                }catch (Exception e){
+//                    Picasso.get().load(R.drawable.user1).into(profileImage);
+//                }
+                User user = response.body();
+                String imgPath = Url.imagePath +  response.body().getUserimage();
 
-                username.setText(Bottom_nav.user.getUsername());
-                fname.setText(Bottom_nav.user.getFname());
-                lname.setText(Bottom_nav.user.getLname());
-                email.setText(Bottom_nav.user.getEmail());
-                phone.setText(Bottom_nav.user.getMobile());
-                description.setText(Bottom_nav.user.getDescription());
+                ImageView profile = view.findViewById(R.id.img_profile_Image);
+
+                try{
+                    Picasso.get().load(imgPath).into(profile);
+
+                }catch (Exception e){
+                    Picasso.get().load(R.drawable.user1).into(profile);
+                }
+                username.setText(user.getUsername());
+                fname.setText(user.getFname());
+                lname.setText(user.getLname());
+                email.setText(user.getEmail());
+                phone.setText(user.getMobile());
+                description.setText(user.getDescription());
             }
 
             @Override

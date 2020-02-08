@@ -66,8 +66,7 @@
         android:id="@+id/img_profile_Image"
         android:layout_width="125dp"
         android:layout_height="140dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginBottom="25dp"
+        android:layout_marginVertical="30dp"
         android:layout_below="@+id/top_bar"
         android:layout_centerInParent="true"
         android:src="@drawable/user1" />
@@ -85,7 +84,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:gravity="center"
+            android:gravity="left"
             >
 
             <TextView
@@ -124,7 +123,7 @@
             android:layout_width="match_parent"
             android:layout_below="@+id/linear1"
             android:orientation="vertical"
-            android:gravity="center"
+            android:gravity="left"
             >
 
             <TextView
@@ -176,7 +175,7 @@
             android:orientation="horizontal"
             android:layout_below="@+id/linear2"
             android:layout_marginTop="10dp"
-            android:gravity="center"
+            android:gravity="left"
             >
 
             <TextView

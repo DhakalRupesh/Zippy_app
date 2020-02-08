@@ -108,17 +108,25 @@
             android:padding="10dp">
 
             <TextView
+                android:id="@+id/tv_rs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="RS "
+                />
+
+            <TextView
                 android:id="@+id/tv_Price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="RS 1500/-" />
+                android:layout_marginLeft="20dp"
+                android:text="1500" />
 
             <TextView
                 android:id="@+id/tv_negociableTag"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Negotiable-"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="12dp"
                 android:layout_toEndOf="@id/tv_Price"/>
 
             <TextView

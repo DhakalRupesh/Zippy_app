@@ -1,10 +1,7 @@
 package com.example.zippy.model;
 
 public class Advertise {
-    private String postedby;
-    private String pstedbyName;
-    private String contactno;
-    private String contactemail;
+    private User postedby;
     private String goodstype;
     private String vehicleneed;
     private String sendfrom;
@@ -14,10 +11,24 @@ public class Advertise {
     private String ad_image;
     private Boolean statusofdelivery;
 
-    public Advertise(String postedby, String contactno, String contactemail, String goodstype, String vehicleneed, String sendfrom, String destinationofdelivery, String priceofdelivery, String negociable, String ad_image, Boolean statusofdelivery) {
-        this.postedby = postedby;
-        this.contactno = contactno;
-        this.contactemail = contactemail;
+//    public Advertise(User postedby, String pstedbyName, String pbyImage, String contactno, String contactemail, String goodstype, String vehicleneed, String sendfrom, String destinationofdelivery, String priceofdelivery, String negociable, String ad_image, Boolean statusofdelivery) {
+//        this.postedby = postedby;
+//        this.pstedbyName = pstedbyName;
+//        this.pbyImage = pbyImage;
+//        this.contactno = contactno;
+//        this.contactemail = contactemail;
+//        this.goodstype = goodstype;
+//        this.vehicleneed = vehicleneed;
+//        this.sendfrom = sendfrom;
+//        this.destinationofdelivery = destinationofdelivery;
+//        this.priceofdelivery = priceofdelivery;
+//        this.negociable = negociable;
+//        this.ad_image = ad_image;
+//        this.statusofdelivery = statusofdelivery;
+//    }
+
+
+    public Advertise(String goodstype, String vehicleneed, String sendfrom, String destinationofdelivery, String priceofdelivery, String negociable, String ad_image, Boolean statusofdelivery) {
         this.goodstype = goodstype;
         this.vehicleneed = vehicleneed;
         this.sendfrom = sendfrom;
@@ -28,51 +39,18 @@ public class Advertise {
         this.statusofdelivery = statusofdelivery;
     }
 
-    public Advertise(String postedby, String pstedbyName, String contactno, String contactemail, String goodstype, String vehicleneed, String sendfrom, String destinationofdelivery, String priceofdelivery, String negociable, String ad_image) {
-        this.postedby = postedby;
-        this.pstedbyName = pstedbyName;
-        this.contactno = contactno;
-        this.contactemail = contactemail;
-        this.goodstype = goodstype;
-        this.vehicleneed = vehicleneed;
-        this.sendfrom = sendfrom;
-        this.destinationofdelivery = destinationofdelivery;
-        this.priceofdelivery = priceofdelivery;
-        this.negociable = negociable;
-        this.ad_image = ad_image;
+    public Advertise(Boolean statusofdelivery) {
+        this.statusofdelivery = statusofdelivery;
     }
 
-    public String getPostedby() {
+    public User getPostedby() {
         return postedby;
     }
 
-    public void setPostedby(String postedby) {
+    public void setPostedby(User postedby) {
         this.postedby = postedby;
     }
 
-    public String getPstedbyName() {
-        return pstedbyName;
-    }
-
-    public void setPstedbyName(String pstedbyName) {
-        this.pstedbyName = pstedbyName;
-    }
-
-    public String getContactno() {
-        return contactno;
-    }
-
-    public void setContactno(String contactno) {
-        this.contactno = contactno;
-    }
-
-    public String getContactemail() {
-        return contactemail;
-    }
-
-    public void setContactemail(String contactemail) {
-        this.contactemail = contactemail;
-    }
 
     public String getGoodstype() {
         return goodstype;

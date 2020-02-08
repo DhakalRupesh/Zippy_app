@@ -3,6 +3,7 @@ package com.example.zippy.adapters;
 import android.content.Context;
 import android.graphics.BitmapFactory;
 import android.os.StrictMode;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,11 +17,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.zippy.R;
 import com.example.zippy.activities.Bottom_nav;
+import com.example.zippy.activities.EditProfile;
 import com.example.zippy.activities.Vehicle;
+import com.example.zippy.api.Posti;
 import com.example.zippy.api.Vehiclei;
 import com.example.zippy.model.Advertise;
+import com.example.zippy.model.User;
 import com.example.zippy.model.Vehicles;
 import com.example.zippy.url.Url;
+import com.squareup.picasso.Picasso;
 
 import java.io.InputStream;
 import java.net.URL;
@@ -35,7 +40,8 @@ import retrofit2.Response;
 public class Advertise_Adapter extends RecyclerView.Adapter<Advertise_Adapter.PostViewHolder> {
     Context pContext;
     List<Advertise> postLists;
-
+    List<User> userList;
+    private static final String TAG = "Advertise_Adapter";
     public Advertise_Adapter(List<Advertise> advertisesList) {
         this.postLists = advertisesList;
     }
@@ -56,26 +62,34 @@ public class Advertise_Adapter extends RecyclerView.Adapter<Advertise_Adapter.Po
     @Override
     public void onBindViewHolder(@NonNull PostViewHolder holder, int position) {
         Advertise advertise = postLists.get(position);
-        String imagePathPost = Url.imagePath + advertise.getAd_image();
-        Mode();
-        try {
-            URL url;
-            url = new URL(imagePathPost);
-            holder.imageViewPost.setImageBitmap(BitmapFactory.decodeStream((InputStream) url.getContent()));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        User userfrom=advertise.getPostedby();
 
-        holder.tv_uname.setText(advertise.getPstedbyName());
+        String imagePathPost = Url.imagePath + advertise.getAd_image();
+//        Mode();
+//        try {
+//            URL url;
+//            url = new URL(imagePathPost);
+//            holder.imageViewPost.setImageBitmap(BitmapFactory.decodeStream((InputStream) url.getContent()));
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+        Picasso.get().load(imagePathPost).into(holder.imageViewPost);
+
+//        Log.e(TAG, "onBindViewHolder: "+Url.imagePath+user.getUserimage() );
+//        Log.e(TAG, "onBindViewHolder: "+Url.imagePath+advertise.getAd_image() );
+
+//        Picasso.get().load(Url.imagePath+user.getUserimage()).into(holder.circleImageViewProfile);
+
+//        holder.tv_uname.setText(user.getUsername());
         holder.tv_deliveredFrom.setText(advertise.getSendfrom());
         holder.tv_deliveredto.setText(advertise.getDestinationofdelivery());
         holder.tv_Price.setText(advertise.getPriceofdelivery());
         holder.tv_negociable.setText(advertise.getNegociable());
         holder.tv_goodstype.setText(advertise.getGoodstype());
         holder.tv_need_vehicle.setText(advertise.getVehicleneed());
-        holder.tv_contactNo.setText(advertise.getContactno());
-        holder.tv_c_email.setText(advertise.getContactemail());
-        holder.tv_postedby_id.setText(advertise.getPostedby());
+//        holder.tv_contactNo.setText(user.getMobile());
+//        holder.tv_c_email.setText(user.getEmail());
+//        holder.tv_postedby_id.setText(user.get_id());
 
     }
 
@@ -121,6 +135,7 @@ public class Advertise_Adapter extends RecyclerView.Adapter<Advertise_Adapter.Po
                 public void onClick(View v) {
                     btnAccept.setVisibility(View.INVISIBLE);
                     btnCancel.setVisibility(View.VISIBLE);
+//                    UpdateStatus();
                 }
             });
 
@@ -136,45 +151,29 @@ public class Advertise_Adapter extends RecyclerView.Adapter<Advertise_Adapter.Po
     }
 
     private void UpdateStatus() {
+        Boolean Status = true;
 
+        Advertise advertiseStatusUpdate = new Advertise(Status);
+        Posti posti = Url.getInstance().create(Posti.class);
+        Call<Advertise> advertiseCallUpdate = posti.updateStatus(Url.token,advertiseStatusUpdate);
+
+        advertiseCallUpdate.enqueue(new Callback<Advertise>() {
+            @Override
+            public void onResponse(Call<Advertise> call, Response<Advertise> response) {
+//                if (!response.isSuccessful()) {
+//                    Toast.makeText(pContext, "Code " + response.code(), Toast.LENGTH_SHORT).show();
+//                    return;
+//                }
+
+                Toast.makeText(pContext, "Delivery accepted successfully", Toast.LENGTH_SHORT).show();
+
+            }
+
+            @Override
+            public void onFailure(Call<Advertise> call, Throwable t) {
+                Toast.makeText(pContext, "Error!! " + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+
+            }
+        });
     }
-
-//    private Boolean validateStatus() {
-//
-//        final String vehicleAddedBy = Bottom_nav.user.get_id();
-//        final Boolean verified = true;
-////
-////        Vehiclei vehiclei = Url.getInstance().create(Vehiclei.class);
-////        Call<Vehicles> vehicleCall = vehiclei.getVehicle();
-////
-////        vehicleCall.enqueue(new Callback<Vehicles>() {
-////            @Override
-////            public void onResponse(Call<Vehicles> call, Response<Vehicles> response) {
-////
-//////                if(!response.isSuccessful()){
-//////                    return;
-//////                }
-//////
-//////                Vehicles vehicles = response.body();
-//////                vehicles.getVehicleAddedBy();
-//////                vehicles.getVerified();
-//////
-//////                if (vehicleAddedBy != vehicles.getVehicleAddedBy() && vehicles.getVerified() != "true"){
-//////                    Toast.makeText(pContext, "please register and verify your vehicle", Toast.LENGTH_SHORT).show();
-//////                }
-////
-////            }
-////
-////            @Override
-////            public void onFailure(Call<Vehicles> call, Throwable t) {
-////                return;
-////            }
-////        });
-//        if(vehicleAddedBy.equals(Bottom_nav.vehi.getVehicleAddedBy()) && verified.equals(Bottom_nav.vehi.getVerified())){
-//            return true;
-//        } else {
-//            return false;
-//        }
-//
-//    }
 }

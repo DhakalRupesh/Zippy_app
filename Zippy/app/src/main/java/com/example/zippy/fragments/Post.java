@@ -96,8 +96,6 @@ public class Post extends Fragment {
                     AddNewPost(view);
                 }
             });
-
-
         return view;
     }
 
@@ -110,6 +108,7 @@ public class Post extends Fragment {
         String cNumber = Bottom_nav.user.getMobile();
         String cEmail = Bottom_nav.user.getEmail();
         String pName = Bottom_nav.user.getUsername();
+        String pImage = Bottom_nav.user.getUserimage();
 
         int VehicleSetting = rdoVehiclegrp.getCheckedRadioButtonId();
         rdBtnVehicle = v.findViewById(VehicleSetting);
@@ -120,17 +119,13 @@ public class Post extends Fragment {
         String negotiable = rdBtnNegotiable.getText().toString();
 
         Advertise advertise = new Advertise(
-                postedBy,
-                pName,
-                cNumber,
-                cEmail ,
                 goods_type,
                 vehicle_wanted,
                 sending_from,
                 sending_to,
                 price,
                 negotiable,
-                imageName);
+                imageName,false);
 
         Posti posti = Url.getInstance().create(Posti.class);
         Call<Void> callAdvertise = posti.addAdvertise(advertise);

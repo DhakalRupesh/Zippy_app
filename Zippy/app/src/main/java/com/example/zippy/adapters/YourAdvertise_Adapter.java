@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.zippy.R;
 import com.example.zippy.model.Advertise;
+import com.example.zippy.model.User;
 import com.example.zippy.url.Url;
 
 import java.io.InputStream;
@@ -48,6 +49,7 @@ public class YourAdvertise_Adapter extends RecyclerView.Adapter<YourAdvertise_Ad
     public void onBindViewHolder(@NonNull YourPostViewHolder holder, int position) {
         Advertise advertise = postLists.get(position);
         String imagePathPost = Url.imagePath + advertise.getAd_image();
+
         Mode();
         try {
             URL url;
@@ -57,12 +59,12 @@ public class YourAdvertise_Adapter extends RecyclerView.Adapter<YourAdvertise_Ad
             e.printStackTrace();
         }
 
-        holder.tv_uname.setText(advertise.getPostedby());
+//        holder.tv_uname.setText(advertise.getPostedby());
         holder.tv_deliveredFrom.setText(advertise.getSendfrom());
         holder.tv_deliveredto.setText(advertise.getDestinationofdelivery());
         holder.tv_Price.setText(advertise.getPriceofdelivery());
         holder.tv_negociable.setText(advertise.getNegociable());
-        holder.tv_postedby.setText(advertise.getPostedby());
+//        holder.tv_postedby.setText(advertise.getPostedby());
     }
 
     @Override

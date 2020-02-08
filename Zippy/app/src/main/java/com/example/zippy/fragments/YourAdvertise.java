@@ -52,7 +52,7 @@ public class YourAdvertise extends Fragment {
 //        Yourpost.setAdapter(yadapter);
 //        Yourpost.setLayoutManager(layoutManager);
 
-        GetAllPosts();
+//        GetAllPosts();
 
         return view;
     }

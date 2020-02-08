@@ -117,24 +117,11 @@
                 android:background="@drawable/textinput_border"
                 android:hint="something about you or a company" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:text="Select Profile Image" />
-
-            <ImageView
-                android:id="@+id/img_pro_image"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginTop="5dp"
-                android:src="@drawable/ic_photo_size_select_actual_black_24dp" />
-
             <Button
                 android:id="@+id/btn_pro_update"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="25dp"
                 android:background="@drawable/dark_button"
                 android:text="Update"
                 android:textAllCaps="false"

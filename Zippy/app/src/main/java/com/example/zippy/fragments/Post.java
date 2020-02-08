@@ -59,7 +59,7 @@ public class Post extends Fragment {
     private RadioButton rdBtnNegotiable;
     private ImageView imgPost;
     String imagePath;
-    private String imageName;
+    private String imageName = "";
     private Button btnPost;
 
     @Override
@@ -92,10 +92,8 @@ public class Post extends Fragment {
             btnPost.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if(CheckEmpty()) {
-                        saveImageOnly();
-                        AddNewPost(view);
-                    }
+                    saveImageOnly();
+                    AddNewPost(view);
                 }
             });
 
@@ -111,6 +109,7 @@ public class Post extends Fragment {
         String price = etPrice.getText().toString();
         String cNumber = Bottom_nav.user.getMobile();
         String cEmail = Bottom_nav.user.getEmail();
+        String pName = Bottom_nav.user.getUsername();
 
         int VehicleSetting = rdoVehiclegrp.getCheckedRadioButtonId();
         rdBtnVehicle = v.findViewById(VehicleSetting);
@@ -122,6 +121,7 @@ public class Post extends Fragment {
 
         Advertise advertise = new Advertise(
                 postedBy,
+                pName,
                 cNumber,
                 cEmail ,
                 goods_type,

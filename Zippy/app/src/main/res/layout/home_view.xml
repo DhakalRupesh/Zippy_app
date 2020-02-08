@@ -256,14 +256,11 @@
             android:layout_marginTop="5dp"
             android:layout_marginBottom="10dp"
             android:text="For more details please contact the owners" />
+
         <TextView
-            android:id="@+id/tv_your_postedby_id"
+            android:id="@+id/tv_postedby_Uid"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="5dp"
-            android:visibility="gone"
-            android:layout_marginBottom="10dp"
-         />
+            android:text="userID"/>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

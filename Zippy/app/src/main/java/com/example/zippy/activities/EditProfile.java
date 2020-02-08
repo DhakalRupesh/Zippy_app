@@ -35,9 +35,6 @@ import retrofit2.Response;
 public class EditProfile extends AppCompatActivity {
     private EditText fname, lname, phone, username, email, description;
     private Button btnUpdate;
-    String imagePath;
-    private String imageName;
-    private ImageView imgProfile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,24 +50,14 @@ public class EditProfile extends AppCompatActivity {
 
         btnUpdate = findViewById(R.id.btn_pro_update);
 
-        imgProfile = findViewById(R.id.img_pro_image);
-
         getUser();
 
         btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(CheckEmpty()) {
-                    saveImageOnly();
+                if(CheckEmpty()){
                     UpdateUserInfo();
                 }
-            }
-        });
-
-        imgProfile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                BrowseImage();
             }
         });
     }
@@ -90,7 +77,7 @@ public class EditProfile extends AppCompatActivity {
         String updateEmail = email.getText().toString();
         String updateDesc = description.getText().toString();
 
-        User user = new User(updatePhone, updateEmail, updateUsername, updateDesc, imageName);
+        User user = new User(updatePhone, updateEmail, updateUsername, updateDesc);
 
         Useri useri = Url.getInstance().create(Useri.class);
         Call<User> userCall = useri.updateProfile(Url.token, user);
@@ -107,59 +94,6 @@ public class EditProfile extends AppCompatActivity {
                 Toast.makeText(EditProfile.this, "Error!! " + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
             }
         });
-    }
-
-    private void BrowseImage() {
-        Intent intent = new Intent(Intent.ACTION_PICK);
-        intent.setType("image/*");
-        startActivityForResult(intent, 0);
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if (resultCode == RESULT_OK) {
-            if (data == null) {
-                Toast.makeText(this, "Please select an image ", Toast.LENGTH_SHORT).show();
-            }
-        }
-        Uri uri = data.getData();
-        imgProfile.setImageURI(uri);
-        imagePath = getRealPathFromUri(uri);
-    }
-
-    private String getRealPathFromUri(Uri uri) {
-        String[] projection = {MediaStore.Images.Media.DATA};
-        CursorLoader loader = new CursorLoader(getApplicationContext(),
-                uri, projection, null, null, null);
-        Cursor cursor = loader.loadInBackground();
-        int colIndex = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
-        cursor.moveToFirst();
-        String result = cursor.getString(colIndex);
-        cursor.close();
-        return result;
-    }
-
-    private void saveImageOnly() {
-        File file = new File(imagePath);
-        RequestBody requestBody = RequestBody.create(MediaType.parse("multipart/form-data"), file);
-        MultipartBody.Part body = MultipartBody.Part.createFormData("imageFile",
-                file.getName(), requestBody);
-
-        Useri usersAPI = Url.getInstance().create(Useri.class);
-        Call<ImageResponse> responseBodyCall = usersAPI.uploadImage(body);
-
-        StrictModeClass.StrictMode();
-
-        try {
-            Response<ImageResponse> imageResponseResponse = responseBodyCall.execute();
-            imageName = imageResponseResponse.body().getFilename();
-            Toast.makeText(this, "Image inserted" + imageName, Toast.LENGTH_SHORT).show();
-        } catch (IOException e) {
-            Toast.makeText(this, "Error" + e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
-            e.printStackTrace();
-        }
     }
 
     private boolean CheckEmpty(){

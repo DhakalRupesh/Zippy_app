@@ -84,7 +84,7 @@ public class YourAdvertise_Adapter extends RecyclerView.Adapter<YourAdvertise_Ad
             tv_deliveredto = itemView.findViewById(R.id.tv_your_subinfo1);
             tv_Price = itemView.findViewById(R.id.tv_your_Price);
             tv_negociable = itemView.findViewById(R.id.tv_your_negociable);
-            tv_postedby = itemView.findViewById(R.id.tv_your_postedby_id);
+//            tv_postedby = itemView.findViewById(R.id.tv_your_postedby_id);
             imageViewPost = itemView.findViewById(R.id.img_your_post);
 
         }

@@ -66,7 +66,7 @@ public class Advertise_Adapter extends RecyclerView.Adapter<Advertise_Adapter.Po
             e.printStackTrace();
         }
 
-        holder.tv_uname.setText(advertise.getPostedby());
+        holder.tv_uname.setText(advertise.getPstedbyName());
         holder.tv_deliveredFrom.setText(advertise.getSendfrom());
         holder.tv_deliveredto.setText(advertise.getDestinationofdelivery());
         holder.tv_Price.setText(advertise.getPriceofdelivery());
@@ -75,6 +75,7 @@ public class Advertise_Adapter extends RecyclerView.Adapter<Advertise_Adapter.Po
         holder.tv_need_vehicle.setText(advertise.getVehicleneed());
         holder.tv_contactNo.setText(advertise.getContactno());
         holder.tv_c_email.setText(advertise.getContactemail());
+        holder.tv_postedby_id.setText(advertise.getPostedby());
 
     }
 
@@ -90,8 +91,8 @@ public class Advertise_Adapter extends RecyclerView.Adapter<Advertise_Adapter.Po
 
     public class PostViewHolder extends RecyclerView.ViewHolder{
         CircleImageView circleImageViewProfile;
-        TextView tv_uname, tv_deliveredFrom, tv_Price, tv_negociable, tv_deliveredto, tv_postedby, tv_goodstype, tv_need_vehicle,
-                tv_contactNo, tv_c_email, tv_your_postedby_id;
+        TextView tv_uname, tv_deliveredFrom, tv_Price, tv_negociable, tv_deliveredto, tv_goodstype, tv_need_vehicle,
+                tv_contactNo, tv_c_email, tv_postedby_id;
         ImageView imageViewPost;
         Button btnAccept, btnCancel;
 
@@ -103,11 +104,10 @@ public class Advertise_Adapter extends RecyclerView.Adapter<Advertise_Adapter.Po
             tv_uname = itemView.findViewById(R.id.tv_uname);
             tv_deliveredFrom = itemView.findViewById(R.id.tv_subinfo);
             tv_deliveredto = itemView.findViewById(R.id.tv_subinfo1);
-            tv_your_postedby_id = itemView.findViewById(R.id.tv_your_postedby_id);
+            tv_postedby_id = itemView.findViewById(R.id.tv_postedby_Uid);
             tv_goodstype = itemView.findViewById(R.id.tv_Devlivery_type);
             tv_Price = itemView.findViewById(R.id.tv_Price);
             tv_negociable = itemView.findViewById(R.id.tv_negociable);
-            tv_postedby = itemView.findViewById(R.id.tv_postedby_id);
             tv_need_vehicle = itemView.findViewById(R.id.tv_need_vehicle);
             tv_contactNo = itemView.findViewById(R.id.tv_contact_phone);
             tv_c_email = itemView.findViewById(R.id.tv_contact_eamil);
@@ -116,15 +116,13 @@ public class Advertise_Adapter extends RecyclerView.Adapter<Advertise_Adapter.Po
             btnAccept = itemView.findViewById(R.id.btn_accept_delivery);
             btnCancel = itemView.findViewById(R.id.btn_cancel_delivery);
 
-            if(validateStatus()) {
-                btnAccept.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        btnAccept.setVisibility(View.INVISIBLE);
-                        btnCancel.setVisibility(View.VISIBLE);
-                    }
-                });
-            }
+            btnAccept.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    btnAccept.setVisibility(View.INVISIBLE);
+                    btnCancel.setVisibility(View.VISIBLE);
+                }
+            });
 
             btnCancel.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -141,42 +139,42 @@ public class Advertise_Adapter extends RecyclerView.Adapter<Advertise_Adapter.Po
 
     }
 
-    private Boolean validateStatus() {
-
-        final String vehicleAddedBy = Bottom_nav.user.get_id();
-        final Boolean verified = true;
+//    private Boolean validateStatus() {
 //
-//        Vehiclei vehiclei = Url.getInstance().create(Vehiclei.class);
-//        Call<Vehicles> vehicleCall = vehiclei.getVehicle();
-//
-//        vehicleCall.enqueue(new Callback<Vehicles>() {
-//            @Override
-//            public void onResponse(Call<Vehicles> call, Response<Vehicles> response) {
-//
-////                if(!response.isSuccessful()){
-////                    return;
-////                }
+//        final String vehicleAddedBy = Bottom_nav.user.get_id();
+//        final Boolean verified = true;
 ////
-////                Vehicles vehicles = response.body();
-////                vehicles.getVehicleAddedBy();
-////                vehicles.getVerified();
+////        Vehiclei vehiclei = Url.getInstance().create(Vehiclei.class);
+////        Call<Vehicles> vehicleCall = vehiclei.getVehicle();
 ////
-////                if (vehicleAddedBy != vehicles.getVehicleAddedBy() && vehicles.getVerified() != "true"){
-////                    Toast.makeText(pContext, "please register and verify your vehicle", Toast.LENGTH_SHORT).show();
-////                }
+////        vehicleCall.enqueue(new Callback<Vehicles>() {
+////            @Override
+////            public void onResponse(Call<Vehicles> call, Response<Vehicles> response) {
+////
+//////                if(!response.isSuccessful()){
+//////                    return;
+//////                }
+//////
+//////                Vehicles vehicles = response.body();
+//////                vehicles.getVehicleAddedBy();
+//////                vehicles.getVerified();
+//////
+//////                if (vehicleAddedBy != vehicles.getVehicleAddedBy() && vehicles.getVerified() != "true"){
+//////                    Toast.makeText(pContext, "please register and verify your vehicle", Toast.LENGTH_SHORT).show();
+//////                }
+////
+////            }
+////
+////            @Override
+////            public void onFailure(Call<Vehicles> call, Throwable t) {
+////                return;
+////            }
+////        });
+//        if(vehicleAddedBy.equals(Bottom_nav.vehi.getVehicleAddedBy()) && verified.equals(Bottom_nav.vehi.getVerified())){
+//            return true;
+//        } else {
+//            return false;
+//        }
 //
-//            }
-//
-//            @Override
-//            public void onFailure(Call<Vehicles> call, Throwable t) {
-//                return;
-//            }
-//        });
-        if(vehicleAddedBy.equals(Vehicle.vehi.getVehicleAddedBy()) && verified.equals(Vehicle.vehi.getVerified())){
-            return true;
-        } else {
-            return false;
-        }
-
-    }
+//    }
 }

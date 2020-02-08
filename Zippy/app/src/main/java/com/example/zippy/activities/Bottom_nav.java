@@ -26,6 +26,8 @@ import com.example.zippy.model.Vehicles;
 import com.example.zippy.url.Url;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -35,7 +37,7 @@ public class Bottom_nav extends AppCompatActivity {
     Fragment selectedFragment = null;
     private int STORAGE_PERMISSION_CODE = 1;
     public static User user;
-    public static Vehicles vehi;
+    public static List<Vehicles> vehi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -143,16 +145,17 @@ public class Bottom_nav extends AppCompatActivity {
 
     public void getVehiclefroGlobal(){
         Vehiclei vehiclei = Url.getInstance().create(Vehiclei.class);
-        Call<Vehicles> advertiseCall = vehiclei.getVehicle();
+        Call<List<Vehicles>> advertiseCall = vehiclei.getVehicle();
 
-        advertiseCall.enqueue(new Callback<Vehicles>() {
+        advertiseCall.enqueue(new Callback<List<Vehicles>>() {
             @Override
-            public void onResponse(Call<Vehicles> call, Response<Vehicles> response) {
+            public void onResponse(Call<List<Vehicles>> call, Response<List<Vehicles>> response) {
                 vehi = response.body();
+//                vehi.getVerified();
             }
 
             @Override
-            public void onFailure(Call<Vehicles> call, Throwable t) {
+            public void onFailure(Call<List<Vehicles>> call, Throwable t) {
 
             }
         });

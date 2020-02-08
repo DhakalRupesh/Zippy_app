@@ -25,21 +25,22 @@ public class User {
         this.enabled = enabled;
     }
 
-        public User(String fname, String lname, String mobile, String email, String username, String password) {
+    public User(String fname, String lname, String mobile, String email, String username, String description, String userimage, String password) {
         this.fname = fname;
         this.lname = lname;
         this.mobile = mobile;
         this.email = email;
         this.username = username;
+        this.description = description;
+        this.userimage = userimage;
         this.password = password;
     }
 
-    public User(String mobile, String email, String username, String description, String userimage) {
+    public User(String mobile, String email, String username, String description) {
         this.mobile = mobile;
         this.email = email;
         this.username = username;
         this.description = description;
-        this.userimage = userimage;
     }
 
     public String get_id() {
@@ -96,6 +97,14 @@ public class User {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getUserimage() {
+        return userimage;
+    }
+
+    public void setUserimage(String userimage) {
+        this.userimage = userimage;
     }
 
     public String getPassword() {

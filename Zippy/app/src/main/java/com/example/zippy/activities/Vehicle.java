@@ -71,10 +71,10 @@ public class Vehicle extends AppCompatActivity {
         btnVerify.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(CheckEmpty()) {
+//                if(CheckEmpty()) {
                     saveImageOnly();
                     PostVehicleInfo();
-                }
+//                }
             }
         });
 

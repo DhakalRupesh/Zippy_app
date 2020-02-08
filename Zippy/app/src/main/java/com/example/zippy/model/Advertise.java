@@ -2,6 +2,7 @@ package com.example.zippy.model;
 
 public class Advertise {
     private String postedby;
+    private String pstedbyName;
     private String contactno;
     private String contactemail;
     private String goodstype;
@@ -27,8 +28,9 @@ public class Advertise {
         this.statusofdelivery = statusofdelivery;
     }
 
-    public Advertise(String postedby, String contactno, String contactemail, String goodstype, String vehicleneed, String sendfrom, String destinationofdelivery, String priceofdelivery, String negociable, String ad_image) {
+    public Advertise(String postedby, String pstedbyName, String contactno, String contactemail, String goodstype, String vehicleneed, String sendfrom, String destinationofdelivery, String priceofdelivery, String negociable, String ad_image) {
         this.postedby = postedby;
+        this.pstedbyName = pstedbyName;
         this.contactno = contactno;
         this.contactemail = contactemail;
         this.goodstype = goodstype;
@@ -46,6 +48,14 @@ public class Advertise {
 
     public void setPostedby(String postedby) {
         this.postedby = postedby;
+    }
+
+    public String getPstedbyName() {
+        return pstedbyName;
+    }
+
+    public void setPstedbyName(String pstedbyName) {
+        this.pstedbyName = pstedbyName;
     }
 
     public String getContactno() {

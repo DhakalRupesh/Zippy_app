@@ -20,8 +20,8 @@ public interface Vehiclei {
     @POST("/vehicles")
     Call<Void> addVehicle(@Body Vehicles vehicles);
 
-    @GET("/vehicle")
-    Call<Vehicles> getVehicle();
+    @GET("/vehicles")
+    Call<List<Vehicles>> getVehicle();
 
     @Multipart
     @POST("/uploads")

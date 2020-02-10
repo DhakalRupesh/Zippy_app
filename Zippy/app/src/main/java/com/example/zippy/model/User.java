@@ -10,7 +10,23 @@ public class User {
     private String description;
     private String userimage;
     private String password;
+    private Vehicles vehicleOfUser;
     private Boolean enabled;
+
+
+    public User(String _id, String fname, String lname, String mobile, String email, String username, String description, String userimage, String password, Vehicles vehicleOfUser, Boolean enabled) {
+        this._id = _id;
+        this.fname = fname;
+        this.lname = lname;
+        this.mobile = mobile;
+        this.email = email;
+        this.username = username;
+        this.description = description;
+        this.userimage = userimage;
+        this.password = password;
+        this.vehicleOfUser = vehicleOfUser;
+        this.enabled = enabled;
+    }
 
     public User(String _id, String fname, String lname, String mobile, String email, String username, String description, String userimage, String password, Boolean enabled) {
         this._id = _id;
@@ -113,6 +129,14 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Vehicles getVehicleOfUser() {
+        return vehicleOfUser;
+    }
+
+    public void setVehicleOfUser(Vehicles vehicleOfUser) {
+        this.vehicleOfUser = vehicleOfUser;
     }
 
     public Boolean getEnabled() {

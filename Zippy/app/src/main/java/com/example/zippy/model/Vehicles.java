@@ -1,7 +1,6 @@
 package com.example.zippy.model;
 
 public class Vehicles {
-   private String VehicleAddedBy;
    private String brandName;
    private String vehicleType;
    private String vehicle_no;
@@ -9,26 +8,12 @@ public class Vehicles {
    private String license_Image;
    private String verified;
 
-    public Vehicles(String vehicleAddedBy, String brandName, String vehicleType, String vehicle_no, String license_no, String license_Image) {
-        VehicleAddedBy = vehicleAddedBy;
+    public Vehicles(String brandName, String vehicleType, String vehicle_no, String license_no, String license_Image) {
         this.brandName = brandName;
         this.vehicleType = vehicleType;
         this.vehicle_no = vehicle_no;
         this.license_no = license_no;
         this.license_Image = license_Image;
-    }
-
-    public Vehicles(String vehicleAddedBy, String verified) {
-        VehicleAddedBy = vehicleAddedBy;
-        this.verified = verified;
-    }
-
-    public String getVehicleAddedBy() {
-        return VehicleAddedBy;
-    }
-
-    public void setVehicleAddedBy(String vehicleAddedBy) {
-        VehicleAddedBy = vehicleAddedBy;
     }
 
     public String getBrandName() {

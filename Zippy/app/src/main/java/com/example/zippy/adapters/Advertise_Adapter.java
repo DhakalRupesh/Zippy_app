@@ -40,10 +40,12 @@ import retrofit2.Response;
 public class Advertise_Adapter extends RecyclerView.Adapter<Advertise_Adapter.PostViewHolder> {
     Context pContext;
     List<Advertise> postLists;
-    List<User> userList;
+    private static User userme;
     private static final String TAG = "Advertise_Adapter";
-    public Advertise_Adapter(List<Advertise> advertisesList) {
-        this.postLists = advertisesList;
+
+    public Advertise_Adapter(Context pContext, List<Advertise> postLists) {
+        this.pContext = pContext;
+        this.postLists = postLists;
     }
 
     @NonNull
@@ -60,37 +62,30 @@ public class Advertise_Adapter extends RecyclerView.Adapter<Advertise_Adapter.Po
     }
 
     @Override
-    public void onBindViewHolder(@NonNull PostViewHolder holder, int position) {
-        Advertise advertise = postLists.get(position);
-        User userfrom=advertise.getPostedby();
-
+    public void onBindViewHolder(@NonNull final PostViewHolder holder, int position) {
+        final Advertise advertise = postLists.get(position);
         String imagePathPost = Url.imagePath + advertise.getAd_image();
-//        Mode();
-//        try {
-//            URL url;
-//            url = new URL(imagePathPost);
-//            holder.imageViewPost.setImageBitmap(BitmapFactory.decodeStream((InputStream) url.getContent()));
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
         Picasso.get().load(imagePathPost).into(holder.imageViewPost);
 
-//        Log.e(TAG, "onBindViewHolder: "+Url.imagePath+user.getUserimage() );
-//        Log.e(TAG, "onBindViewHolder: "+Url.imagePath+advertise.getAd_image() );
+        userme = advertise.getPostedby();
+//        String userName=userme.getLname();
 
-//        Picasso.get().load(Url.imagePath+user.getUserimage()).into(holder.circleImageViewProfile);
-
-//        holder.tv_uname.setText(user.getUsername());
-        holder.tv_deliveredFrom.setText(advertise.getSendfrom());
+//        Log.e(TAG, "onBindViewHolder: "+userName );
+//        holder.tv_deliveredFrom.setText(userName);
         holder.tv_deliveredto.setText(advertise.getDestinationofdelivery());
         holder.tv_Price.setText(advertise.getPriceofdelivery());
         holder.tv_negociable.setText(advertise.getNegociable());
         holder.tv_goodstype.setText(advertise.getGoodstype());
         holder.tv_need_vehicle.setText(advertise.getVehicleneed());
-//        holder.tv_contactNo.setText(user.getMobile());
-//        holder.tv_c_email.setText(user.getEmail());
-//        holder.tv_postedby_id.setText(user.get_id());
 
+        holder.btnAccept.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                if(Bottom_nav.user.getVehicleOfUser()){
+//
+//                }
+            }
+        });
     }
 
     @Override
@@ -109,13 +104,15 @@ public class Advertise_Adapter extends RecyclerView.Adapter<Advertise_Adapter.Po
                 tv_contactNo, tv_c_email, tv_postedby_id;
         ImageView imageViewPost;
         Button btnAccept, btnCancel;
+        List<Advertise> list;
+        Context mContext;
 
 
         public PostViewHolder(@NonNull View itemView, Context context, List<Advertise> postLists) {
             super(itemView);
 
             circleImageViewProfile = itemView.findViewById(R.id.img_profile_image);
-            tv_uname = itemView.findViewById(R.id.tv_uname);
+            tv_uname=itemView.findViewById(R.id.tv_uname);
             tv_deliveredFrom = itemView.findViewById(R.id.tv_subinfo);
             tv_deliveredto = itemView.findViewById(R.id.tv_subinfo1);
             tv_postedby_id = itemView.findViewById(R.id.tv_postedby_Uid);
@@ -129,24 +126,8 @@ public class Advertise_Adapter extends RecyclerView.Adapter<Advertise_Adapter.Po
 
             btnAccept = itemView.findViewById(R.id.btn_accept_delivery);
             btnCancel = itemView.findViewById(R.id.btn_cancel_delivery);
-
-            btnAccept.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    btnAccept.setVisibility(View.INVISIBLE);
-                    btnCancel.setVisibility(View.VISIBLE);
-//                    UpdateStatus();
-                }
-            });
-
-            btnCancel.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    btnCancel.setVisibility(View.INVISIBLE);
-                    btnAccept.setVisibility(View.VISIBLE);
-                }
-            });
-
+            this.list = postLists;
+            this.mContext = context;
         }
     }
 

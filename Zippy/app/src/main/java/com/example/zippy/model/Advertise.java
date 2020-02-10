@@ -11,22 +11,17 @@ public class Advertise {
     private String ad_image;
     private Boolean statusofdelivery;
 
-//    public Advertise(User postedby, String pstedbyName, String pbyImage, String contactno, String contactemail, String goodstype, String vehicleneed, String sendfrom, String destinationofdelivery, String priceofdelivery, String negociable, String ad_image, Boolean statusofdelivery) {
-//        this.postedby = postedby;
-//        this.pstedbyName = pstedbyName;
-//        this.pbyImage = pbyImage;
-//        this.contactno = contactno;
-//        this.contactemail = contactemail;
-//        this.goodstype = goodstype;
-//        this.vehicleneed = vehicleneed;
-//        this.sendfrom = sendfrom;
-//        this.destinationofdelivery = destinationofdelivery;
-//        this.priceofdelivery = priceofdelivery;
-//        this.negociable = negociable;
-//        this.ad_image = ad_image;
-//        this.statusofdelivery = statusofdelivery;
-//    }
-
+    public Advertise(User postedby, String goodstype, String vehicleneed, String sendfrom, String destinationofdelivery, String priceofdelivery, String negociable, String ad_image, Boolean statusofdelivery) {
+        this.postedby = postedby;
+        this.goodstype = goodstype;
+        this.vehicleneed = vehicleneed;
+        this.sendfrom = sendfrom;
+        this.destinationofdelivery = destinationofdelivery;
+        this.priceofdelivery = priceofdelivery;
+        this.negociable = negociable;
+        this.ad_image = ad_image;
+        this.statusofdelivery = statusofdelivery;
+    }
 
     public Advertise(String goodstype, String vehicleneed, String sendfrom, String destinationofdelivery, String priceofdelivery, String negociable, String ad_image, Boolean statusofdelivery) {
         this.goodstype = goodstype;
@@ -43,17 +38,16 @@ public class Advertise {
         this.statusofdelivery = statusofdelivery;
     }
 
+    public String getGoodstype() {
+        return goodstype;
+    }
+
     public User getPostedby() {
         return postedby;
     }
 
     public void setPostedby(User postedby) {
         this.postedby = postedby;
-    }
-
-
-    public String getGoodstype() {
-        return goodstype;
     }
 
     public void setGoodstype(String goodstype) {

@@ -92,7 +92,7 @@ public class Vehicle extends AppCompatActivity {
 
         String vehicleType = rdBtnVehicleType.getText().toString();
 
-        Vehicles vehicles = new Vehicles(VehicleAddedBy, brandName, vehicleType, vehicle_no, license_no, imageName);
+        Vehicles vehicles = new Vehicles( brandName, vehicleType, vehicle_no, license_no, imageName);
         Vehiclei vehicleAPI = Url.getInstance().create(Vehiclei.class);
         Call<Void> voidCallVehicle = vehicleAPI.addVehicle(vehicles);
 

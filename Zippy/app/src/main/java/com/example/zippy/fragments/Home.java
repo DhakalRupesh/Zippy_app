@@ -34,7 +34,7 @@ import retrofit2.Response;
 public class Home extends Fragment {
 
     public RecyclerView featuredpost;
-    List<Advertise> adlist;
+    List<Advertise> advlist;
     Advertise_Adapter advertise_adapter;
     private static final String TAG = "Home";
     private EditText btnSearchLocation;
@@ -78,7 +78,7 @@ public class Home extends Fragment {
 
     private void GetAllPosts(){
         Posti postapi = Url.getInstance().create(Posti.class);
-        Call<List<Advertise>> listCall = postapi.getAdvertise();
+        Call<List<Advertise>> listCall = postapi.getAdvertise(Url.token);
 
         listCall.enqueue(new Callback<List<Advertise>>() {
             @Override
@@ -88,10 +88,10 @@ public class Home extends Fragment {
                     return;
                 }
 
-                adlist = response.body();
-                advertise_adapter = new Advertise_Adapter(adlist);
-                featuredpost.setLayoutManager(new LinearLayoutManager(getContext()));
+                advlist = response.body();
+                advertise_adapter = new Advertise_Adapter(getContext(), advlist);
                 featuredpost.setAdapter(advertise_adapter);
+                featuredpost.setLayoutManager(new LinearLayoutManager(getContext()));
             }
 
             @Override
@@ -104,7 +104,7 @@ public class Home extends Fragment {
     // search
     private void filter(String text) {
         ArrayList<Advertise> filteredList=new ArrayList<>();
-        for( Advertise item: adlist){
+        for( Advertise item: advlist){
             if( item.getDestinationofdelivery().toLowerCase().contains(text.toLowerCase())){
                 filteredList.add(item);
             }

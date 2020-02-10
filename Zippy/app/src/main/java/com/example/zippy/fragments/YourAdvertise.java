@@ -71,9 +71,9 @@ public class YourAdvertise extends Fragment {
                 }
 
                 adlist = response.body();
-                advertise_adapter = new Advertise_Adapter(adlist);
-                Yourpost.setLayoutManager(new LinearLayoutManager(getContext()));
-                Yourpost.setAdapter(advertise_adapter);
+//                advertise_adapter = new Advertise_Adapter(adlist);
+//                Yourpost.setLayoutManager(new LinearLayoutManager(getContext()));
+//                Yourpost.setAdapter(advertise_adapter);
             }
 
             @Override

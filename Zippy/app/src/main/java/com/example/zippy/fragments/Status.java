@@ -33,7 +33,7 @@ public class Status extends Fragment {
         ViewPagerAdapter viewPageAdapter = new ViewPagerAdapter(getFragmentManager());
 
         viewPageAdapter.addFragment(new YourAdvertise(), "YOUR ADVERTISE");
-        viewPageAdapter.addFragment(new BookedAdvertise(), "BOOKED");
+        viewPageAdapter.addFragment(new BookedAdvertise(), "YOUR BOOKINGS");
 
         viewPager.setAdapter(viewPageAdapter);
         tabLayout.setupWithViewPager(viewPager);

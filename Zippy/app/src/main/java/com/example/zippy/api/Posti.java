@@ -22,7 +22,7 @@ public interface Posti {
     Call<Void> addAdvertise(@Body Advertise advertise);
 
     @GET("/advertise")
-    Call<List<Advertise>> getAdvertise();
+    Call<List<Advertise>> getAdvertise(@Header("Authorization") String token);
 
     @GET("/advertise/{id}")
     Call<List<Advertise>> getYourAdvertise(String id);

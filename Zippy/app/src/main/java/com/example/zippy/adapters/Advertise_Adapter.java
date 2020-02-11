@@ -76,6 +76,7 @@ public class Advertise_Adapter extends RecyclerView.Adapter<Advertise_Adapter.Po
         holder.tv_contactNo.setText(userme.getMobile());
         holder.tv_c_email.setText(userme.getEmail());
 
+        holder.tv_deliveredFrom.setText(advertise.getSendfrom());
         holder.tv_deliveredto.setText(advertise.getDestinationofdelivery());
         holder.tv_Price.setText(advertise.getPriceofdelivery());
         holder.tv_negociable.setText(advertise.getNegociable());
@@ -117,11 +118,12 @@ public class Advertise_Adapter extends RecyclerView.Adapter<Advertise_Adapter.Po
 
             tv_deliveredFrom = itemView.findViewById(R.id.tv_subinfo);
             tv_deliveredto = itemView.findViewById(R.id.tv_subinfo1);
-            tv_postedby_id = itemView.findViewById(R.id.tv_postedby_Uid);
             tv_goodstype = itemView.findViewById(R.id.tv_Devlivery_type);
             tv_negociable = itemView.findViewById(R.id.tv_negociable);
             tv_need_vehicle = itemView.findViewById(R.id.tv_need_vehicle);
             tv_Price = itemView.findViewById(R.id.tv_Price);
+
+            tv_postedby_id = itemView.findViewById(R.id.tv_postedby_Uid);
 
             btnAccept = itemView.findViewById(R.id.btn_accept_delivery);
             btnCancel = itemView.findViewById(R.id.btn_cancel_delivery);

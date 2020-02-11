@@ -73,20 +73,15 @@ public class Advertise_Adapter extends RecyclerView.Adapter<Advertise_Adapter.Po
         Picasso.get().load(imageUser).into(holder.circleImageViewProfile);
 
         holder.tv_uname.setText(userme.getUsername());
+        holder.tv_contactNo.setText(userme.getMobile());
+        holder.tv_c_email.setText(userme.getEmail());
+
         holder.tv_deliveredto.setText(advertise.getDestinationofdelivery());
         holder.tv_Price.setText(advertise.getPriceofdelivery());
         holder.tv_negociable.setText(advertise.getNegociable());
         holder.tv_goodstype.setText(advertise.getGoodstype());
         holder.tv_need_vehicle.setText(advertise.getVehicleneed());
 
-        holder.btnAccept.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-//                if(Bottom_nav.user.getVehicleOfUser()){
-//
-//                }
-            }
-        });
     }
 
     @Override
@@ -101,9 +96,10 @@ public class Advertise_Adapter extends RecyclerView.Adapter<Advertise_Adapter.Po
 
     public class PostViewHolder extends RecyclerView.ViewHolder{
         CircleImageView circleImageViewProfile;
-        TextView tv_uname, tv_deliveredFrom, tv_Price, tv_negociable, tv_deliveredto, tv_goodstype, tv_need_vehicle,
-                tv_contactNo, tv_c_email, tv_postedby_id;
         ImageView imageViewPost;
+        TextView tv_uname, tv_deliveredFrom, tv_Price, tv_negociable,
+                tv_deliveredto, tv_goodstype, tv_need_vehicle,
+                tv_contactNo, tv_c_email, tv_postedby_id;
         Button btnAccept, btnCancel;
         List<Advertise> list;
         Context mContext;
@@ -113,17 +109,19 @@ public class Advertise_Adapter extends RecyclerView.Adapter<Advertise_Adapter.Po
             super(itemView);
 
             circleImageViewProfile = itemView.findViewById(R.id.img_profile_image);
+            imageViewPost = itemView.findViewById(R.id.img_post);
+
             tv_uname=itemView.findViewById(R.id.tv_uname);
+            tv_contactNo = itemView.findViewById(R.id.tv_contact_phone);
+            tv_c_email = itemView.findViewById(R.id.tv_contact_eamil);
+
             tv_deliveredFrom = itemView.findViewById(R.id.tv_subinfo);
             tv_deliveredto = itemView.findViewById(R.id.tv_subinfo1);
             tv_postedby_id = itemView.findViewById(R.id.tv_postedby_Uid);
             tv_goodstype = itemView.findViewById(R.id.tv_Devlivery_type);
-            tv_Price = itemView.findViewById(R.id.tv_Price);
             tv_negociable = itemView.findViewById(R.id.tv_negociable);
             tv_need_vehicle = itemView.findViewById(R.id.tv_need_vehicle);
-            tv_contactNo = itemView.findViewById(R.id.tv_contact_phone);
-            tv_c_email = itemView.findViewById(R.id.tv_contact_eamil);
-            imageViewPost = itemView.findViewById(R.id.img_post);
+            tv_Price = itemView.findViewById(R.id.tv_Price);
 
             btnAccept = itemView.findViewById(R.id.btn_accept_delivery);
             btnCancel = itemView.findViewById(R.id.btn_cancel_delivery);

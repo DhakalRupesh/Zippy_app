@@ -31,11 +31,6 @@ import retrofit2.Response;
 
 public class YourAdvertise extends Fragment {
 
-    public RecyclerView Yourpost;
-    List<Advertise> adlist;
-    Advertise_Adapter advertise_adapter;
-    private static final String TAG = "Home";
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -43,30 +38,6 @@ public class YourAdvertise extends Fragment {
         View view =  inflater.inflate(R.layout.fragment_your_advertise, container, false);
 
         return view;
-    }
-
-    private void GetAllPosts(){
-
-        Posti postapi = Url.getInstance().create(Posti.class);
-        Call<List<Advertise>> listCall = postapi.getYourAdvertise("5e3a6c7cc2f17b24c4fba382");
-
-        listCall.enqueue(new Callback<List<Advertise>>() {
-            @Override
-            public void onResponse(Call<List<Advertise>> call, Response<List<Advertise>> response) {
-                if(!response.isSuccessful()){
-                    Toast.makeText(getContext(), "Error" + response.code(), Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-                adlist = response.body();
-
-            }
-
-            @Override
-            public void onFailure(Call<List<Advertise>> call, Throwable t) {
-                Log.e(TAG, "onFailureHome: " + t.getLocalizedMessage());
-            }
-        });
     }
 
 }

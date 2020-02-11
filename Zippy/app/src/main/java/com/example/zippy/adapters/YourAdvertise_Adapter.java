@@ -16,6 +16,7 @@ import com.example.zippy.R;
 import com.example.zippy.model.Advertise;
 import com.example.zippy.model.User;
 import com.example.zippy.url.Url;
+import com.squareup.picasso.Picasso;
 
 import java.io.InputStream;
 import java.net.URL;
@@ -24,71 +25,82 @@ import java.util.List;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class YourAdvertise_Adapter extends RecyclerView.Adapter<YourAdvertise_Adapter.YourPostViewHolder>{
+    Context ypContext;
+    List<Advertise> yAdvertiseList;
+    private static User user;
+    private static User userA;
+    private static final String TAG = "YourAdvertise_Adapter";
 
-    Context pContext;
-    List<Advertise> postLists;
-
-    public YourAdvertise_Adapter(List<Advertise> advertisesList) {
-        this.postLists = advertisesList;
+    public YourAdvertise_Adapter(Context ypContext, List<Advertise> yAdvertiseList) {
+        this.ypContext = ypContext;
+        this.yAdvertiseList = yAdvertiseList;
     }
 
     @NonNull
     @Override
     public YourPostViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.your_post_view, parent, false);
-        return new YourPostViewHolder(v, pContext, postLists);
+        View view = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.your_post_view, parent, false);
+        return new YourPostViewHolder(view, ypContext, yAdvertiseList);
     }
-
-    public void Mode() {
-        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-        StrictMode.setThreadPolicy(policy);
-    }
-
 
     @Override
     public void onBindViewHolder(@NonNull YourPostViewHolder holder, int position) {
-        Advertise advertise = postLists.get(position);
+        final Advertise advertise = yAdvertiseList.get(position);
+
+        user = advertise.getPostedby();
+        userA = advertise.getAcceptedby();
+
         String imagePathPost = Url.imagePath + advertise.getAd_image();
+        Picasso.get().load(imagePathPost).into(holder.imageYpost);
 
-        Mode();
-        try {
-            URL url;
-            url = new URL(imagePathPost);
-            holder.imageViewPost.setImageBitmap(BitmapFactory.decodeStream((InputStream) url.getContent()));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        holder.yPrice.setText(advertise.getPriceofdelivery());
+        holder.yNegotiable.setText(advertise.getNegociable());
+        holder.yVehicle.setText(advertise.getVehicleneed());
 
-//        holder.tv_uname.setText(advertise.getPostedby());
-        holder.tv_deliveredFrom.setText(advertise.getSendfrom());
-        holder.tv_deliveredto.setText(advertise.getDestinationofdelivery());
-        holder.tv_Price.setText(advertise.getPriceofdelivery());
-        holder.tv_negociable.setText(advertise.getNegociable());
-//        holder.tv_postedby.setText(advertise.getPostedby());
+        holder.yPhone.setText(user.getMobile());
+        holder.yEmail.setText(user.getEmail());
+
+        holder.acceptedName.setText(userA.getUsername());
+        holder.acceptedPhone.setText(userA.getMobile());
+        holder.acceptedEmail.setText(userA.getEmail());
+
+
     }
 
     @Override
     public int getItemCount() {
-        return postLists.size();
+        return yAdvertiseList.size();
     }
 
     public class YourPostViewHolder extends RecyclerView.ViewHolder {
-        CircleImageView circleImageViewProfile;
-        TextView tv_uname, tv_deliveredFrom, tv_Price, tv_negociable, tv_deliveredto, tv_postedby;
-        ImageView imageViewPost;
 
-        public YourPostViewHolder(@NonNull View itemView, Context pContext, List<Advertise> postLists) {
+        ImageView imageYpost, yEdit, yDeletePost, yPhoneIcon;
+        TextView yPrice, yNegotiable, yVehicle, yPhone, yEmail,
+                    acceptedName, acceptedPhone, acceptedEmail;
+        List<Advertise> list;
+        Context mContext;
+
+        public YourPostViewHolder(@NonNull View itemView, Context ypContext, List<Advertise> yAdvertiseList) {
             super(itemView);
 
-            circleImageViewProfile = itemView.findViewById(R.id.img_profile_image);
-            tv_uname = itemView.findViewById(R.id.tv_your_uname);
-            tv_deliveredFrom = itemView.findViewById(R.id.tv_your_subinfo);
-            tv_deliveredto = itemView.findViewById(R.id.tv_your_subinfo1);
-            tv_Price = itemView.findViewById(R.id.tv_your_Price);
-            tv_negociable = itemView.findViewById(R.id.tv_your_negociable);
-//            tv_postedby = itemView.findViewById(R.id.tv_your_postedby_id);
-            imageViewPost = itemView.findViewById(R.id.img_your_post);
+            imageYpost = itemView.findViewById(R.id.img_your_post);
+            yEdit = itemView.findViewById(R.id.img_your_edit_advertise);
+            yDeletePost = itemView.findViewById(R.id.img_your_delete_advertise);
+            yPhoneIcon = itemView.findViewById(R.id.img_call_accepted_person);
 
+            yPrice = itemView.findViewById(R.id.tv_your_Price);
+            yNegotiable = itemView.findViewById(R.id.tv_your_negociable);
+            yVehicle = itemView.findViewById(R.id.tv_your_need_vehicle);
+            yPhone = itemView.findViewById(R.id.tv_your_contact_phone);
+            yEmail = itemView.findViewById(R.id.tv_your_contact_eamil);
+
+            acceptedName = itemView.findViewById(R.id.tv_accepteduname);
+            acceptedPhone = itemView.findViewById(R.id.tv_accepted_phone);
+            acceptedEmail = itemView.findViewById(R.id.tv_accepted_email);
+
+            this.list = yAdvertiseList;
+            this.mContext = ypContext;
         }
     }
 }

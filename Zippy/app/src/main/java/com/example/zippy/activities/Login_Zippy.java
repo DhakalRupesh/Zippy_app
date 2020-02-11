@@ -82,12 +82,6 @@ public class Login_Zippy extends AppCompatActivity implements View.OnClickListen
                 Intent intent = new Intent(Login_Zippy.this, Bottom_nav.class);
                 startActivity(intent);
                 finish();
-//
-//                String token = Url.token;
-//                Intent intent = new Intent(Login_Zippy.this, Bottom_nav.class);
-//                intent.putExtra("token", token);
-//                startActivity(intent);
-//                finish();
             }else {
                 Toast.makeText(this, "Error!! incorrect username or password", Toast.LENGTH_SHORT).show();
                 loginEmail.requestFocus();

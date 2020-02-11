@@ -54,10 +54,19 @@ public class Profile extends Fragment {
 
         profileImage = view.findViewById(R.id.img_profile_Image);
         goTovehicle = view.findViewById(R.id.tv_profile_vehicle_intent);
+        vehicleAdd = view.findViewById(R.id.img_add_vehicle);
         goToeditProfile= view.findViewById(R.id.img_edit_profile);
         logout = view.findViewById(R.id.img_profile_logout);
         
         goTovehicle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent goToVehicle = new Intent(getActivity(), Vehicle.class);
+                startActivity(goToVehicle);
+            }
+        });
+
+        vehicleAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent goToVehicle = new Intent(getActivity(), Vehicle.class);
@@ -76,7 +85,7 @@ public class Profile extends Fragment {
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Logout();
+                spLogout();
             }
         });
 

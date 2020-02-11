@@ -40,6 +40,8 @@ public class Home extends Fragment {
     private static final String TAG = "Home";
     private EditText btnSearchLocation;
 
+    private Advertise_Adapter.myAdvertise_Adapter listener;
+
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);

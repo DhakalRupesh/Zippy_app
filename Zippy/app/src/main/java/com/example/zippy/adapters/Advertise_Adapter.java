@@ -1,7 +1,12 @@
 package com.example.zippy.adapters;
 
+import android.Manifest;
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.StrictMode;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -13,6 +18,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.zippy.R;
@@ -39,9 +46,16 @@ import retrofit2.Response;
 
 public class Advertise_Adapter extends RecyclerView.Adapter<Advertise_Adapter.PostViewHolder> {
     Context pContext;
+    Activity pActivity;
     List<Advertise> postLists;
     private static User userme;
     private static final String TAG = "Advertise_Adapter";
+    private static final int REQUEST_CALL = 1;
+    private TextView mTextviewTextNumber;
+
+    public interface myAdvertise_Adapter {
+        void OnClick(View view);
+    }
 
     public Advertise_Adapter(Context pContext, List<Advertise> postLists) {
         this.pContext = pContext;
@@ -85,7 +99,30 @@ public class Advertise_Adapter extends RecyclerView.Adapter<Advertise_Adapter.Po
 
         holder.tv_postedby_id.setText(userme.get_id());
 
+        holder.callPerson.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               String number = holder.tv_contactNo.getText().toString();
+               if(number.trim().length() > 0) {
+                   if(ContextCompat.checkSelfPermission(pContext, Manifest.permission.CALL_PHONE) !=
+                           PackageManager.PERMISSION_GRANTED) {
+                       ActivityCompat.requestPermissions( pActivity,
+                               new String[]{Manifest.permission.CALL_PHONE}, REQUEST_CALL);
+                   } else {
+                       String dial = "tel:" + number;
+                       pActivity.startActivity(new Intent(Intent.ACTION_CALL, Uri.parse(dial)));
+                   }
+               } else {
+                   Toast.makeText( pContext, "No phone number available", Toast.LENGTH_SHORT).show();
+               }
+            }
+        });
+
+
+
     }
+
+
 
     @Override
     public int getItemCount() {
@@ -99,7 +136,7 @@ public class Advertise_Adapter extends RecyclerView.Adapter<Advertise_Adapter.Po
 
     public class PostViewHolder extends RecyclerView.ViewHolder{
         CircleImageView circleImageViewProfile;
-        ImageView imageViewPost;
+        ImageView imageViewPost, callPerson;
         TextView tv_uname, tv_deliveredFrom, tv_Price, tv_negociable,
                 tv_deliveredto, tv_goodstype, tv_need_vehicle,
                 tv_contactNo, tv_c_email, tv_postedby_id;
@@ -113,6 +150,7 @@ public class Advertise_Adapter extends RecyclerView.Adapter<Advertise_Adapter.Po
 
             circleImageViewProfile = itemView.findViewById(R.id.img_profile_image);
             imageViewPost = itemView.findViewById(R.id.img_post);
+            callPerson = itemView.findViewById(R.id.img_call_adv_person);
 
             tv_uname=itemView.findViewById(R.id.tv_uname);
             tv_contactNo = itemView.findViewById(R.id.tv_contact_phone);

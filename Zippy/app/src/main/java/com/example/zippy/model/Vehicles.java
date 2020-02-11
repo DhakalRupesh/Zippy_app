@@ -6,7 +6,16 @@ public class Vehicles {
    private String vehicle_no;
    private String license_no;
    private String license_Image;
-   private String verified;
+   private Boolean verified;
+
+    public Vehicles(String brandName, String vehicleType, String vehicle_no, String license_no, String license_Image, Boolean verified) {
+        this.brandName = brandName;
+        this.vehicleType = vehicleType;
+        this.vehicle_no = vehicle_no;
+        this.license_no = license_no;
+        this.license_Image = license_Image;
+        this.verified = verified;
+    }
 
     public Vehicles(String brandName, String vehicleType, String vehicle_no, String license_no, String license_Image) {
         this.brandName = brandName;
@@ -56,11 +65,11 @@ public class Vehicles {
         this.license_Image = license_Image;
     }
 
-    public String getVerified() {
+    public Boolean getVerified() {
         return verified;
     }
 
-    public void setVerified(String verified) {
+    public void setVerified(Boolean verified) {
         this.verified = verified;
     }
 }

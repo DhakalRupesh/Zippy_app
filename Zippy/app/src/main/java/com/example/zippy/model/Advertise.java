@@ -1,7 +1,9 @@
 package com.example.zippy.model;
 
 public class Advertise {
+    private String _id;
     private User postedby;
+    private User acceptedby;
     private String goodstype;
     private String vehicleneed;
     private String sendfrom;
@@ -10,6 +12,22 @@ public class Advertise {
     private String negociable;
     private String ad_image;
     private Boolean statusofdelivery;
+
+    public Advertise(String _id, User postedby, User acceptedby, String goodstype, String vehicleneed, String sendfrom, String destinationofdelivery, String priceofdelivery, String negociable, String ad_image, Boolean statusofdelivery) {
+        this._id = _id;
+        this.postedby = postedby;
+        this.acceptedby = acceptedby;
+        this.goodstype = goodstype;
+        this.vehicleneed = vehicleneed;
+        this.sendfrom = sendfrom;
+        this.destinationofdelivery = destinationofdelivery;
+        this.priceofdelivery = priceofdelivery;
+        this.negociable = negociable;
+        this.ad_image = ad_image;
+        this.statusofdelivery = statusofdelivery;
+    }
+
+//For post
 
     public Advertise(User postedby, String goodstype, String vehicleneed, String sendfrom, String destinationofdelivery, String priceofdelivery, String negociable, String ad_image, Boolean statusofdelivery) {
         this.postedby = postedby;
@@ -21,6 +39,30 @@ public class Advertise {
         this.negociable = negociable;
         this.ad_image = ad_image;
         this.statusofdelivery = statusofdelivery;
+    }
+
+    public Advertise(User postedby, User acceptedby, String goodstype, String vehicleneed, String sendfrom, String destinationofdelivery, String priceofdelivery, String negociable, String ad_image, Boolean statusofdelivery) {
+        this.postedby = postedby;
+        this.acceptedby = acceptedby;
+        this.goodstype = goodstype;
+        this.vehicleneed = vehicleneed;
+        this.sendfrom = sendfrom;
+        this.destinationofdelivery = destinationofdelivery;
+        this.priceofdelivery = priceofdelivery;
+        this.negociable = negociable;
+        this.ad_image = ad_image;
+        this.statusofdelivery = statusofdelivery;
+    }
+
+    public Advertise(User postedby, String goodstype, String vehicleneed, String sendfrom, String destinationofdelivery, String priceofdelivery, String negociable, String ad_image) {
+        this.postedby = postedby;
+        this.goodstype = goodstype;
+        this.vehicleneed = vehicleneed;
+        this.sendfrom = sendfrom;
+        this.destinationofdelivery = destinationofdelivery;
+        this.priceofdelivery = priceofdelivery;
+        this.negociable = negociable;
+        this.ad_image = ad_image;
     }
 
     public Advertise(String goodstype, String vehicleneed, String sendfrom, String destinationofdelivery, String priceofdelivery, String negociable, String ad_image, Boolean statusofdelivery) {
@@ -108,5 +150,13 @@ public class Advertise {
 
     public void setStatusofdelivery(Boolean statusofdelivery) {
         this.statusofdelivery = statusofdelivery;
+    }
+
+    public User getAcceptedby() {
+        return acceptedby;
+    }
+
+    public void setAcceptedby(User acceptedby) {
+        this.acceptedby = acceptedby;
     }
 }

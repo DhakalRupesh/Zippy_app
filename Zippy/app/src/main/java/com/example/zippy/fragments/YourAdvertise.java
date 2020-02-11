@@ -42,18 +42,6 @@ public class YourAdvertise extends Fragment {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_your_advertise, container, false);
 
-//        Yourpost = view.findViewById(R.id.your_advertise);
-//        adlist = new ArrayList<>();
-////
-//        adlist.add(new Advertise("me", "firniture", "4wheeler", "kathmandu", "bhaktapur", "2000" , "yes", "", true));
-//
-//        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
-//        Advertise_Adapter yadapter = new Advertise_Adapter(adlist);
-//        Yourpost.setAdapter(yadapter);
-//        Yourpost.setLayoutManager(layoutManager);
-
-//        GetAllPosts();
-
         return view;
     }
 
@@ -71,9 +59,7 @@ public class YourAdvertise extends Fragment {
                 }
 
                 adlist = response.body();
-//                advertise_adapter = new Advertise_Adapter(adlist);
-//                Yourpost.setLayoutManager(new LinearLayoutManager(getContext()));
-//                Yourpost.setAdapter(advertise_adapter);
+
             }
 
             @Override

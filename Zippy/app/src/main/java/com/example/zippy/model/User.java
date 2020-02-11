@@ -13,6 +13,10 @@ public class User {
     private Vehicles vehicleOfUser;
     private Boolean enabled;
 
+    public User(String _id){
+        this._id = _id;
+    }
+
 
     public User(String _id, String fname, String lname, String mobile, String email, String username, String description, String userimage, String password, Vehicles vehicleOfUser, Boolean enabled) {
         this._id = _id;

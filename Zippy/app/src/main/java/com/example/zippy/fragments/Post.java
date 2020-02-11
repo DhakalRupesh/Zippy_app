@@ -100,7 +100,7 @@ public class Post extends Fragment {
     }
 
     public void AddNewPost(View v){
-        String postedBy = Bottom_nav.user.get_id();
+        User postedBy = new User(Bottom_nav.user.get_id());
         String goods_type = etGoodstype.getText().toString();
         String sending_from = etSendingfrom.getText().toString();
         String sending_to = etSendingto.getText().toString();
@@ -119,6 +119,7 @@ public class Post extends Fragment {
         String negotiable = rdBtnNegotiable.getText().toString();
 
         Advertise advertise = new Advertise(
+                postedBy,
                 goods_type,
                 vehicle_wanted,
                 sending_from,

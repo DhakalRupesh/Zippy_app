@@ -1,5 +1,6 @@
 package com.example.zippy.fragments;
 
+import android.app.Activity;
 import android.media.Image;
 import android.os.Bundle;
 
@@ -32,12 +33,18 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class Home extends Fragment {
-
+    Activity activity = getActivity();
     public RecyclerView featuredpost;
     List<Advertise> advlist;
     Advertise_Adapter advertise_adapter;
     private static final String TAG = "Home";
     private EditText btnSearchLocation;
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        this.activity = activity;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -96,7 +103,10 @@ public class Home extends Fragment {
 
             @Override
             public void onFailure(Call<List<Advertise>> call, Throwable t) {
+//                Toast.makeText(getContext(), "Error"+t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(activity, "Error" + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
                 Log.e(TAG, "onFailureHome: " + t.getLocalizedMessage());
+
             }
         });
     }

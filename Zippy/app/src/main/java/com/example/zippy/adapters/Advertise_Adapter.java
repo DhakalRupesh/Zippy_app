@@ -64,14 +64,15 @@ public class Advertise_Adapter extends RecyclerView.Adapter<Advertise_Adapter.Po
     @Override
     public void onBindViewHolder(@NonNull final PostViewHolder holder, int position) {
         final Advertise advertise = postLists.get(position);
+        Mode();
+        userme = advertise.getPostedby();
         String imagePathPost = Url.imagePath + advertise.getAd_image();
         Picasso.get().load(imagePathPost).into(holder.imageViewPost);
 
-        userme = advertise.getPostedby();
-//        String userName=userme.getLname();
+        String imageUser = Url.imagePath + userme.getUserimage();
+        Picasso.get().load(imageUser).into(holder.circleImageViewProfile);
 
-//        Log.e(TAG, "onBindViewHolder: "+userName );
-//        holder.tv_deliveredFrom.setText(userName);
+        holder.tv_uname.setText(userme.getUsername());
         holder.tv_deliveredto.setText(advertise.getDestinationofdelivery());
         holder.tv_Price.setText(advertise.getPriceofdelivery());
         holder.tv_negociable.setText(advertise.getNegociable());

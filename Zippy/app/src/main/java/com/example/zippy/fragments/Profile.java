@@ -1,7 +1,10 @@
 package com.example.zippy.fragments;
 
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -28,6 +31,8 @@ import com.squareup.picasso.Picasso;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+
+import static android.content.Context.MODE_PRIVATE;
 
 public class Profile extends Fragment {
     TextView username, fname, lname, email, phone, description, goTovehicle;
@@ -90,15 +95,7 @@ public class Profile extends Fragment {
                     Toast.makeText(getActivity(), "Code " + response.code(), Toast.LENGTH_SHORT).show();
                     return;
                 }
-//                String imagePath = Url.imagePath + response.body().getUserimage();
-//                Picasso.get().load(imagePath).into(profileImage);
-//
-//                try{
-//                    Picasso.get().load(imagePath).into(profileImage);
-//
-//                }catch (Exception e){
-//                    Picasso.get().load(R.drawable.user1).into(profileImage);
-//                }
+
                 User user = response.body();
                 String imgPath = Url.imagePath +  response.body().getUserimage();
 
@@ -132,5 +129,32 @@ public class Profile extends Fragment {
         Intent goToLogin = new Intent(getActivity(), Login_Zippy.class);
         startActivity(goToLogin);
         Toast.makeText(getActivity(), "You are logged out", Toast.LENGTH_SHORT).show();
+    }
+
+    private void spLogout() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        builder.setCancelable(false);
+        builder.setMessage("Are you sure?");
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                SharedPreferences sharedPreferences = getActivity().getSharedPreferences("Zippy",MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+
+                editor.remove("token");
+                editor.commit();
+                Url.token = "Bearer ";
+                Intent redirect_To_login = new Intent(getActivity(), Login_Zippy.class);
+                startActivity(redirect_To_login);
+            }
+        });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
     }
 }

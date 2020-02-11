@@ -279,6 +279,7 @@
             android:id="@+id/tv_postedby_Uid"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:text="userID"/>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

@@ -105,10 +105,6 @@ public class Post extends Fragment {
         String sending_from = etSendingfrom.getText().toString();
         String sending_to = etSendingto.getText().toString();
         String price = etPrice.getText().toString();
-        String cNumber = Bottom_nav.user.getMobile();
-        String cEmail = Bottom_nav.user.getEmail();
-        String pName = Bottom_nav.user.getUsername();
-        String pImage = Bottom_nav.user.getUserimage();
 
         int VehicleSetting = rdoVehiclegrp.getCheckedRadioButtonId();
         rdBtnVehicle = v.findViewById(VehicleSetting);

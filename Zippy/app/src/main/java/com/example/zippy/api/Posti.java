@@ -16,6 +16,7 @@ import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Part;
+import retrofit2.http.Path;
 
 public interface Posti {
     @POST("/advertise")
@@ -25,7 +26,7 @@ public interface Posti {
     Call<List<Advertise>> getAdvertise(@Header("Authorization") String token);
 
     @GET("/advertise/{id}")
-    Call<List<Advertise>> getYourAdvertise(String id);
+    Call<List<Advertise>> getLoggedAdvertise(@Path("id") String id);
 
     @PUT("/advertise/{id}")
     Call<Advertise> updateStatus(@Header("Authorization") String token, @Body Advertise advertise);

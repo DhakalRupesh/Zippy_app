@@ -83,6 +83,8 @@ public class Advertise_Adapter extends RecyclerView.Adapter<Advertise_Adapter.Po
         holder.tv_goodstype.setText(advertise.getGoodstype());
         holder.tv_need_vehicle.setText(advertise.getVehicleneed());
 
+        holder.tv_postedby_id.setText(userme.get_id());
+
     }
 
     @Override
@@ -130,6 +132,13 @@ public class Advertise_Adapter extends RecyclerView.Adapter<Advertise_Adapter.Po
             this.list = postLists;
             this.mContext = context;
         }
+    }
+
+    private boolean validateUserVehicle() {
+        if(Bottom_nav.user.getVehicleOfUser() == null){
+
+        }
+        return true;
     }
 
     private void UpdateStatus() {

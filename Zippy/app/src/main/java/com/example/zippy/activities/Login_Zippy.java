@@ -3,10 +3,12 @@ package com.example.zippy.activities;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,6 +24,7 @@ public class Login_Zippy extends AppCompatActivity implements View.OnClickListen
     EditText loginEmail, loginpassword;
     TextView go_to_register;
     Button login;
+    CheckBox cbRememberme;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +39,14 @@ public class Login_Zippy extends AppCompatActivity implements View.OnClickListen
         go_to_register = findViewById(R.id.tvRegister);
 
         loginEmail.requestFocus();
+
+        SharedPreferences sharedPreferences = getSharedPreferences( "Zippy", MODE_PRIVATE);
+        String token = sharedPreferences.getString("token", "empty");
+        if (!token.equals("empty")){
+            Url.token = token;
+            Intent intent = new Intent(Login_Zippy.this, Bottom_nav.class);
+            startActivity(intent);
+        }
 
         login.setOnClickListener(this);
         go_to_register.setOnClickListener(this);
@@ -62,12 +73,21 @@ public class Login_Zippy extends AppCompatActivity implements View.OnClickListen
 
             LoginBBL loginBBL = new LoginBBL();
             StrictModeClass.StrictMode();
+
             if(loginBBL.checkUser(username, password)){
-                String token = Url.token;
+                SharedPreferences sharedPreferences = getSharedPreferences("Zippy",MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString("token", Url.token);
+                editor.commit();
                 Intent intent = new Intent(Login_Zippy.this, Bottom_nav.class);
-                intent.putExtra("token", token);
                 startActivity(intent);
                 finish();
+//
+//                String token = Url.token;
+//                Intent intent = new Intent(Login_Zippy.this, Bottom_nav.class);
+//                intent.putExtra("token", token);
+//                startActivity(intent);
+//                finish();
             }else {
                 Toast.makeText(this, "Error!! incorrect username or password", Toast.LENGTH_SHORT).show();
                 loginEmail.requestFocus();

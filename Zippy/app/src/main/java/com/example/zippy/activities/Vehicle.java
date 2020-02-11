@@ -81,7 +81,6 @@ public class Vehicle extends AppCompatActivity {
     }
 
     private void PostVehicleInfo(){
-        String VehicleAddedBy = Bottom_nav.user.get_id();
         String brandName = BrandName.getText().toString();
 
         String vehicle_no = Vehicle_no.getText().toString();
@@ -100,6 +99,7 @@ public class Vehicle extends AppCompatActivity {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
                 Toast.makeText(Vehicle.this, "Vehicle detail sent for verification", Toast.LENGTH_LONG).show();
+
                 ClearField();
             }
 
@@ -108,6 +108,10 @@ public class Vehicle extends AppCompatActivity {
                 Toast.makeText(Vehicle.this, "ErrorVehicle" + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    public void GetVehicleId(){
+
     }
 
     private void BrowseImage() {

@@ -1,6 +1,7 @@
 package com.example.zippy.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationManagerCompat;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -16,6 +17,7 @@ import android.widget.Toast;
 import com.example.zippy.R;
 
 import com.example.zippy.bbl.LoginBBL;
+import com.example.zippy.createchannel.CreateChannel;
 import com.example.zippy.strictmode.StrictModeClass;
 import com.example.zippy.url.Url;
 
@@ -25,12 +27,17 @@ public class Login_Zippy extends AppCompatActivity implements View.OnClickListen
     TextView go_to_register;
     Button login;
     CheckBox cbRememberme;
+    public NotificationManagerCompat notificationManagerCompat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_login__zippy);
+
+        notificationManagerCompat = NotificationManagerCompat.from(this);
+        CreateChannel channel = new CreateChannel(this);
+        channel.createChannel();
 
         loginEmail = findViewById(R.id.etlogin_Email);
         loginpassword = findViewById(R.id.etlogin_Password);
@@ -71,7 +78,7 @@ public class Login_Zippy extends AppCompatActivity implements View.OnClickListen
             String username = loginEmail.getText().toString();
             String password = loginpassword.getText().toString();
 
-            LoginBBL loginBBL = new LoginBBL();
+            LoginBBL loginBBL = new LoginBBL(username, password);
             StrictModeClass.StrictMode();
 
             if(loginBBL.checkUser(username, password)){

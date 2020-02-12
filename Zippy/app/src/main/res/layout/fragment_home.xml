@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:layout_marginVertical="12dp"
             android:layout_marginHorizontal="30dp"
-            android:hint="search location....."
+            android:hint="search destination ...."
             android:background="@drawable/textinput_border"/>
 
     </LinearLayout>

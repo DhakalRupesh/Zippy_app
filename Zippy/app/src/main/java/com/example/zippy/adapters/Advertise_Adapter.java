@@ -51,11 +51,6 @@ public class Advertise_Adapter extends RecyclerView.Adapter<Advertise_Adapter.Po
     private static User userme;
     private static final String TAG = "Advertise_Adapter";
     private static final int REQUEST_CALL = 1;
-    private TextView mTextviewTextNumber;
-
-    public interface myAdvertise_Adapter {
-        void OnClick(View view);
-    }
 
     public Advertise_Adapter(Context pContext, List<Advertise> postLists) {
         this.pContext = pContext;
@@ -110,7 +105,7 @@ public class Advertise_Adapter extends RecyclerView.Adapter<Advertise_Adapter.Po
                                new String[]{Manifest.permission.CALL_PHONE}, REQUEST_CALL);
                    } else {
                        String dial = "tel:" + number;
-                       pActivity.startActivity(new Intent(Intent.ACTION_CALL, Uri.parse(dial)));
+                       pContext.startActivity(new Intent(Intent.ACTION_CALL, Uri.parse(dial)));
                    }
                } else {
                    Toast.makeText( pContext, "No phone number available", Toast.LENGTH_SHORT).show();
@@ -118,11 +113,7 @@ public class Advertise_Adapter extends RecyclerView.Adapter<Advertise_Adapter.Po
             }
         });
 
-
-
     }
-
-
 
     @Override
     public int getItemCount() {

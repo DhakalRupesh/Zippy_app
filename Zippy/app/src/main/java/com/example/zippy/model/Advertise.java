@@ -27,45 +27,12 @@ public class Advertise {
         this.statusofdelivery = statusofdelivery;
     }
 
+
+
 //For post
 
     public Advertise(User postedby, String goodstype, String vehicleneed, String sendfrom, String destinationofdelivery, String priceofdelivery, String negociable, String ad_image, Boolean statusofdelivery) {
         this.postedby = postedby;
-        this.goodstype = goodstype;
-        this.vehicleneed = vehicleneed;
-        this.sendfrom = sendfrom;
-        this.destinationofdelivery = destinationofdelivery;
-        this.priceofdelivery = priceofdelivery;
-        this.negociable = negociable;
-        this.ad_image = ad_image;
-        this.statusofdelivery = statusofdelivery;
-    }
-
-    public Advertise(User postedby, User acceptedby, String goodstype, String vehicleneed, String sendfrom, String destinationofdelivery, String priceofdelivery, String negociable, String ad_image, Boolean statusofdelivery) {
-        this.postedby = postedby;
-        this.acceptedby = acceptedby;
-        this.goodstype = goodstype;
-        this.vehicleneed = vehicleneed;
-        this.sendfrom = sendfrom;
-        this.destinationofdelivery = destinationofdelivery;
-        this.priceofdelivery = priceofdelivery;
-        this.negociable = negociable;
-        this.ad_image = ad_image;
-        this.statusofdelivery = statusofdelivery;
-    }
-
-    public Advertise(User postedby, String goodstype, String vehicleneed, String sendfrom, String destinationofdelivery, String priceofdelivery, String negociable, String ad_image) {
-        this.postedby = postedby;
-        this.goodstype = goodstype;
-        this.vehicleneed = vehicleneed;
-        this.sendfrom = sendfrom;
-        this.destinationofdelivery = destinationofdelivery;
-        this.priceofdelivery = priceofdelivery;
-        this.negociable = negociable;
-        this.ad_image = ad_image;
-    }
-
-    public Advertise(String goodstype, String vehicleneed, String sendfrom, String destinationofdelivery, String priceofdelivery, String negociable, String ad_image, Boolean statusofdelivery) {
         this.goodstype = goodstype;
         this.vehicleneed = vehicleneed;
         this.sendfrom = sendfrom;
@@ -158,5 +125,13 @@ public class Advertise {
 
     public void setAcceptedby(User acceptedby) {
         this.acceptedby = acceptedby;
+    }
+
+    public String get_id() {
+        return _id;
+    }
+
+    public void set_id(String _id) {
+        this._id = _id;
     }
 }

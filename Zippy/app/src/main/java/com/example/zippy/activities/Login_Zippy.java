@@ -1,12 +1,17 @@
 package com.example.zippy.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
+import android.app.Notification;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 
+import android.os.Vibrator;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -14,6 +19,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.zippy.Broadcast.BroadCastReceiver;
 import com.example.zippy.R;
 
 import com.example.zippy.bbl.LoginBBL;
@@ -28,6 +34,7 @@ public class Login_Zippy extends AppCompatActivity implements View.OnClickListen
     Button login;
     CheckBox cbRememberme;
     public NotificationManagerCompat notificationManagerCompat;
+    Vibrator vibrator;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +54,8 @@ public class Login_Zippy extends AppCompatActivity implements View.OnClickListen
 
         loginEmail.requestFocus();
 
+        vibrator=(Vibrator)getSystemService(VIBRATOR_SERVICE);
+
         SharedPreferences sharedPreferences = getSharedPreferences( "Zippy", MODE_PRIVATE);
         String token = sharedPreferences.getString("token", "empty");
         if (!token.equals("empty")){
@@ -58,6 +67,17 @@ public class Login_Zippy extends AppCompatActivity implements View.OnClickListen
         login.setOnClickListener(this);
         go_to_register.setOnClickListener(this);
 
+    }
+
+    private void notifiy() {
+        Notification notification = new NotificationCompat.Builder(this, CreateChannel.CHANNEL_1)
+                .setSmallIcon(R.drawable.zippy_logo_trans)
+                .setContentTitle("Bagpacker")
+                .setContentText("Login success :" + loginEmail.getText().toString())
+                .setCategory(NotificationCompat.CATEGORY_MESSAGE)
+                .build();
+
+        notificationManagerCompat.notify(1, notification);
     }
 
     @Override
@@ -82,6 +102,7 @@ public class Login_Zippy extends AppCompatActivity implements View.OnClickListen
             StrictModeClass.StrictMode();
 
             if(loginBBL.checkUser(username, password)){
+                notifiy();
                 SharedPreferences sharedPreferences = getSharedPreferences("Zippy",MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putString("token", Url.token);
@@ -94,6 +115,20 @@ public class Login_Zippy extends AppCompatActivity implements View.OnClickListen
                 loginEmail.requestFocus();
             }
         }
+    }
+
+    BroadCastReceiver broadCastReceiver= new BroadCastReceiver(this);
+
+    protected void onStart(){
+        super.onStart();
+        IntentFilter intentFilter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+        registerReceiver(broadCastReceiver,intentFilter);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        unregisterReceiver(broadCastReceiver);
     }
 
     public boolean CheckEmpty(){

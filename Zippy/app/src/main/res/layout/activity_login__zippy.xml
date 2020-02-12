@@ -101,7 +101,7 @@
         android:layout_marginTop="68dp"
         android:background="@drawable/textinput_border"
         android:ems="10"
-        android:hint="E-Mail"
+        android:hint="Username"
         android:elevation="1dp"
         android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"

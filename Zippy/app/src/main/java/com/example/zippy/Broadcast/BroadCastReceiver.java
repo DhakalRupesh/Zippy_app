@@ -55,7 +55,7 @@ public class BroadCastReceiver extends BroadcastReceiver{
 
     private void DisplayNotification2() {
         Notification notification=new NotificationCompat.Builder(context, CreateChannel.CHANNEL_1)
-                .setSmallIcon(R.drawable.zippy_logo)
+                .setSmallIcon(R.drawable.zippy_logo_trans)
                 .setContentTitle("Zippy")
                 .setContentText("You have been connected to a network")
                 .setCategory(NotificationCompat.CATEGORY_MESSAGE)

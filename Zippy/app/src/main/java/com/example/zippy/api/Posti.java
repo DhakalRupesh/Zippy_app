@@ -25,11 +25,11 @@ public interface Posti {
     @GET("/advertise")
     Call<List<Advertise>> getAdvertise(@Header("Authorization") String token);
 
-    @GET("/advertise/{id}")
-    Call<List<Advertise>> getLoggedAdvertise(@Path("id") String id);
+    @GET("/advertise/myAdvertise")
+    Call<List<Advertise>> getLoggedAdvertise(@Header("Authorization") String token);
 
     @PUT("/advertise/{id}")
-    Call<Advertise> updateStatus(@Header("Authorization") String token, @Body Advertise advertise);
+    Call<Void> updateStatus(@Header("Authorization") String token, @Path("id") String id, @Body Advertise advertise);
 
     @Multipart
     @POST("/uploads")

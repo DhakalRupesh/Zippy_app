@@ -1,6 +1,7 @@
 package com.example.zippy.fragments;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
 
@@ -17,9 +18,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.zippy.R;
+import com.example.zippy.activities.NearetLocation_map;
 import com.example.zippy.adapters.Advertise_Adapter;
 import com.example.zippy.api.Posti;
 import com.example.zippy.model.Advertise;
@@ -39,7 +42,7 @@ public class Home extends Fragment {
     Advertise_Adapter advertise_adapter;
     private static final String TAG = "Home";
     private EditText btnSearchLocation;
-
+    TextView goToMap;
 
     @Override
     public void onAttach(Activity activity) {
@@ -54,14 +57,8 @@ public class Home extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         featuredpost = view.findViewById(R.id.rv_delevery_advertisement);
         btnSearchLocation = view.findViewById(R.id.et_home_search);
-//        adlist = new ArrayList<>();
-////
-//        adlist.add(new Advertise("me", "furniture", "4wheeler", "kathmandu", "bhaktapur", "2000" , "yes", "",true));
-//
-//        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
-//        Advertise_Adapter adapter = new Advertise_Adapter(adlist);
-//        featuredpost.setAdapter(adapter);
-//        featuredpost.setLayoutManager(layoutManager);
+        goToMap = view.findViewById(R.id.tv_go_tomap_activity);
+
         GetAllPosts();
 
         btnSearchLocation.addTextChangedListener(new TextWatcher() {
@@ -78,6 +75,14 @@ public class Home extends Fragment {
             @Override
             public void afterTextChanged(Editable editable) {
                 filter(editable.toString());
+            }
+        });
+
+        goToMap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentGoToMap = new Intent(getActivity(), NearetLocation_map.class);
+                startActivity(intentGoToMap);
             }
         });
 
@@ -104,7 +109,6 @@ public class Home extends Fragment {
 
             @Override
             public void onFailure(Call<List<Advertise>> call, Throwable t) {
-//                Toast.makeText(getContext(), "Error"+t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
                 Toast.makeText(activity, "Error" + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
                 Log.e(TAG, "onFailureHome: " + t.getLocalizedMessage());
 

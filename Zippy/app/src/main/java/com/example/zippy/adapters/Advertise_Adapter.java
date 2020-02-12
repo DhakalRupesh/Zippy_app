@@ -48,6 +48,7 @@ public class Advertise_Adapter extends RecyclerView.Adapter<Advertise_Adapter.Po
     Context pContext;
     Activity pActivity;
     List<Advertise> postLists;
+    String postId;
     private static User userme;
     private static final String TAG = "Advertise_Adapter";
     private static final int REQUEST_CALL = 1;
@@ -113,6 +114,13 @@ public class Advertise_Adapter extends RecyclerView.Adapter<Advertise_Adapter.Po
             }
         });
 
+        holder.btnAccept.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                UpdateStatus(advertise.get_id());
+            }
+        });
+
     }
 
     @Override
@@ -170,30 +178,31 @@ public class Advertise_Adapter extends RecyclerView.Adapter<Advertise_Adapter.Po
         return true;
     }
 
-    private void UpdateStatus() {
+    private void UpdateStatus(String id) {
         Boolean Status = true;
 
         Advertise advertiseStatusUpdate = new Advertise(Status);
         Posti posti = Url.getInstance().create(Posti.class);
-        Call<Advertise> advertiseCallUpdate = posti.updateStatus(Url.token,advertiseStatusUpdate);
+        Call<Void> advertiseCallUpdate = posti.updateStatus(Url.token, id, advertiseStatusUpdate);
 
-        advertiseCallUpdate.enqueue(new Callback<Advertise>() {
+        advertiseCallUpdate.enqueue(new Callback<Void>() {
             @Override
-            public void onResponse(Call<Advertise> call, Response<Advertise> response) {
-//                if (!response.isSuccessful()) {
-//                    Toast.makeText(pContext, "Code " + response.code(), Toast.LENGTH_SHORT).show();
-//                    return;
-//                }
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                if (!response.isSuccessful()) {
+                    Toast.makeText(pContext, "Code " + response.code(), Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
                 Toast.makeText(pContext, "Delivery accepted successfully", Toast.LENGTH_SHORT).show();
 
             }
 
             @Override
-            public void onFailure(Call<Advertise> call, Throwable t) {
+            public void onFailure(Call<Void> call, Throwable t) {
                 Toast.makeText(pContext, "Error!! " + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
 
             }
         });
+
     }
 }

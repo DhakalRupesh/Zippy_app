@@ -51,15 +51,22 @@ public class YourAdvertise extends Fragment {
         return view;
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        GetLoggedPosts();
+
+    }
+
     private void GetLoggedPosts(){
         Posti posti = Url.getInstance().create(Posti.class);
-        Call<List<Advertise>> listCallPost = posti.getLoggedAdvertise(Bottom_nav.user.get_id());
+        Call<List<Advertise>> listCallPost = posti.getLoggedAdvertise(Url.token);
 
         listCallPost.enqueue(new Callback<List<Advertise>>() {
             @Override
             public void onResponse(Call<List<Advertise>> call, Response<List<Advertise>> response) {
                 if(!response.isSuccessful()){
-                    Toast.makeText(getContext(), "Error", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "Error" + response.code(), Toast.LENGTH_SHORT).show();
                     return;
                 }
 

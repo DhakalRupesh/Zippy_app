@@ -11,4 +11,5 @@
         <item>4 wheeler</item>
         <item>2 wheeler</item>
     </string-array>
+    <string name="title_activity_nearet_location_map">Map</string>
 </resources>

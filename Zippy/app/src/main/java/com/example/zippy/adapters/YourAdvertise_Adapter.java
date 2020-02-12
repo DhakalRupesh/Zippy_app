@@ -65,7 +65,6 @@ public class YourAdvertise_Adapter extends RecyclerView.Adapter<YourAdvertise_Ad
         holder.acceptedPhone.setText(userA.getMobile());
         holder.acceptedEmail.setText(userA.getEmail());
 
-
     }
 
     @Override

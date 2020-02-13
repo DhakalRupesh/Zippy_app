@@ -151,7 +151,6 @@ public class Bottom_nav extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<Vehicles>> call, Response<List<Vehicles>> response) {
                 vehi = response.body();
-//                vehi.getVerified();
             }
 
             @Override

@@ -20,11 +20,9 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <!--  for phone call  -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> <!-- for phone call -->
     <uses-permission android:name="android.permission.CALL_PHONE" />
-
-    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
         android:allowBackup="true"
@@ -50,15 +48,14 @@
 
         <activity
             android:name=".activities.NearetLocation_map"
-            android:label="@string/title_activity_nearet_location_map" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".activities.EditProfile" />
-        <activity android:name=".activities.Vehicle" />
+            android:label="@string/title_activity_nearet_location_map"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".activities.EditProfile"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.Vehicle"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".activities.Bottom_nav"
             android:screenOrientation="portrait"
@@ -66,12 +63,16 @@
         <activity android:name=".activities.Register_Zippy" />
         <activity
             android:name=".activities.Login_Zippy"
-            android:theme="@style/Theme.Design.Light.NoActionBar">
-        </activity>
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Design.Light.NoActionBar"></activity>
         <activity
             android:name=".activities.splash_zippy"
             android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 

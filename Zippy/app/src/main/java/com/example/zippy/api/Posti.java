@@ -31,6 +31,9 @@ public interface Posti {
     @PUT("/advertise/{id}")
     Call<Void> updateStatus(@Header("Authorization") String token, @Path("id") String id, @Body Advertise advertise);
 
+    @GET("advertise/myAdvertise")
+    Call<Advertise> getAdvertiseStatus(@Header("Authorization") String token);
+    
     @Multipart
     @POST("/uploads")
     Call<ImageResponse> uploadPostImage(@Part MultipartBody.Part img);

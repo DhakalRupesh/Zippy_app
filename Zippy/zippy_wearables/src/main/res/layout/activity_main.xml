@@ -1,25 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.wear.widget.BoxInsetLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/dark_grey"
-    android:padding="@dimen/box_inset_layout_padding"
     tools:context=".MainActivity"
-    tools:deviceIds="wear">
+    android:background="#fff"
+    android:padding="15dp"
+    android:orientation="vertical">
 
-    <FrameLayout
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="@dimen/inner_frame_layout_padding"
-        android:boxedEdges="all">
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:textAlignment="center"
+        android:text="Zippy"
+        android:textSize="25dp"
+        android:fontFamily="@font/rancho"
+        android:textColor="#000"/>
 
-        <TextView
-            android:id="@+id/text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/hello_world" />
+    <EditText
+        android:id="@+id/et_username_ware"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="8dp"
+        android:layout_marginTop="8dp"
+        android:textColor="#000"
+        android:background="@drawable/textinput_border"
+        android:hint="username"
+        android:textColorHint="#9e9e9e" />
 
-    </FrameLayout>
-</androidx.wear.widget.BoxInsetLayout>
+    <EditText
+        android:id="@+id/et_password_ware"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="8dp"
+        android:background="@drawable/textinput_border"
+        android:layout_marginTop="10dp"
+        android:inputType="textPassword"
+        android:textColor="#000"
+        android:hint="password"
+        android:textColorHint="#9e9e9e"/>
+
+    <Button
+        android:id="@+id/btnLogin_ware"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginTop="10dp"
+        android:textAllCaps="false"
+        android:layout_marginHorizontal="8dp"
+        android:textSize="14sp"
+        android:clickable="true"
+        android:elevation="20dp"
+        android:text="Login"
+        android:background="@drawable/btn_corners"/>
+
+</LinearLayout>

@@ -72,8 +72,8 @@ public class Login_Zippy extends AppCompatActivity implements View.OnClickListen
     private void notifiy() {
         Notification notification = new NotificationCompat.Builder(this, CreateChannel.CHANNEL_1)
                 .setSmallIcon(R.drawable.zippy_logo_trans)
-                .setContentTitle("Bagpacker")
-                .setContentText("Login success :" + loginEmail.getText().toString())
+                .setContentTitle("Zippy")
+                .setContentText(" Hello " + loginEmail.getText().toString())
                 .setCategory(NotificationCompat.CATEGORY_MESSAGE)
                 .build();
 
@@ -112,6 +112,7 @@ public class Login_Zippy extends AppCompatActivity implements View.OnClickListen
                 finish();
             }else {
                 Toast.makeText(this, "Error!! incorrect username or password", Toast.LENGTH_SHORT).show();
+                vibrator.vibrate(1000);
                 loginEmail.requestFocus();
             }
         }

@@ -49,6 +49,7 @@ public class Advertise_Adapter extends RecyclerView.Adapter<Advertise_Adapter.Po
     Activity pActivity;
     List<Advertise> postLists;
     String postId;
+    Advertise advertiseList;
     private static User userme;
     private static final String TAG = "Advertise_Adapter";
     private static final int REQUEST_CALL = 1;
@@ -118,6 +119,35 @@ public class Advertise_Adapter extends RecyclerView.Adapter<Advertise_Adapter.Po
             @Override
             public void onClick(View v) {
                 UpdateStatus(advertise.get_id());
+//                holder.btnCancel.setVisibility(View.VISIBLE);
+//                holder.btnAccept.setVisibility(View.INVISIBLE);
+
+                Posti posti = Url.getInstance().create(Posti.class);
+                Call<Advertise> listCallAdvetise = posti.getAdvertiseStatus(Url.token);
+
+                listCallAdvetise.enqueue(new Callback<Advertise>() {
+                    @Override
+                    public void onResponse(Call<Advertise> call, Response<Advertise> response) {
+                        if(!response.isSuccessful()){
+                            Toast.makeText(pContext, "Error", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+
+                        advertiseList = response.body();
+                        advertiseList.getStatusofdelivery();
+
+                        if(advertiseList.getStatusofdelivery().equals(true)){
+                            holder.btnCancel.setVisibility(View.VISIBLE);
+                            holder.btnAccept.setVisibility(View.INVISIBLE);
+                        }
+
+                    }
+
+                    @Override
+                    public void onFailure(Call<Advertise> call, Throwable t) {
+
+                    }
+                });
             }
         });
 

@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -61,10 +62,15 @@ public class YourAdvertise_Adapter extends RecyclerView.Adapter<YourAdvertise_Ad
         holder.yPhone.setText(user.getMobile());
         holder.yEmail.setText(user.getEmail());
 
-        holder.acceptedName.setText(userA.getUsername());
-        holder.acceptedPhone.setText(userA.getMobile());
-        holder.acceptedEmail.setText(userA.getEmail());
-
+        if(userA != null) {
+            holder.layoutAccpby.setVisibility(View.VISIBLE);
+            holder.acceptedName.setText(userA.getUsername());
+            holder.acceptedPhone.setText(userA.getMobile());
+            holder.acceptedEmail.setText(userA.getEmail());
+        }
+        else{
+            holder.layoutAccpby.setVisibility(View.INVISIBLE);
+        }
     }
 
     @Override
@@ -77,6 +83,7 @@ public class YourAdvertise_Adapter extends RecyclerView.Adapter<YourAdvertise_Ad
         ImageView imageYpost, yEdit, yDeletePost, yPhoneIcon;
         TextView yPrice, yNegotiable, yVehicle, yPhone, yEmail,
                     acceptedName, acceptedPhone, acceptedEmail;
+        LinearLayout layoutAccpby;
         List<Advertise> list;
         Context mContext;
 
@@ -87,7 +94,7 @@ public class YourAdvertise_Adapter extends RecyclerView.Adapter<YourAdvertise_Ad
             yEdit = itemView.findViewById(R.id.img_your_edit_advertise);
             yDeletePost = itemView.findViewById(R.id.img_your_delete_advertise);
             yPhoneIcon = itemView.findViewById(R.id.img_call_accepted_person);
-
+            layoutAccpby = itemView.findViewById(R.id.layoutAccpby);
             yPrice = itemView.findViewById(R.id.tv_your_Price);
             yNegotiable = itemView.findViewById(R.id.tv_your_negociable);
             yVehicle = itemView.findViewById(R.id.tv_your_need_vehicle);

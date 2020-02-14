@@ -4,7 +4,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.loader.content.CursorLoader;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
@@ -20,14 +19,15 @@ import android.widget.Toast;
 
 import com.example.zippy.R;
 import com.example.zippy.api.Vehiclei;
-import com.example.zippy.model.Advertise;
 import com.example.zippy.model.Vehicles;
+import com.example.zippy.model.IdResponse;
 import com.example.zippy.serverresponse.ImageResponse;
 import com.example.zippy.strictmode.StrictModeClass;
 import com.example.zippy.url.Url;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.StringReader;
 
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
@@ -42,8 +42,9 @@ public class Vehicle extends AppCompatActivity {
     private RadioGroup rdoVehicleTypegrp;
     private RadioButton rdBtnVehicleType;
     private ImageView imgLicense;
+    private String idResponse;
     String imagePath;
-    private String imageName;
+    private String imageName,postVehicleId;
     private Button btnVerify;
 
     @Override
@@ -93,26 +94,26 @@ public class Vehicle extends AppCompatActivity {
 
         Vehicles vehicles = new Vehicles( brandName, vehicleType, vehicle_no, license_no, imageName);
         Vehiclei vehicleAPI = Url.getInstance().create(Vehiclei.class);
-        Call<Void> voidCallVehicle = vehicleAPI.addVehicle(vehicles);
+        Call<String> voidCallVehicle = vehicleAPI.addVehicle(vehicles);
 
-        voidCallVehicle.enqueue(new Callback<Void>() {
+        voidCallVehicle.enqueue(new Callback<String>() {
             @Override
-            public void onResponse(Call<Void> call, Response<Void> response) {
+            public void onResponse(Call<String> call, Response<String> response) {
                 Toast.makeText(Vehicle.this, "Vehicle detail sent for verification", Toast.LENGTH_LONG).show();
-
+                idResponse = response.body();
+                postVehicleId=idResponse;
                 ClearField();
             }
 
             @Override
-            public void onFailure(Call<Void> call, Throwable t) {
+            public void onFailure(Call<String> call, Throwable t) {
                 Toast.makeText(Vehicle.this, "ErrorVehicle" + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+
             }
         });
+        Toast.makeText(this, ""+postVehicleId, Toast.LENGTH_LONG).show();
     }
 
-    public void GetVehicleId(){
-
-    }
 
     private void BrowseImage() {
         Intent intent = new Intent(Intent.ACTION_PICK);

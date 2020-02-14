@@ -1,6 +1,7 @@
 package com.example.zippy.api;
 
 import com.example.zippy.model.Advertise;
+import com.example.zippy.model.AdvertiseMy;
 import com.example.zippy.model.User;
 import com.example.zippy.serverresponse.ImageResponse;
 import com.example.zippy.url.Url;

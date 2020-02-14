@@ -160,11 +160,12 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/layoutAccpby"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_marginTop="10dp"
-            android:visibility="visible"
+            android:visibility="gone"
             android:background="#e8f5e9">
             <TextView
                 android:id="@+id/tv_accepted_id"

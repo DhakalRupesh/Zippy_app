@@ -61,7 +61,7 @@ public class Post extends Fragment {
     String imagePath;
     private String imageName = "";
     private Button btnPost;
-
+    
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

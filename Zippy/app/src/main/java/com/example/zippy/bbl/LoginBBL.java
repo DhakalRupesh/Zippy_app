@@ -10,14 +10,14 @@ import retrofit2.Call;
 import retrofit2.Response;
 
 public class LoginBBL {
-    private final String username;
-    private final String password;
+//    private final String username;
+//    private final String password;
     boolean isSuccess = false;
 
-    public LoginBBL(String username, String password) {
-        this.username = username;
-        this.password = password;
-    }
+//    public LoginBBL(String username, String password) {
+//        this.username = username;
+//        this.password = password;
+//    }
 
     public boolean checkUser(String username, String password) {
         Useri useri = Url.getInstance().create(Useri.class);

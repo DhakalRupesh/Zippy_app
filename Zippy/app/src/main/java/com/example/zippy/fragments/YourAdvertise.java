@@ -59,7 +59,7 @@ public class YourAdvertise extends Fragment {
 
     }
 
-    private void GetLoggedPosts(){
+    public void GetLoggedPosts(){
 
 //        Posti posti = Url.getInstance().create(Posti.class);
 //        Call<List<AdvertiseMy>> listCallPost = posti.getLoggedAdvertise(Url.token);

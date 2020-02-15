@@ -27,7 +27,7 @@ public class Advertise {
         this.statusofdelivery = statusofdelivery;
     }
 
-//For post
+//For Post
     public Advertise(User postedby, String goodstype, String vehicleneed, String sendfrom, String destinationofdelivery, String priceofdelivery, String negociable, String ad_image, Boolean statusofdelivery) {
         this.postedby = postedby;
         this.goodstype = goodstype;
@@ -40,7 +40,10 @@ public class Advertise {
         this.statusofdelivery = statusofdelivery;
     }
 
+
+
     public Advertise(Boolean statusofdelivery) {
+        this.acceptedby = acceptedby;
         this.statusofdelivery = statusofdelivery;
     }
 

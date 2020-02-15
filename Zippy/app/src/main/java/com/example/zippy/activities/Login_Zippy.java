@@ -1,5 +1,6 @@
 package com.example.zippy.activities;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
@@ -9,6 +10,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
+import android.os.Build;
 import android.os.Bundle;
 
 import android.os.Vibrator;
@@ -35,6 +37,8 @@ public class Login_Zippy extends AppCompatActivity implements View.OnClickListen
     CheckBox cbRememberme;
     public NotificationManagerCompat notificationManagerCompat;
     Vibrator vibrator;
+    String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,7 +102,7 @@ public class Login_Zippy extends AppCompatActivity implements View.OnClickListen
             String username = loginEmail.getText().toString();
             String password = loginpassword.getText().toString();
 
-            LoginBBL loginBBL = new LoginBBL(username, password);
+            LoginBBL loginBBL = new LoginBBL();
             StrictModeClass.StrictMode();
 
             if(loginBBL.checkUser(username, password)){
@@ -139,6 +143,15 @@ public class Login_Zippy extends AppCompatActivity implements View.OnClickListen
         } if (loginpassword.getText().toString().trim().isEmpty()){
             loginpassword.setError("Empty field password!!");
             return false;
+        }
+        return true;
+    }
+
+    public boolean CheckEmail() {
+        if (loginEmail.getText().toString().trim().matches(emailPattern)) {
+            Toast.makeText(getApplicationContext(),"valid email address",Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(getApplicationContext(),"Invalid email address", Toast.LENGTH_SHORT).show();
         }
         return true;
     }

@@ -17,15 +17,18 @@ import android.widget.Toast;
 import com.example.zippy.R;
 import com.example.zippy.api.Useri;
 import com.example.zippy.api.Vehiclei;
+import com.example.zippy.fragments.BookedAdvertise;
 import com.example.zippy.fragments.Home;
 import com.example.zippy.fragments.Post;
 import com.example.zippy.fragments.Profile;
-import com.example.zippy.fragments.Status;
+import com.example.zippy.fragments.YourAdvertise;
+import com.example.zippy.model.Postm;
 import com.example.zippy.model.User;
 import com.example.zippy.model.Vehicles;
 import com.example.zippy.url.Url;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -38,6 +41,7 @@ public class Bottom_nav extends AppCompatActivity {
     private int STORAGE_PERMISSION_CODE = 1;
     public static User user;
     public static List<Vehicles> vehi;
+    public static List<Postm> advertiselist;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +58,11 @@ public class Bottom_nav extends AppCompatActivity {
 
         getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment, new Home()).commit();
 
+        advertiselist =new ArrayList<>();
+
+        advertiselist.add(new Postm(R.drawable.jori_sophia, "Yes", "1200", "a@gmail.com", "4 wheeler", "9638521547"));
+        advertiselist.add(new Postm(R.drawable.couch, "Yes", "1300", "tony@gmail.com", "4 wheeler", "9654217856"));
+
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener selected_nav_items = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -67,7 +76,10 @@ public class Bottom_nav extends AppCompatActivity {
                     selectedFragment = new Post();
                     break;
                 case  R.id.nav_status_menu:
-                    selectedFragment = new Status();
+                    selectedFragment = new YourAdvertise();
+                    break;
+                case  R.id.nav_bookings_menu:
+                    selectedFragment = new BookedAdvertise();
                     break;
                 case R.id.nav_profile_menu:
                     selectedFragment = new Profile();

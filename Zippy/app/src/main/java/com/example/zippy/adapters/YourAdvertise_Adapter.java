@@ -9,11 +9,14 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.zippy.R;
+import com.example.zippy.api.Posti;
+import com.example.zippy.fragments.YourAdvertise;
 import com.example.zippy.model.Advertise;
 import com.example.zippy.model.User;
 import com.example.zippy.url.Url;
@@ -24,6 +27,9 @@ import java.net.URL;
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class YourAdvertise_Adapter extends RecyclerView.Adapter<YourAdvertise_Adapter.YourPostViewHolder>{
     Context ypContext;
@@ -46,7 +52,7 @@ public class YourAdvertise_Adapter extends RecyclerView.Adapter<YourAdvertise_Ad
     }
 
     @Override
-    public void onBindViewHolder(@NonNull YourPostViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final YourPostViewHolder holder, int position) {
         final Advertise advertise = yAdvertiseList.get(position);
 
         user = advertise.getPostedby();
@@ -62,15 +68,34 @@ public class YourAdvertise_Adapter extends RecyclerView.Adapter<YourAdvertise_Ad
         holder.yPhone.setText(user.getMobile());
         holder.yEmail.setText(user.getEmail());
 
-        if(userA != null) {
-            holder.layoutAccpby.setVisibility(View.VISIBLE);
-            holder.acceptedName.setText(userA.getUsername());
-            holder.acceptedPhone.setText(userA.getMobile());
-            holder.acceptedEmail.setText(userA.getEmail());
-        }
-        else{
-            holder.layoutAccpby.setVisibility(View.INVISIBLE);
-        }
+        holder.AdvertiseID.setText(advertise.get_id());
+
+        holder.yDeletePost.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Posti postiDelete = Url.getInstance().create(Posti.class);
+                Call<Void> advertiseCallDelete = postiDelete.deleteAdvertise(Url.token, advertise.get_id());
+
+                advertiseCallDelete.enqueue(new Callback<Void>() {
+                    @Override
+                    public void onResponse(Call<Void> call, Response<Void> response) {
+                        if(!response.isSuccessful()){
+                            Toast.makeText(ypContext, "Error"+ response.code(), Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+
+                        Toast.makeText(ypContext, "Deleted Successfully" , Toast.LENGTH_SHORT).show();
+//                        YourAdvertise y = new YourAdvertise();
+//                        y.GetLoggedPosts();
+                    }
+
+                    @Override
+                    public void onFailure(Call<Void> call, Throwable t) {
+                        Toast.makeText(ypContext, "Error"+ t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+        });
     }
 
     @Override
@@ -82,31 +107,51 @@ public class YourAdvertise_Adapter extends RecyclerView.Adapter<YourAdvertise_Ad
 
         ImageView imageYpost, yEdit, yDeletePost, yPhoneIcon;
         TextView yPrice, yNegotiable, yVehicle, yPhone, yEmail,
-                    acceptedName, acceptedPhone, acceptedEmail;
+                    acceptedName, acceptedPhone, acceptedEmail, AdvertiseID;
         LinearLayout layoutAccpby;
         List<Advertise> list;
         Context mContext;
 
-        public YourPostViewHolder(@NonNull View itemView, Context ypContext, List<Advertise> yAdvertiseList) {
+        public YourPostViewHolder(@NonNull View itemView, final Context ypContext, List<Advertise> yAdvertiseList) {
             super(itemView);
 
             imageYpost = itemView.findViewById(R.id.img_your_post);
-            yEdit = itemView.findViewById(R.id.img_your_edit_advertise);
             yDeletePost = itemView.findViewById(R.id.img_your_delete_advertise);
-            yPhoneIcon = itemView.findViewById(R.id.img_call_accepted_person);
-            layoutAccpby = itemView.findViewById(R.id.layoutAccpby);
             yPrice = itemView.findViewById(R.id.tv_your_Price);
             yNegotiable = itemView.findViewById(R.id.tv_your_negociable);
             yVehicle = itemView.findViewById(R.id.tv_your_need_vehicle);
             yPhone = itemView.findViewById(R.id.tv_your_contact_phone);
             yEmail = itemView.findViewById(R.id.tv_your_contact_eamil);
 
-            acceptedName = itemView.findViewById(R.id.tv_accepteduname);
-            acceptedPhone = itemView.findViewById(R.id.tv_accepted_phone);
-            acceptedEmail = itemView.findViewById(R.id.tv_accepted_email);
+            AdvertiseID = itemView.findViewById(R.id.tv_your_advertiseID);
 
             this.list = yAdvertiseList;
             this.mContext = ypContext;
+
+//            yDeletePost.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    Posti postiDelete = Url.getInstance().create(Posti.class);
+//                    Call<Void> advertiseCallDelete = postiDelete.deleteAdvertise(Url.token, AdvertiseID.toString());
+//
+//                    advertiseCallDelete.enqueue(new Callback<Advertise>() {
+//                        @Override
+//                        public void onResponse(Call<Advertise> call, Response<Advertise> response) {
+//                            if (!response.isSuccessful()) {
+//                                Toast.makeText(ypContext, "Cde " + response.code(), Toast.LENGTH_SHORT).show();
+//                                return;
+//                            }
+//
+//                            Toast.makeText(ypContext, "Property Deleted", Toast.LENGTH_SHORT).show();
+//                        }
+//
+//                        @Override
+//                        public void onFailure(Call<Advertise> call, Throwable t) {
+//                            Toast.makeText(ypContext, "Error!! " + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+//                        }
+//                    });
+//                }
+//            });
         }
     }
 }

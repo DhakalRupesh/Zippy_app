@@ -19,7 +19,7 @@
         android:orientation="vertical">
 
     <ImageView
-        android:id="@+id/img_your_post"
+        android:id="@+id/img_yourbooked_post"
         android:layout_width="match_parent"
         android:layout_height="250dp"
         android:scaleType="centerCrop"
@@ -40,7 +40,7 @@
             />
 
         <TextView
-            android:id="@+id/tv_your_Price"
+            android:id="@+id/tv_yourbooked_Price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
@@ -52,17 +52,17 @@
             android:layout_height="wrap_content"
             android:text="Negotiable-"
             android:layout_marginStart="10dp"
-            android:layout_toEndOf="@id/tv_your_Price"/>
+            android:layout_toEndOf="@id/tv_yourbooked_Price"/>
 
         <TextView
-            android:id="@+id/tv_your_negociable"
+            android:id="@+id/tv_yourbooked_negociable"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Yes"
             android:layout_toEndOf="@id/tv_negociableTag"/>
 
         <Button
-            android:id="@+id/img_your_delete_advertise"
+            android:id="@+id/btn_yourbooked_delete_advertise"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_alignParentEnd="true"
@@ -87,7 +87,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/tv_your_need_vehicle"
+            android:id="@+id/tv_yourbooked_need_vehicle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -112,7 +112,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/tv_your_contact_phone"
+            android:id="@+id/tv_yourbooked_contact_phone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -140,7 +140,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/tv_your_contact_eamil"
+            android:id="@+id/tv_yourbooked_contact_eamil"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"

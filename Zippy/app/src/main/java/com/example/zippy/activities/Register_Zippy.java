@@ -177,4 +177,8 @@ public class Register_Zippy extends AppCompatActivity {
             e.printStackTrace();
         }
     }
+
+    private void clearField(){
+
+    }
 }

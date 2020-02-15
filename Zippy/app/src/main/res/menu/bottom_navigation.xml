@@ -19,6 +19,12 @@
         />
 
     <item
+        android:title="Booking"
+        android:id="@+id/nav_bookings_menu"
+        android:icon="@drawable/ic_bookmark_border_black_24dp"
+        />
+
+    <item
         android:title="Person"
         android:id="@+id/nav_profile_menu"
         android:icon="@drawable/ic_person_black_24dp"

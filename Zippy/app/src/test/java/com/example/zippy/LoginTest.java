@@ -11,9 +11,13 @@ public class LoginTest {
     String password;
     @Test
     public void testLogin(){
-        LoginBBL loginBBL = new LoginBBL("username","password");
-        boolean result = loginBBL.checkUser(username, password);
+        LoginBBL loginBBL = new LoginBBL();
+        boolean result = loginBBL.checkUser("username", "password");
         assertEquals(true, result);
+    }
+
+    public void testRegister() {
+
     }
 }
 

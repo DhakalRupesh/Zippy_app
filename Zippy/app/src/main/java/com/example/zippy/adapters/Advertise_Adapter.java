@@ -119,8 +119,8 @@ public class Advertise_Adapter extends RecyclerView.Adapter<Advertise_Adapter.Po
             @Override
             public void onClick(View v) {
                 UpdateStatus(advertise.get_id());
-//                holder.btnCancel.setVisibility(View.VISIBLE);
-//                holder.btnAccept.setVisibility(View.INVISIBLE);
+                holder.btnCancel.setVisibility(View.VISIBLE);
+                holder.btnAccept.setVisibility(View.INVISIBLE);
 
                 Posti posti = Url.getInstance().create(Posti.class);
                 Call<Advertise> listCallAdvetise = posti.getAdvertiseStatus(Url.token);
@@ -148,6 +148,14 @@ public class Advertise_Adapter extends RecyclerView.Adapter<Advertise_Adapter.Po
 
                     }
                 });
+            }
+        });
+
+        holder.btnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                holder.btnCancel.setVisibility(View.INVISIBLE);
+                holder.btnAccept.setVisibility(View.VISIBLE);
             }
         });
 
@@ -210,6 +218,7 @@ public class Advertise_Adapter extends RecyclerView.Adapter<Advertise_Adapter.Po
 
     private void UpdateStatus(String id) {
         Boolean Status = true;
+//        User acceptedBy = Bottom_nav.user;
 
         Advertise advertiseStatusUpdate = new Advertise(Status);
         Posti posti = Url.getInstance().create(Posti.class);
@@ -229,7 +238,7 @@ public class Advertise_Adapter extends RecyclerView.Adapter<Advertise_Adapter.Po
 
             @Override
             public void onFailure(Call<Void> call, Throwable t) {
-                Toast.makeText(pContext, "Error!! " + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(pContext, "Error!! " + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
 
             }
         });

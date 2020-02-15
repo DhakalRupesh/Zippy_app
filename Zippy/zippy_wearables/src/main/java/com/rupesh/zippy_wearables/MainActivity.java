@@ -42,22 +42,31 @@ public class MainActivity extends WearableActivity {
     }
     private void Login() {
         if(CheckEmpty()) {
-            String username = loginEmail.getText().toString();
-            String password = loginpassword.getText().toString();
+            String username = "tonystark";
+            String password = "tony5";
 
-            LoginBBL loginBBL = new LoginBBL(username, password);
-            StrictModeClass.StrictMode();
-
-            if(loginBBL.checkUser(username, password)){
-                String token = Url.token;
+            if(loginEmail.equals(username) && password.equals(password)){
                 Intent intent = new Intent(this, Dashboard.class);
-                intent.putExtra("token", token);
                 startActivity(intent);
-                finish();
+
             }else {
                 Toast.makeText(this, "Error!! incorrect username or password", Toast.LENGTH_SHORT).show();
                 loginEmail.requestFocus();
             }
+
+//            LoginBBL loginBBL = new LoginBBL(username, password);
+//            StrictModeClass.StrictMode();
+//
+//            if(loginBBL.checkUser(username, password)){
+//                String token = Url.token;
+//                Intent intent = new Intent(this, Dashboard.class);
+//                intent.putExtra("token", token);
+//                startActivity(intent);
+//                finish();
+//            }else {
+//                Toast.makeText(this, "Error!! incorrect username or password", Toast.LENGTH_SHORT).show();
+//                loginEmail.requestFocus();
+//            }
         }
     }
 

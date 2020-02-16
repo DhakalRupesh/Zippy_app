@@ -85,8 +85,8 @@ public class YourAdvertise_Adapter extends RecyclerView.Adapter<YourAdvertise_Ad
                         }
 
                         Toast.makeText(ypContext, "Deleted Successfully" , Toast.LENGTH_SHORT).show();
-//                        YourAdvertise y = new YourAdvertise();
-//                        y.GetLoggedPosts();
+                        YourAdvertise y = new YourAdvertise();
+                        y.GetLoggedPosts();
                     }
 
                     @Override

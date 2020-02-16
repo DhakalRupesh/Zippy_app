@@ -107,11 +107,10 @@ public class Vehicle extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<String> call, Throwable t) {
-                Toast.makeText(Vehicle.this, "ErrorVehicle" + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(Vehicle.this, "ErrorVehicle" , Toast.LENGTH_SHORT).show();
 
             }
         });
-        Toast.makeText(this, ""+postVehicleId, Toast.LENGTH_LONG).show();
     }
 
 
@@ -159,7 +158,7 @@ public class Vehicle extends AppCompatActivity {
         try {
             Response<ImageResponse> imageResponseResponse = responseBodyCall.execute();
             imageName = imageResponseResponse.body().getFilename();
-            Toast.makeText(Vehicle.this, "Image Inserted", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(Vehicle.this, "Image Inserted", Toast.LENGTH_SHORT).show();
         } catch (IOException e) {
             Toast.makeText(Vehicle.this, "Error", Toast.LENGTH_SHORT).show();
             e.printStackTrace();

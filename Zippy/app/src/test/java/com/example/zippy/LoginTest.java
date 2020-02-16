@@ -7,17 +7,13 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 public class LoginTest {
-    String username;
-    String password;
+
     @Test
     public void testLogin(){
         LoginBBL loginBBL = new LoginBBL();
-        boolean result = loginBBL.checkUser("username", "password");
-        assertEquals(true, result);
+        boolean result = loginBBL.checkUser("rd55", "rd55");
+        assertEquals(false, result);
     }
 
-    public void testRegister() {
-
-    }
 }
 

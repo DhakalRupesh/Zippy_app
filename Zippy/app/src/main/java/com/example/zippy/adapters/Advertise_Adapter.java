@@ -135,12 +135,6 @@ public class Advertise_Adapter extends RecyclerView.Adapter<Advertise_Adapter.Po
 
                         advertiseList = response.body();
                         advertiseList.getStatusofdelivery();
-
-                        if(advertiseList.getStatusofdelivery().equals(true)){
-                            holder.btnCancel.setVisibility(View.VISIBLE);
-                            holder.btnAccept.setVisibility(View.INVISIBLE);
-                        }
-
                     }
 
                     @Override
@@ -156,6 +150,8 @@ public class Advertise_Adapter extends RecyclerView.Adapter<Advertise_Adapter.Po
             public void onClick(View v) {
                 holder.btnCancel.setVisibility(View.INVISIBLE);
                 holder.btnAccept.setVisibility(View.VISIBLE);
+                Toast.makeText(pContext, "Delivery declined successfully", Toast.LENGTH_SHORT).show();
+
             }
         });
 

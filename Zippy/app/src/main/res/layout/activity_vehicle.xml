@@ -118,7 +118,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/dark_button"
-                android:text="Submit for verification"
+                android:text="Submit"
                 android:textColor="#fff"
                 android:textStyle="bold"
                 android:textAllCaps="false"

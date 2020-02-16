@@ -171,7 +171,7 @@ public class Register_Zippy extends AppCompatActivity {
         try {
             Response<ImageResponse> imageResponseResponse = responseBodyCall.execute();
             imageName = imageResponseResponse.body().getFilename();
-            Toast.makeText(this, "Image inserted" + imageName, Toast.LENGTH_SHORT).show();
+//            Toast.makeText(this, "Image inserted" + imageName, Toast.LENGTH_SHORT).show();
         } catch (IOException e) {
             Toast.makeText(this, "Error" + e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
             e.printStackTrace();

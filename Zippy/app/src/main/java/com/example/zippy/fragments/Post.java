@@ -61,7 +61,7 @@ public class Post extends Fragment {
     String imagePath;
     private String imageName = "";
     private Button btnPost;
-    
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -186,7 +186,7 @@ public class Post extends Fragment {
         try {
             Response<ImageResponse> imageResponseResponse = responseBodyCall.execute();
             imageName = imageResponseResponse.body().getFilename();
-            Toast.makeText(getContext(), "Image Inserted", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(getContext(), "Image Inserted", Toast.LENGTH_SHORT).show();
         } catch (IOException e) {
             Toast.makeText(getContext(), "Error", Toast.LENGTH_SHORT).show();
             e.printStackTrace();

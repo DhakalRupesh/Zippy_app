@@ -60,7 +60,7 @@ public class Bottom_nav extends AppCompatActivity {
 
         advertiselist =new ArrayList<>();
 
-        advertiselist.add(new Postm(R.drawable.jori_sophia, "Yes", "1200", "a@gmail.com", "4 wheeler", "9638521547"));
+//        advertiselist.add(new Postm(R.drawable.jori_sophia, "Yes", "1200", "a@gmail.com", "4 wheeler", "9638521547"));
         advertiselist.add(new Postm(R.drawable.couch, "Yes", "1300", "tony@gmail.com", "4 wheeler", "9654217856"));
 
     }

@@ -33,7 +33,9 @@ public class MainActivity extends WearableActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Login();
+//                Login();
+                Intent intent = new Intent(MainActivity.this, Dashboard.class);
+                startActivity(intent);
             }
         });
 
@@ -46,8 +48,8 @@ public class MainActivity extends WearableActivity {
             String password = "tony5";
 
             if(loginEmail.equals(username) && password.equals(password)){
-                Intent intent = new Intent(this, Dashboard.class);
-                startActivity(intent);
+//                Intent intent = new Intent(this, Dashboard.class);
+//                startActivity(intent);
 
             }else {
                 Toast.makeText(this, "Error!! incorrect username or password", Toast.LENGTH_SHORT).show();

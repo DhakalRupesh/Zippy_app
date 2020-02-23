@@ -36,6 +36,10 @@ public interface Posti {
     @GET("advertise/myAdvertise")
     Call<Advertise> getAdvertiseStatus(@Header("Authorization") String token);
 
+    @GET("advertise/myBooked")
+    Call<List<Advertise>> getBooked(@Header("Authorization") String token);
+
+
     @DELETE("/advertise/{id}")
     Call<Void> deleteAdvertise(@Header("Authorization") String token, @Path("id") String id);
 

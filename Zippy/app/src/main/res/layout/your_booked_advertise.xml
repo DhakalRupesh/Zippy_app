@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="#fafafa"
+    android:layout_marginBottom="15dp"
     android:elevation="20dp"
     android:layout_columnWeight="1"
     android:layout_rowWeight="1"
@@ -149,5 +150,5 @@
 
     </LinearLayout>
 
-    </LinearLayout>>
+    </LinearLayout>
 </androidx.cardview.widget.CardView>

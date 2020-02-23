@@ -228,7 +228,7 @@ public class Advertise_Adapter extends RecyclerView.Adapter<Advertise_Adapter.Po
                     return;
                 }
 
-                Toast.makeText(pContext, "Delivery accepted successfully", Toast.LENGTH_SHORT).show();
+                Toast.makeText(pContext, "Canceled Successfully", Toast.LENGTH_SHORT).show();
 
             }
 

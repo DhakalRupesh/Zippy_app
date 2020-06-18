@@ -1,13 +1,12 @@
-#Title
-Zippy - A courier system
+# Zippy - A courier system
 
-#Introduction
+# Introduction
 The basic purpose of the application is to provide the service of 
 courier where user will be able to post the request for the dilevery 
 and any of the interested people can accept the dilevery request 
 after entering the details of the vehicle
 
-#Features
+# Features
 -User Authorization - login/ signup
 -shared preference that keeps user logged In
 -facility of posting the dilevery request 
@@ -20,13 +19,13 @@ after entering the details of the vehicle
 of the user on the basis of which they can decide the delivery 
 -directly allows user to contact the person that made an advertisemant 
 
-#Android project Youtube video link
+# Android project Youtube video link
 https://youtu.be/DaCAGEQD4AA
 
-#Api LINK
+# Api LINK
 https://github.com/softwarica-github/t2-backend-api-Dhakal555
 
-#REST client : Explain about retrofit and its uses 
+# REST client : Explain about retrofit and its uses 
 It is the REpresentational State Transfer which is the standard way to communicate with 
 any two system at any given point of time. Restful system are stateless and seperate.
 It requires client to make request to the server and the server responses back with the 
